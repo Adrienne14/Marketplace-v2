@@ -4,7 +4,15 @@ import { PageMeta } from './types'
 export const DEFAULT_META: PageMeta = {
   title: 'MetaGaming Guild',
   description: 'Stake MGG and earn token rewards',
-  image: 'https://app.metagg.com/MGG.png',
+  image: '%PUBLIC_URL%/MGG.png',
+  favico: `${window.location.origin}/favicon-v1.ico`,
+}
+
+export const MARKETPLACE_META: PageMeta = {
+  title: 'MSW Marketplace',
+  description: 'MSW Marketplace',
+  image: `${window.location.origin}/marketplace-assets/logo/MSW Logo.png`,
+  favico: `${window.location.origin}/favicon-v2.ico`,
 }
 
 export const getCustomMeta = (path: string, t: ContextApi['t']): PageMeta => {
@@ -37,5 +45,11 @@ export const getCustomMeta = (path: string, t: ContextApi['t']): PageMeta => {
 export const getPadCustomMeta = (launchpad: string): PageMeta => {
   return {
     title: `MGG Guildpad > ${launchpad}`,
+  }
+}
+
+export const getMarketplaceMeta = (path: string): PageMeta => {
+  return {
+    title: `MSW Marketplace`,
   }
 }

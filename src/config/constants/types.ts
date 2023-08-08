@@ -207,6 +207,7 @@ export type PageMeta = {
   title: string
   description?: string
   image?: string
+  favico?: string
 }
 
 export type Status = 'ongoing' | 'upcoming' | 'completed' | null

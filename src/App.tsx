@@ -34,6 +34,7 @@ const Guildpad = lazy(() => import('./views/GuildPad'))
 const NotFound = lazy(() => import('./views/NotFound'))
 const Pad = lazy(() => import('./views/GuildPad/Pad'))
 const GamefiPage = lazy(() => import('./views/Gamefi/NewUI/StakingPage'))
+const MarketplaceV2 = lazy(() => import('./views/MarketplaceV2'))
 
 // This config is required for number formatting
 BigNumber.config({
@@ -47,6 +48,7 @@ const ExternalRedirect = ({ to, ...routeProps }) => {
 
 const App: React.FC = () => {
   const { chainId } = useWeb3React()
+ 
   usePollBlockNumber()
   useEagerConnect()
   useFetchProfile()
@@ -56,9 +58,10 @@ const App: React.FC = () => {
     <HashRouter>
       <ResetCSS />
       <GlobalStyle />
-      <Menu>
-        <SuspenseWithChunkError fallback={<PageLoader />}>
-          <Switch>
+      <SuspenseWithChunkError fallback={<PageLoader />}>
+        <Switch>
+          <Route path="/marketplace" exact component={MarketplaceV2} />
+          <Menu>
             <NetworkRoute
               path="/farms"
               Component={Farms}
@@ -70,13 +73,6 @@ const App: React.FC = () => {
               Component={Pools}
               chainSupportConfig={{ title: 'POOL_STAKING', id: chainId }}
               pageTitle="Pools"
-              exact
-            />
-            <NetworkRoute
-              path="/marketplace"
-              Component={Marketplace}
-              chainSupportConfig={{ title: 'MARKETPLACE', id: chainId }}
-              pageTitle="Marketplace"
               exact
             />
             <NetworkRoute
@@ -158,7 +154,6 @@ const App: React.FC = () => {
                 )
               }}
             />
-
             <Route path="/staking">
               <Redirect to="/farms" />
             </Route>
@@ -167,10 +162,10 @@ const App: React.FC = () => {
             <Route component={NotFound} />
             {/* External link for redirect */}
             <ExternalRedirect exact path="/apply" to="https://www.google.com" />
-          </Switch>
-        </SuspenseWithChunkError>
-      </Menu>
-      <Footer />
+          </Menu>
+          <Footer />
+        </Switch>
+      </SuspenseWithChunkError>
       <ToastListener />
     </HashRouter>
   )

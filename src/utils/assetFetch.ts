@@ -22,3 +22,17 @@ export const getImageUrlFromToken = (token: Token) => {
   const address = getAddress(token.symbol === 'BNB' ? tokens.wbnb.address : token.address)
   return `./images/tokens/${address}.${token.iconExtension ?? 'svg'}`
 }
+
+// Marketplace 
+
+export const useFetchAssetsLocal = () => {
+  return './images/marketplace-assets';
+}
+
+export const useFetchImg = ({name, folder, extension}:{name:string;folder?:string;extension?:string}) => {
+  const origin = useFetchAssetsLocal();
+  const fldr = folder ?? 'logo'; 
+  return `${origin}/${fldr}/${name}.${extension ?? 'png'}`;
+}
+
+

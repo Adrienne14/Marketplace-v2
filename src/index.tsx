@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import 'index.d'
 import App from './App'
 import Providers from './Providers'
 import './css/styleFX.css'

@@ -26,18 +26,27 @@ const StyledPage = styled(Container)`
 export const PageMeta: React.FC<{ guildpadTitle?: string }> = ({ guildpadTitle }) => {
   const { t } = useTranslation()
   const { pathname } = useLocation()
-
-  // const cakePriceUsd = usePriceCakeBusd()
-  // const cakePriceUsdDisplay = cakePriceUsd.gt(0)
-  //   ? `$${cakePriceUsd.toNumber().toLocaleString(undefined, {
-  //       minimumFractionDigits: 3,
-  //       maximumFractionDigits: 3,
-  //     })}`
-  //   : ''
   const pageMeta = guildpadTitle ? getPadCustomMeta(guildpadTitle) : getCustomMeta(pathname, t) || {}
-  const { title, description, image } = { ...DEFAULT_META, ...pageMeta }
+  const { title, description, image, favico } = { ...DEFAULT_META, ...pageMeta }
 
-  // const pageTitle = cakePriceUsdDisplay ? [title, cakePriceUsdDisplay].join(' - ') : title
+
+
+  const updateFavicon = (icon: string) => {
+    const faviconTag = document.querySelector("link[rel*='icon']") as HTMLLinkElement
+    if (faviconTag) {
+      faviconTag.href = icon
+    } else {
+      const newFaviconTag = document.createElement('link')
+      newFaviconTag.rel = 'shortcut icon'
+      newFaviconTag.type = 'image/x-icon'
+      newFaviconTag.href = icon
+      document.head.appendChild(newFaviconTag)
+    }
+  }
+
+  React.useEffect(() => {
+    updateFavicon(favico)
+  }, [favico])
 
   return (
     <Helmet>
