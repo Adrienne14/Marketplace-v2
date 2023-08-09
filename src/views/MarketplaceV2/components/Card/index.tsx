@@ -18,39 +18,42 @@ export default function Card(props: Props) {
   const spriteSrc = `https://drive.google.com/uc?id=${spriteId}`
   const BadgeImg = <img alt="logo" src={badgeSrc} />
   const SpriteImg = <img alt="logo" src={spriteSrc} />
+
+  const renderCircles = () => (
+    <Flex justifyContent="space-evenly">
+      {['#4bdffe', '#ee89ff', '#95ff88'].map((clr) => (
+        <Circle key={clr} color={clr} />
+      ))}
+    </Flex>
+  )
+
   return (
     <CardContainer>
       <CardHeader>
         <HeaderTxt>
-          <H2 fsize="1.2em">{name.toUpperCase()}</H2>
-          <Flex alignItems='center'>
-            <P color={RarityColors[`${rarity.toUpperCase()}`]} fsize="1.1em">
+          <H2 fsize="1em">{name.toUpperCase()}</H2>
+          <Flex alignItems="center">
+            <P color={RarityColors[`${rarity.toUpperCase()}`]} fsize="0.8em">
               {rarity}
             </P>
             &nbsp;
-            <Flex justifyContent='space-evenly'>
-              <Circle color="#4bdffe" />
-              <Circle color="#ee89ff" />
-              <Circle color="#95ff88" />
-            </Flex>
+            {renderCircles()}
           </Flex>
         </HeaderTxt>
         <SvgIcon Img={BadgeImg} width={50} height={50} />
       </CardHeader>
       <Display bg={spriteSrc}>
-        <SvgIcon Img={SpriteImg} width={200} height={200} />
+        <SvgIcon Img={SpriteImg} width={125} height={125} />
       </Display>
       <Details>
         <DetailsTxt>
-          <P>
-            Current Price
+          <P fsize="0.8em">Current Price</P>
+          <P fsize="1em" color={theme.colors.MGG_accent2}>
+            {price.token}
           </P>
-          <P fsize='1.5em' color={theme.colors.MGG_accent2}>{price.token}</P>
-          <P>${price.fiat}</P>
+          <P fsize="0.8em">${price.fiat}</P>
         </DetailsTxt>
-        <Button>
-          BUY
-        </Button>
+        <Button>BUY</Button>
       </Details>
     </CardContainer>
   )

@@ -13,7 +13,8 @@ export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 250px;
+  min-width: 220px;
+  max-width: 230px;
 `
 const commonSectionStyle = (props?: { justify?: string; align?: string; padding?: string }) => {
   return `
@@ -38,7 +39,7 @@ export const CardHeader = styled.div`
 
 export const CardText = styled(TextWrapper)`
   margin-right: 5px;
-  line-height: 1.5em;
+  line-height: 1.2em;
 `
 
 export const HeaderTxt = styled(CardText)``
@@ -67,4 +68,5 @@ export const Details = styled.div`
 
 export const Button = styled(MGGButton)`
   border-radius: 5px;
+  width: 30%;
 `
