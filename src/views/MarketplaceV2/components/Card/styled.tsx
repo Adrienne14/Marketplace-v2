@@ -5,7 +5,6 @@ import { COLORS } from 'views/MarketplaceV2/styles/constants'
 import { TextWrapper } from '../Foundation/Text'
 import { backgroundProp } from '../Foundation/layout'
 
-
 export const CardContainer = styled.div`
   background-color: ${COLORS.CARD};
   border: 2px solid #3f5789;
@@ -15,6 +14,9 @@ export const CardContainer = styled.div`
   width: 100%;
   min-width: 220px;
   max-width: 230px;
+  -webkit-box-shadow: 0px 0px 14px -1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 14px -1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 14px -1px rgba(0, 0, 0, 0.75);
 `
 const commonSectionStyle = (props?: { justify?: string; align?: string; padding?: string }) => {
   return `
@@ -61,7 +63,7 @@ export const Display = styled(backgroundProp)<{ bg?: string }>`
 `
 
 export const Details = styled.div`
-  ${commonSectionStyle({padding: PADDING, justify: 'space-around', align: 'center'})}
+  ${commonSectionStyle({ padding: PADDING, justify: 'space-around', align: 'center' })}
   flex: 1;
   border: 1px solid blue;
 `

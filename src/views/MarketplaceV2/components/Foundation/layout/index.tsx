@@ -35,9 +35,18 @@ export const StyledPage = styled.div`
 
 export const StyledSection = styled.main`
   background-color: ${COLORS.MAIN};
+  // max-width: 1200px;
+  // margin-left: auto;
+  // margin-right: auto;
   min-height: 60vh;
   height: auto;
   position: relative;
+
+  ${({theme}) => `
+    ${theme.mediaQueries.lg} {
+      padding: 0 200px;
+    }
+  `}
 `
 
 export const PageMeta: React.FC = () => {

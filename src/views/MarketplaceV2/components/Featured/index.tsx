@@ -39,6 +39,106 @@ const placeholder: CardType[] = [
       fiat: '1000',
     },
   },
+  {
+    name: 'Voidmancer',
+    spriteName: 'Voidmancer- Wizard',
+    rarity: 'Rare',
+    badge: 'Wizard',
+    price: {
+      token: '100 MGG',
+      fiat: '1000',
+    },
+  },
+  {
+    name: 'Voidmancer',
+    spriteName: 'Voidmancer- Wizard',
+    rarity: 'Rare',
+    badge: 'Wizard',
+    price: {
+      token: '100 MGG',
+      fiat: '1000',
+    },
+  },
+  {
+    name: 'Voidmancer',
+    spriteName: 'Voidmancer- Wizard',
+    rarity: 'Rare',
+    badge: 'Wizard',
+    price: {
+      token: '100 MGG',
+      fiat: '1000',
+    },
+  },
+  {
+    name: 'Voidmancer',
+    spriteName: 'Voidmancer- Wizard',
+    rarity: 'Rare',
+    badge: 'Wizard',
+    price: {
+      token: '100 MGG',
+      fiat: '1000',
+    },
+  },
+  {
+    name: 'Voidmancer',
+    spriteName: 'Voidmancer- Wizard',
+    rarity: 'Rare',
+    badge: 'Wizard',
+    price: {
+      token: '100 MGG',
+      fiat: '1000',
+    },
+  },
+  {
+    name: 'Voidmancer',
+    spriteName: 'Voidmancer- Wizard',
+    rarity: 'Rare',
+    badge: 'Wizard',
+    price: {
+      token: '100 MGG',
+      fiat: '1000',
+    },
+  },
+  {
+    name: 'Voidmancer',
+    spriteName: 'Voidmancer- Wizard',
+    rarity: 'Rare',
+    badge: 'Wizard',
+    price: {
+      token: '100 MGG',
+      fiat: '1000',
+    },
+  },
+  {
+    name: 'Voidmancer',
+    spriteName: 'Voidmancer- Wizard',
+    rarity: 'Rare',
+    badge: 'Wizard',
+    price: {
+      token: '100 MGG',
+      fiat: '1000',
+    },
+  },
+  {
+    name: 'Voidmancer',
+    spriteName: 'Voidmancer- Wizard',
+    rarity: 'Rare',
+    badge: 'Wizard',
+    price: {
+      token: '100 MGG',
+      fiat: '1000',
+    },
+  },
+  {
+    name: 'Voidmancer',
+    spriteName: 'Voidmancer- Wizard',
+    rarity: 'Rare',
+    badge: 'Wizard',
+    price: {
+      token: '100 MGG',
+      fiat: '1000',
+    },
+  },
 ]
 
 export default function Featured() {
@@ -65,12 +165,16 @@ const Container = styled.div`
 
 const Board = styled.div`
   flex: 1;
-  background: linear-gradient(0deg, rgba(41, 30, 92, 1) 0%, rgba(210, 136, 244, 1) 0%, rgba(9, 9, 121, 1) 100%);
   padding: 25px;
   margin: 25px;
   display: flex;
   flex-direction: column;
   width: 250px;
+  background: #e786fb;
+  background: linear-gradient(0deg, #e786fb, #30346e);
+  -webkit-box-shadow: 0px 0px 16px 3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 16px 3px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 16px 3px rgba(0, 0, 0, 0.75);
   & > * {
     flex: 1;
   }
