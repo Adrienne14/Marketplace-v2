@@ -33,7 +33,7 @@ export const StyledPage = styled.div`
   background-color: ${COLORS.BACKGROUND};
 `
 
-const StyledSection = styled.main`
+export const StyledSection = styled.main`
   background-color: ${COLORS.MAIN};
   min-height: 60vh;
   height: auto;
@@ -76,7 +76,7 @@ const Page: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children, ...pro
   return (
     <>
       <PageMeta />
-      <StyledSection {...props}>{children}</StyledSection>
+      <StyledPage {...props}>{children}</StyledPage>
     </>
   )
 }

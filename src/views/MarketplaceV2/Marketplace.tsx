@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import useMarketplaceV2 from 'hooks/useMarketplaceV2'
-import Section, { StyledPage } from './components/Foundation/layout'
+import Page, { StyledSection } from './components/Foundation/layout'
 import Login from './components/Foundation/Login'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -27,18 +27,18 @@ const MarketplaceV2: React.FC = () => {
   return !loaded ? (
     <PageLoader />
   ) : (
-    <StyledPage>
+    <Page>
       <Navbar />
       {Object.keys(sections).map((key) => {
         const Sec = sections[key] as React.FC
         return (
-          <Section key={key}>
+          <StyledSection key={key}>
             <Sec />
-          </Section>
+          </StyledSection>
         )
       })}
       <Footer />
-    </StyledPage>
+    </Page>
   )
 }
 
