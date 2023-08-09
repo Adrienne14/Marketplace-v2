@@ -37,7 +37,7 @@ export default function Box() {
   const Img = <img alt="logo" src={src} />
 
   return (
-    <BoxContainer>
+    <BoxContainer className='main-drop-shadow'>
       <SvgIcon Img={Img} />
       <TextWrapper align='center'>
         <H4 fsize='0.9em' color={theme.colors.MGG_accent1}>

@@ -14,9 +14,6 @@ export const CardContainer = styled.div`
   width: 100%;
   min-width: 220px;
   max-width: 230px;
-  -webkit-box-shadow: 0px 0px 14px -1px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 14px -1px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 14px -1px rgba(0, 0, 0, 0.75);
 `
 const commonSectionStyle = (props?: { justify?: string; align?: string; padding?: string }) => {
   return `

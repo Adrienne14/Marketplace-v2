@@ -28,7 +28,7 @@ export default function Card(props: Props) {
   )
 
   return (
-    <CardContainer>
+    <CardContainer className='secondary-drop-shadow'>
       <CardHeader>
         <HeaderTxt>
           <H2 fsize="1em">{name.toUpperCase()}</H2>

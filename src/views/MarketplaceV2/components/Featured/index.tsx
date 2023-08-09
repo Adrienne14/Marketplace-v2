@@ -144,7 +144,7 @@ const placeholder: CardType[] = [
 export default function Featured() {
   return (
     <Container>
-      <Board>
+      <Board className='main-drop-shadow'>
         <TextWrapper>
           <H1 fsize="1.5em">LOREM IPSUM</H1>
         </TextWrapper>
@@ -172,9 +172,6 @@ const Board = styled.div`
   width: 250px;
   background: #e786fb;
   background: linear-gradient(0deg, #e786fb, #30346e);
-  -webkit-box-shadow: 0px 0px 16px 3px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 16px 3px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 16px 3px rgba(0, 0, 0, 0.75);
   & > * {
     flex: 1;
   }
