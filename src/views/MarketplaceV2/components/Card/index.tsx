@@ -4,7 +4,7 @@ import { Flex } from '@metagg/mgg-uikit'
 import useTheme from 'hooks/useTheme'
 import { Props, RarityColors } from './index.d'
 import { CardContainer, CardHeader, HeaderTxt, Display, Details, DetailsTxt, Button } from './styled'
-import { H2, P } from '../Foundation/Text'
+import { H2, H5, P } from '../Foundation/Text'
 import SvgIcon from '../Foundation/SvgIcon'
 import Circle from '../Foundation/Circle'
 
@@ -47,7 +47,7 @@ export default function Card(props: Props) {
       </Display>
       <Details>
         <DetailsTxt>
-          <P fsize="0.8em">Current Price</P>
+          <H5 fsize="0.8em">Current Price</H5>
           <P fsize="1em" color={theme.colors.MGG_accent2}>
             {price.token}
           </P>

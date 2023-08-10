@@ -28,24 +28,23 @@ export const TextWrapper = styled.div<{ align?: string; lineHeight?: string }>`
   }
 `
 
-const CommonFontProp = styled.div<{ fsize?: string; color?: string }>`
-  font-size: ${(props) => props.fsize ?? '1em'};
-  font-family: ${FONTSTYLE.font1};
+const CommonFontProp = styled.div<{ fsize?: string; color?: string; fstyle?: string }>`
   ${(props) => `
     font-size: ${props.fsize ?? '1em'};
     color: ${props.color ?? props.theme.colors.text}; 
+    ${
+      props.fstyle &&
+      `
+    font-family: ${props.fstyle};
+  `
+    }
   `}
 `
 
-export const H4 = styled(CommonFontProp).attrs({ as: 'h4' })<{ fsize?: string }>`
-  font-weight: bold;
-`
-
-export const H2 = styled(CommonFontProp).attrs({ as: 'h2' })<{ fsize?: string }>`
-  font-weight: bold;
-`
-export const H1 = styled(CommonFontProp).attrs({ as: 'h1' })<{ fsize?: string }>`
-  font-weight: bold;
-`
-
-export const P = styled(CommonFontProp).attrs({ as: 'p' })<{ fsize?: string }>``
+export const H6 = styled(CommonFontProp).attrs({ as: 'h2' })<{ fsize?: string; fstyle?: string }>``
+export const H5 = styled(CommonFontProp).attrs({ as: 'h2' })<{ fsize?: string; fstyle?: string }>``
+export const H4 = styled(CommonFontProp).attrs({ as: 'h4' })<{ fsize?: string; fstyle?: string }>``
+export const H3 = styled(CommonFontProp).attrs({ as: 'h2' })<{ fsize?: string; fstyle?: string }>``
+export const H2 = styled(CommonFontProp).attrs({ as: 'h2' })<{ fsize?: string; fstyle?: string }>``
+export const H1 = styled(CommonFontProp).attrs({ as: 'h1' })<{ fsize?: string; fstyle?: string }>``
+export const P = styled(CommonFontProp).attrs({ as: 'p' })<{ fsize?: string; fstyle?: string }>``
