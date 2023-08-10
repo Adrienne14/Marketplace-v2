@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { HEIGHT, PADDING } from 'views/MarketplaceV2/styles/constants'
+import { FONTSTYLE, HEIGHT, PADDING } from 'views/MarketplaceV2/styles/constants'
 import { FiLogIn, FiUser } from 'react-icons/fi'
 import { Button, useModal } from '@metagg/mgg-uikit'
 import useMarketplaceV2 from 'hooks/useMarketplaceV2'
@@ -29,6 +29,8 @@ const ConnectApp = styled(Button)`
   color: ${({ theme }) => theme.colors.MGG_accent2};
   border-radius: 10px;
   padding: 5px;
+  font-family: ${FONTSTYLE.font2};
+  font-weight: 300;
 `
 
 const Navbar = () => {
