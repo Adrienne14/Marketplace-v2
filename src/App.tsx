@@ -61,7 +61,7 @@ const App: React.FC = () => {
       <SuspenseWithChunkError fallback={<PageLoader />}>
         <Switch>
           <Route path="/marketplace" exact component={MarketplaceV2} />
-          <Route path="/marketplace/nft-market" exact component={NFTMarket} />
+          <Route path="/marketplace/nft" exact component={NFTMarket} />
           <Menu>
             <NetworkRoute
               path="/farms"

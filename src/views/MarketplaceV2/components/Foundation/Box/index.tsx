@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { COLORS, PADDING } from 'views/MarketplaceV2/styles/constants'
+import { COLORS, DEFAULT_BORDERS, PADDING } from 'views/MarketplaceV2/styles/constants'
 import { useFetchImg } from 'utils/assetFetch'
 import useTheme from 'hooks/useTheme'
 import SvgIcon from '../SvgIcon'
@@ -18,7 +18,7 @@ export default function Box() {
     <BoxContainer className="main-drop-shadow">
       <SvgIcon Img={Img} />
       <TextWrapper align="center">
-        <Link href="/marketplace/nft-market" className='shc-nav'>
+        <Link href="/marketplace/nft" className='shc-nav'>
           <H4 fsize="0.9em" color={theme.colors.MGG_accent1}>
             Click here to buy
           </H4>
@@ -46,4 +46,17 @@ const BoxContainer = styled.div`
       padding: ${PADDING.CONTAINER.LG}px;
     }
   `}
+`
+
+export const MiniBox = styled.div`
+  border-radius: 5px;
+  border: ${DEFAULT_BORDERS};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: ${({theme}) => (theme.colors.text)};
+  padding: 5px;
+  margin: 5px 0;
+  font-size: 1em;
+  background-color: #131737;
 `

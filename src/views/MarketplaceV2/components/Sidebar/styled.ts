@@ -38,4 +38,9 @@ export const Inner = styled.div`
   background-color: ${COLORS.INNER};
   background: ${COLORS.GRADIENT_INNER};
   padding: 24px;
+  ${({theme}) => (`
+    ${theme.mediaQueries.lg}{
+      padding: 30px 60px;
+    }
+  `)}
 `
