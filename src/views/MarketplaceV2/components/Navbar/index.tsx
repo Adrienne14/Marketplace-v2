@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { HEIGHT, PADDING } from 'views/MarketplaceV2/styles/constants'
-import { FaBars } from 'react-icons/fa'
+import { FiLogIn, FiUser } from 'react-icons/fi'
 import { Button, useModal } from '@metagg/mgg-uikit'
 import useMarketplaceV2 from 'hooks/useMarketplaceV2'
+import useFirebaseAuth from 'hooks/useFirebaseAuth'
 import Logo from '../Foundation/Logo'
 import Authentication from '../Foundation/Authentication'
 
@@ -33,12 +34,27 @@ const ConnectApp = styled(Button)`
 const Navbar = () => {
   const { controllers } = useMarketplaceV2()
   const { modal } = controllers
+  const { logout, user } = useFirebaseAuth()
+
+  const handleLogout = () => {
+    logout();
+  }
+
   return (
     <StyledNav>
       <Logo size={60} />
-      <ConnectApp onClick={modal.handleOpen} variant="text">
-        <FaBars />
-      </ConnectApp>
+      {
+        !user ? (
+          <ConnectApp onClick={modal.handleOpen} variant="text">
+          <FiLogIn /> &nbsp; Sign In
+        </ConnectApp>
+        ): (
+          <ConnectApp onClick={handleLogout} >
+            <FiUser />
+          </ConnectApp>
+        )
+        
+      }
       <Authentication />
     </StyledNav>
   )

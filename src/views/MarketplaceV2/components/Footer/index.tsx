@@ -6,6 +6,7 @@ import Logo from '../Foundation/Logo'
 import Anchor from '../Foundation/Anchor'
 import { P, TextWrapper } from '../Foundation/Text'
 import Socials from '../Socials'
+import { socials } from '../../constants/config'
 
 const StyledFooter = styled.footer`
   min-height: ${HEIGHT.FOOTER}vh;
@@ -57,9 +58,9 @@ export default function Footer() {
         })}
       </AnchorList>
       <TextWrapper lineHeight="2em" align="center">
-        <P fsize='0.7em'>Copyright &copy; 2022 MetaGaming Guild. All Rights Reserved</P>
+        <P fsize="0.7em">Copyright &copy; 2022 MetaGaming Guild. All Rights Reserved</P>
       </TextWrapper>
-      <Socials />
+      <Socials links={socials} />
     </StyledFooter>
   )
 }

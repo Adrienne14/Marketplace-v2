@@ -1,9 +1,9 @@
-export interface Socials {
+export interface SocialProp {
   name: string
   href: string
 }
 
-export const socials: Socials[] = [
+export const socials: SocialProp[] = [
   {
     name: 'Twitter',
     href: 'https://twitter.com/SparkDeFi',

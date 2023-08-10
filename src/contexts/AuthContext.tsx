@@ -74,9 +74,9 @@ export const AuthContextProvider = ({ children }) => {
     try {
       const res = await signUp(payload)
       return {
-        status: 'User Created'
+        status: 'User Created',
       }
-    } catch (e:any) {
+    } catch (e: any) {
       throw new Error(e.message)
     }
   }
@@ -90,10 +90,11 @@ export const AuthContextProvider = ({ children }) => {
       if (!res) {
         throw new Error('Please register!')
       }
+      setUser(res.email)
       return {
-        status: `Hello ${res.email}!`
+        status: `Hello ${res.email}!`,
       }
-    } catch(e:any) {
+    } catch (e: any) {
       throw new Error(e.message)
     }
   }
@@ -103,5 +104,9 @@ export const AuthContextProvider = ({ children }) => {
     return code
   }
 
-  return <AuthContext.Provider value={{ user, register, requestOtp, login}}>{children}</AuthContext.Provider>
+  const logout = (payload, code) => {
+    setUser(null);
+  }
+
+  return <AuthContext.Provider value={{ user, register, requestOtp, login, logout }}>{children}</AuthContext.Provider>
 }

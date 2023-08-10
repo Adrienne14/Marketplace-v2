@@ -1,8 +1,7 @@
 import React from 'react'
 import * as IconCollection from 'react-icons/fa'
 import styled from 'styled-components'
-import { socials } from '../../constants/config'
-
+import { socials, SocialProp } from '../../constants/config'
 
 const Container = styled.div`
   display: flex;
@@ -10,27 +9,25 @@ const Container = styled.div`
   margin-top: 5px;
   width: inherit;
   & > * {
-    color: ${({theme}) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.text};
     font-size: 1.5em;
     margin: 0 5px 0 5px;
   }
 `
 
 const icons = IconCollection as unknown as { [key: string]: React.FC }
-export default function Socials() {
+export default function Socials({ links }: { links: SocialProp[] }) {
   return (
     <Container>
-      {
-        socials.map((social) => {
-          const res = `Fa${social.name}`
-          const Icon = icons[res]
-          return (
-            <a href={social.href} key={social.name} target="_blank" rel="noreferrer noopener">
-              <Icon />
-            </a>
-          )
-        })
-      }
+      {links.map((link) => {
+        const src = `Fa${link.name}`
+        const Icon = icons[src] ?? icons.FaGlobe
+        return (
+          <a href={link.href} key={link.name} target="_blank" rel="noreferrer noopener">
+            <Icon />
+          </a>
+        )
+      })}
     </Container>
   )
 }
