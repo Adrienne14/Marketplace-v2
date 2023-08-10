@@ -10,6 +10,7 @@ export const StyledPanel = styled.div`
   background-color: ${COLORS.NAV};
   background: ${COLORS.GRADIENT_NAV};
   padding: 10px;
+  z-index: 0;
 `
 
 export const StyledPanelBody = styled.div`
