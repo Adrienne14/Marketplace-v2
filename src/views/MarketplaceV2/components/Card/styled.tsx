@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Button as MGGButton } from '@metagg/mgg-uikit'
-import { COLORS } from 'views/MarketplaceV2/styles/constants'
+import { COLORS, DEFAULT_BORDERS } from 'views/MarketplaceV2/styles/constants'
 import { TextWrapper } from '../Foundation/Text'
 import { backgroundProp } from '../Foundation/layout'
 
 export const CardContainer = styled.div`
   background-color: ${COLORS.CARD};
-  border: 2px solid #3f5789;
+  border: ${DEFAULT_BORDERS};
   border-radius: 5px;
   display: flex;
   flex-direction: column;

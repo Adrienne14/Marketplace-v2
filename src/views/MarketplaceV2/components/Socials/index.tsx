@@ -1,7 +1,7 @@
 import React from 'react'
 import * as IconCollection from 'react-icons/fa'
 import styled from 'styled-components'
-import { socials, SocialProp } from '../../constants/config'
+import { SocialProp } from '../../constants/config'
 
 const Container = styled.div`
   display: flex;

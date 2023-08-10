@@ -39,24 +39,21 @@ const Navbar = () => {
   const { logout, user } = useFirebaseAuth()
 
   const handleLogout = () => {
-    logout();
+    logout()
   }
 
   return (
     <StyledNav>
       <Logo size={60} />
-      {
-        !user ? (
-          <ConnectApp onClick={modal.handleOpen} variant="text">
+      {!user ? (
+        <ConnectApp onClick={modal.handleOpen} variant="text">
           <FiLogIn /> &nbsp; Sign In
         </ConnectApp>
-        ): (
-          <ConnectApp onClick={handleLogout} >
-            <FiUser />
-          </ConnectApp>
-        )
-        
-      }
+      ) : (
+        <ConnectApp onClick={handleLogout}>
+          <FiUser />
+        </ConnectApp>
+      )}
       <Authentication />
     </StyledNav>
   )

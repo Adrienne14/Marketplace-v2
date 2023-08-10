@@ -17,8 +17,6 @@ import EasterEgg from './components/EasterEgg'
 import NotSupported from './views/ComingSoon/notSupported'
 import { getSupportedChain, isChainSupported } from './utils/settings'
 
-// import Pools from './views/Pools'
-
 // Route-based code splitting
 // Only pool is included in the main bundle because of it's the most visited page
 const Farms = lazy(() => import('./views/Farms'))
@@ -34,8 +32,10 @@ const Guildpad = lazy(() => import('./views/GuildPad'))
 const NotFound = lazy(() => import('./views/NotFound'))
 const Pad = lazy(() => import('./views/GuildPad/Pad'))
 const GamefiPage = lazy(() => import('./views/Gamefi/NewUI/StakingPage'))
-const MarketplaceV2 = lazy(() => import('./views/MarketplaceV2'))
 
+// Marketplace pages import
+const MarketplaceV2 = lazy(() => import('./views/MarketplaceV2'))
+const NFTMarket = lazy(() => import('./views/MarketplaceV2/Views/Market'))
 // This config is required for number formatting
 BigNumber.config({
   EXPONENTIAL_AT: 1000,
@@ -61,6 +61,7 @@ const App: React.FC = () => {
       <SuspenseWithChunkError fallback={<PageLoader />}>
         <Switch>
           <Route path="/marketplace" exact component={MarketplaceV2} />
+          <Route path="/marketplace/nft-market" exact component={NFTMarket} />
           <Menu>
             <NetworkRoute
               path="/farms"
@@ -75,13 +76,13 @@ const App: React.FC = () => {
               pageTitle="Pools"
               exact
             />
-            <NetworkRoute
+            {/* <NetworkRoute
               path="/marketplace/nft-market"
               Component={NftMarket}
               chainSupportConfig={{ title: 'MARKETPLACE', id: chainId }}
               pageTitle="NFT Market"
               exact
-            />
+            /> */}
             <Route
               exact
               path="/marketplace/nft-market/:nftID"

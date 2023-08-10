@@ -5,8 +5,29 @@ import { useFetchImg } from 'utils/assetFetch'
 import useTheme from 'hooks/useTheme'
 import SvgIcon from '../SvgIcon'
 import { H4, P, TextWrapper } from '../Text'
+import Link from '../Anchor'
 
+export default function Box() {
+  // temporary
+  const { theme } = useTheme()
+  const image = { name: 'Promotional Art', folder: 'background' }
+  const src = useFetchImg(image)
+  const Img = <img alt="logo" src={src} />
 
+  return (
+    <BoxContainer className="main-drop-shadow">
+      <SvgIcon Img={Img} />
+      <TextWrapper align="center">
+        <Link href="/marketplace/nft-market" className='shc-nav'>
+          <H4 fsize="0.9em" color={theme.colors.MGG_accent1}>
+            Click here to buy
+          </H4>
+        </Link>
+        <P fsize="0.7em">Until x/x lorem ipsum</P>
+      </TextWrapper>
+    </BoxContainer>
+  )
+}
 
 const BoxContainer = styled.div`
   display: flex;
@@ -20,33 +41,9 @@ const BoxContainer = styled.div`
     flex: 1;
   }
 
-  ${({theme}) => `
+  ${({ theme }) => `
     ${theme.mediaQueries.lg} {
       padding: ${PADDING.CONTAINER.LG}px;
     }
   `}
 `
-
-
-
-export default function Box() {
-  // temporary
-  const { theme } = useTheme()
-  const image = {name: 'Promotional Art', folder: 'background'}
-  const src = useFetchImg(image)
-  const Img = <img alt="logo" src={src} />
-
-  return (
-    <BoxContainer className='main-drop-shadow'>
-      <SvgIcon Img={Img} />
-      <TextWrapper align='center'>
-        <H4 fsize='0.9em' color={theme.colors.MGG_accent1}>
-          Click here to buy
-        </H4>
-        <P fsize='0.7em'>
-          Until x/x lorem ipsum
-        </P>
-      </TextWrapper>
-    </BoxContainer>
-  ) 
-}
