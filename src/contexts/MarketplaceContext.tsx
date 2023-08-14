@@ -7,9 +7,13 @@ export const MarketplaceV2Provider = ({ children }) => {
   const [sprites, setSprites] = useState([])
 
   // Controllers
-  const [openModal, setOpenModal] = useState<boolean>(false)
-  const handleOpen = () => setOpenModal(true)
-  const handleClose = () => setOpenModal(false)
+  const [openModal, setOpenModal] = useState({})
+  const handleOpen = (name) => {
+    setOpenModal({...openModal, [name]: true})
+  }
+  const handleClose = (name) => {
+    setOpenModal({...openModal, [name]: false})
+  }
 
   const fetchAssets = async (callback, q) => {
     try {

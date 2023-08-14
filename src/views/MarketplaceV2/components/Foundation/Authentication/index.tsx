@@ -23,11 +23,11 @@ const Authentication: React.FC = () => {
   }, [setIsLogin, setIsRegister, modal.openModal])
 
   return (
-    <Modal open={modal.openModal} onClose={modal.handleClose} aria-labelledby="auth-modal">
+    <Modal open={modal.openModal?.auth} onClose={() => modal.handleClose('auth')} aria-labelledby="auth-modal">
       <ModalContainer>
         <ModalSection>
           <div style={{ textAlign: 'right' }}>
-            <Close onClick={modal.handleClose} variant="text" style={{ width: '24px', height: '24px' }}>
+            <Close name="auth" onClick={() => modal.handleClose('auth')} variant="text" style={{ width: '24px', height: '24px' }}>
               <FaWindowClose />
             </Close>
           </div>

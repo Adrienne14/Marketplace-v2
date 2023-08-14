@@ -13,7 +13,7 @@ export const ModalContainer = styled.div`
 export const ModalSection = styled.section`
   background-color: ${COLORS.CARD};
   border: 2px solid #5aa2cf;
-  padding: 10px;
+  padding: 25px;
   margin-bottom: 15px;
 `
 

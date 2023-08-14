@@ -6,14 +6,14 @@ import { MiniBox } from '../Box'
 import { P, TextWrapper } from '../Text'
 
 const Button = (props: Props) => {
-  const { title, iconType, icon } = props
+  const { title, iconType, icon, children } = props
   return (
     <StyledButton variant="text" className="icon-button">
       <MiniBox>
         <TextWrapper>
           <P fsize="0.8em">
-            <Iconloader type={iconType} name={icon} />
-            {title}
+            {icon && <Iconloader type={iconType} name={icon} />}
+            {title ?? children}
           </P>
         </TextWrapper>
       </MiniBox>
