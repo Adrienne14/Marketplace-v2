@@ -24,6 +24,7 @@ export default Market
 const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 10px 0;
+  margin: 15px 0;
+  padding: 15px 0px;
 
 `
