@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { COLORS, SETTINGS_SIDEBAR } from 'views/MarketplaceV2/styles/constants'
+import { COLORS, SETTINGS_SIDEBAR, breakpointMap } from 'views/MarketplaceV2/styles/constants'
+import { CONTAINER_PROPS } from '../Foundation/layout'
 
 export const StyledPanel = styled.div`
   display: flex;
@@ -18,7 +19,9 @@ export const StyledPanelBody = styled.div`
   flex-direction: column;
 `
 
-export const StyledPanelFooter = styled.div``
+export const StyledPanelFooter = styled.div`
+  display: flex;
+`
 
 export const Wrapper = styled.div`
   position: relative;
@@ -29,16 +32,21 @@ export const BodyWrapper = styled.div`
   position: relative;
   display: flex;
   min-height: 100%;
+  background-color: ${COLORS.INNER};
+  background: ${COLORS.GRADIENT_INNER};
+  
 `
 
 export const Inner = styled.div`
   flex-grow: 1;
-  background-color: ${COLORS.INNER};
-  background: ${COLORS.GRADIENT_INNER};
-  padding: 24px;
+  padding: 15px;
   ${({theme}) => (`
-    ${theme.mediaQueries.lg}{
-      padding: 30px 60px;
+    ${theme.mediaQueries.sm} {
+      padding: 24px;
     }
+    ${theme.mediaQueries.lg}{
+      ${CONTAINER_PROPS}
+    }
+
   `)}
 `

@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyledSection } from './components/Foundation/layout'
+import { PageContainer, StyledSection } from './components/Foundation/layout'
 import * as SECTIONS from './components/Sections'
 
 import ViewsLayout from './components/Foundation/layout/Views'
@@ -8,14 +8,15 @@ import ViewsLayout from './components/Foundation/layout/Views'
 const sections = SECTIONS as unknown as { [key: string]: React.FC }
 
 const MarketplaceV2: React.FC = () => {
-
   return (
     <ViewsLayout>
       {Object.keys(sections).map((key) => {
         const Sec = sections[key] as React.FC
         return (
           <StyledSection key={key}>
-            <Sec />
+            <PageContainer>
+              <Sec />
+            </PageContainer>
           </StyledSection>
         )
       })}

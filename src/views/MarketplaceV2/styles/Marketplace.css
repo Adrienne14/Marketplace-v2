@@ -21,9 +21,9 @@
 }
 
 .nav-drop-shadow {
-  -webkit-box-shadow: 14px 5px 25px -9px rgba(0,0,0,0.75);
-  -moz-box-shadow: 14px 5px 25px -9px rgba(0,0,0,0.75);
-  box-shadow: 14px 5px 25px -9px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 14px 5px 25px -9px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 14px 5px 25px -9px rgba(0, 0, 0, 0.75);
+  box-shadow: 14px 5px 25px -9px rgba(0, 0, 0, 0.75);
 }
 
 h1,
@@ -40,4 +40,26 @@ h6 {
 p {
   font-family: 'Mustica Pro';
   font-weight: 300;
+}
+
+button {
+
+  &:focus,
+  &:active {
+    box-shadow: none !important;
+  }
+}
+
+.link,
+.icon-button {
+  transition: transform 0.3s;
+}
+
+.link:hover {
+  transform: scale(1.1);
+}
+
+.icon-button:hover {
+  transform: scale(1.1);
+  background-color: transparent !important;
 }

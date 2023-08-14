@@ -11,7 +11,7 @@ const Nftlist = () => {
   return (
     <Grid container spacing={{ xs: 2, sm: 4 }} {...settings} pt={5}>
       {data.map((d) => (
-        <Grid key={d.name} item xs={12} sm={4} md={3} lg={2} justifyContent="center">
+        <Grid key={d.name} item xs={12} sm={4} md={3} lg={3} xl={3} justifyContent="center">
           <StyledFlex>
             <Card {...d} />
           </StyledFlex>

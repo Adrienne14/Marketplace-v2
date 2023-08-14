@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Button } from '@metagg/mgg-uikit'
+import { MiniBox } from "../Box";
 
 export const StyledButton = styled(Button)`
   color: ${({theme}) => (theme.colors.text)};

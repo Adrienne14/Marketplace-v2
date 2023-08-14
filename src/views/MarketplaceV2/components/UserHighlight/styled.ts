@@ -13,6 +13,6 @@ export const StyledDiv = styled.div`
 
 export const CustomBox = styled(MiniBox)`
   font-size: 1em;
-  margin: 0 5px; 
+  // margin: 0 0px; 
 `
 

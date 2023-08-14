@@ -13,6 +13,11 @@ export const sectionProp = `
   position: absolute;
 `
 
+export const CONTAINER_PROPS = `
+  max-width: 1440px;
+  margin: 0 auto;
+`
+
 export const backgroundProp = styled.div<{ bg?: string }>`
   :before {
     top: 0;
@@ -38,12 +43,15 @@ export const StyledSection = styled.main`
   min-height: 60vh;
   height: auto;
   position: relative;
-
-  ${({theme}) => `
+  ${({ theme }) => `
     ${theme.mediaQueries.lg} {
       padding: 0 200px;
     }
   `}
+`
+
+export const PageContainer = styled.div`
+  ${CONTAINER_PROPS}
 `
 
 export const PageMeta: React.FC = () => {

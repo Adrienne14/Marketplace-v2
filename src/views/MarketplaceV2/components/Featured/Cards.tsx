@@ -1,7 +1,9 @@
 import React from 'react'
 import { Grid } from '@mui/material'
+import styled from 'styled-components'
 import Card from '../Card'
 import './style.css'
+
 
 const Cards = (props) => {
   const { items } = props
@@ -12,7 +14,7 @@ const Cards = (props) => {
       wrap="nowrap"
       mt={5}
       pb={5}
-      columnGap={{ xs: 2 }}
+      columnSpacing={{ xs: 2 }}
       sx={{
         overflowX: 'scroll',
         overflowY: 'hidden',
@@ -20,10 +22,12 @@ const Cards = (props) => {
       }}
     >
       {items.map((item, ind) => {
-        const id = ind+1
+        const id = ind + 1
         return (
-          <Grid key={id} item alignItems="center" xs={12} md={6}>
-            <Card {...item} />
+          <Grid key={id} item alignItems="center" xs={12}>
+            <StyledDiv>
+              <Card {...item} />
+            </StyledDiv>
           </Grid>
         )
       })}
@@ -32,3 +36,12 @@ const Cards = (props) => {
 }
 
 export default Cards
+
+const StyledDiv = styled.div`
+  min-width: 220px;
+  ${({theme}) => (`
+    ${theme.mediaQueries.xl} {
+      min-width: 250px;
+    }
+  `)}
+`

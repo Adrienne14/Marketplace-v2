@@ -5,8 +5,7 @@ import useTheme from 'hooks/useTheme'
 import { FaChevronDown } from 'react-icons/fa'
 import Button from '../Foundation/Button'
 import { MiniBox } from '../Foundation/Box'
-import { P } from '../Foundation/Text'
-
+import { P, TextWrapper } from '../Foundation/Text'
 
 const Filters = () => {
   const { theme } = useTheme()
@@ -14,13 +13,13 @@ const Filters = () => {
   return (
     <Container>
       <div className="filter-actions">
-        <MiniBox>
-          <P>Recently Added</P>
-          <FaChevronDown color={theme.colors.MGG_accent2}/>
-        </MiniBox>
-        <Button iconType="fa" icon="Filter">
-          Filter
-        </Button>
+        <TextWrapper>
+          <MiniBox>
+            <P>Recently Added </P> &nbsp;
+            <FaChevronDown color={theme.colors.MGG_accent2} />
+          </MiniBox>
+        </TextWrapper>
+        <Button iconType="fa" icon="Filter" title="Filters" />
       </div>
     </Container>
   )
@@ -35,13 +34,5 @@ const Container = styled.div`
   .filter-actions {
     display: flex;
     align-items: center;
-    & > * {
-      font-size: 1em;
-      margin: 0 5px;
-
-      p {
-        margin: 0 5px;
-      }
-    }
   }
 `

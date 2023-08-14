@@ -4,9 +4,13 @@ import styled from 'styled-components'
 import Link from '../Foundation/Anchor'
 import { MiniBox as Box } from '../Foundation/Box'
 
-const Navbutton: React.FC<{ href: string }> = ({ href, children }) => {
+type Props = {
+  href: string
+} & React.AnchorHTMLAttributes<HTMLAnchorElement>
+
+const Navbutton: React.FC<Props> = ({ href, children, ...props }) => {
   return (
-    <Link href={href}>
+    <Link href={href} {...props}>
       <Box>{children}</Box>
     </Link>
   )

@@ -22,11 +22,11 @@ const Navbar = () => {
     <StyledNav>
       <Logo size={60} />
       {!user ? (
-        <ConnectApp onClick={modal.handleOpen} variant="text">
+        <ConnectApp onClick={modal.handleOpen} variant="text" className='icon-button'>
           <Iconloader {...iconSettings.signIn} /> &nbsp; Sign In
         </ConnectApp>
       ) : (
-        <ConnectApp onClick={handleLogout}>
+        <ConnectApp onClick={handleLogout} className='icon-button'>
           <Iconloader {...iconSettings.user} />
         </ConnectApp>
       )}

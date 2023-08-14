@@ -3,14 +3,17 @@ import { Props } from './index.d'
 import Iconloader from '../Iconloader'
 import { StyledButton } from './styled'
 import { MiniBox } from '../Box'
-import { P } from '../Text'
+import { P, TextWrapper } from '../Text'
 
 const Button = (props: Props) => {
-  const { children, iconType, icon } = props
+  const { title, iconType, icon } = props
   return (
-    <StyledButton variant="text">
+    <StyledButton variant="text" className='icon-button'>
       <MiniBox>
-        <Iconloader type={iconType} name={icon} /> { children }
+        <TextWrapper>
+        <Iconloader type={iconType} name={icon} /> 
+        {title}
+        </TextWrapper>
       </MiniBox>
     </StyledButton>
   )
