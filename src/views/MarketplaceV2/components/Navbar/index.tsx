@@ -1,12 +1,52 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FONTSTYLE, HEIGHT, PADDING } from 'views/MarketplaceV2/styles/constants'
-import { FiLogIn, FiUser } from 'react-icons/fi'
 import { Button, useModal } from '@metagg/mgg-uikit'
 import useMarketplaceV2 from 'hooks/useMarketplaceV2'
 import useFirebaseAuth from 'hooks/useFirebaseAuth'
 import Logo from '../Foundation/Logo'
 import Authentication from '../Foundation/Authentication'
+import Iconloader from '../Foundation/Iconloader'
+
+
+const Navbar = () => {
+  const { controllers } = useMarketplaceV2()
+  const { modal } = controllers
+  const { logout, user } = useFirebaseAuth()
+
+  const handleLogout = () => {
+    logout()
+  }
+
+  return (
+    <StyledNav>
+      <Logo size={60} />
+      {!user ? (
+        <ConnectApp onClick={modal.handleOpen} variant="text">
+          <Iconloader {...iconSettings.signIn} /> &nbsp; Sign In
+        </ConnectApp>
+      ) : (
+        <ConnectApp onClick={handleLogout}>
+          <Iconloader {...iconSettings.user} />
+        </ConnectApp>
+      )}
+      <Authentication />
+    </StyledNav>
+  )
+}
+
+export default Navbar
+
+const iconSettings = {
+  signIn: {
+    type: 'fi',
+    name: 'LogIn',
+  },
+  user: {
+    type: 'fi',
+    name: 'User',
+  },
+}
 
 const StyledNav = styled.nav`
   height: ${HEIGHT.MENU}vh;
@@ -32,31 +72,3 @@ const ConnectApp = styled(Button)`
   font-family: ${FONTSTYLE.font2};
   font-weight: 300;
 `
-
-const Navbar = () => {
-  const { controllers } = useMarketplaceV2()
-  const { modal } = controllers
-  const { logout, user } = useFirebaseAuth()
-
-  const handleLogout = () => {
-    logout()
-  }
-
-  return (
-    <StyledNav>
-      <Logo size={60} />
-      {!user ? (
-        <ConnectApp onClick={modal.handleOpen} variant="text">
-          <FiLogIn /> &nbsp; Sign In
-        </ConnectApp>
-      ) : (
-        <ConnectApp onClick={handleLogout}>
-          <FiUser />
-        </ConnectApp>
-      )}
-      <Authentication />
-    </StyledNav>
-  )
-}
-
-export default Navbar

@@ -1,12 +1,12 @@
 import React from 'react'
 import { IconButton } from '@metagg/mgg-uikit'
 import { useLocation } from 'react-router-dom'
-import { FiLogOut } from 'react-icons/fi'
 import useTheme from 'hooks/useTheme'
 import { P } from '../Foundation/Text'
 import './style.css'
 import { MiniBox } from '../Foundation/Box'
 import { CustomBox, StyledDiv } from './styled'
+import Iconloader from '../Foundation/Iconloader'
 
 
 const UserHighlight = () => {
@@ -36,7 +36,7 @@ const UserHighlight = () => {
         </CustomBox>
         <IconButton variant='text' style={{padding: 0}}>
         <CustomBox>
-          <FiLogOut />
+          <Iconloader type='fi' name='LogOut' />
         </CustomBox>
         </IconButton>
       </div>
