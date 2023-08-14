@@ -8,11 +8,13 @@ import { P, TextWrapper } from '../Text'
 const Button = (props: Props) => {
   const { title, iconType, icon } = props
   return (
-    <StyledButton variant="text" className='icon-button'>
+    <StyledButton variant="text" className="icon-button">
       <MiniBox>
         <TextWrapper>
-        <Iconloader type={iconType} name={icon} /> 
-        {title}
+          <P fsize="0.8em">
+            <Iconloader type={iconType} name={icon} />
+            {title}
+          </P>
         </TextWrapper>
       </MiniBox>
     </StyledButton>

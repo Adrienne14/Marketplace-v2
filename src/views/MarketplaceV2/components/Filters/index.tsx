@@ -15,7 +15,7 @@ const Filters = () => {
       <div className="filter-actions">
         <TextWrapper>
           <MiniBox>
-            <P>Recently Added </P> &nbsp;
+            <P fsize="0.8em">Recently Added </P> &nbsp;
             <FaChevronDown color={theme.colors.MGG_accent2} />
           </MiniBox>
         </TextWrapper>

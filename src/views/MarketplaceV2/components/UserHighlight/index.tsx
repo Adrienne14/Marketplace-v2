@@ -34,13 +34,13 @@ const UserHighlight = () => {
       <div className="user-h-actions">
         <CustomBox>
           <TextWrapper>
-            <P>123456789 MGG</P>
+            <P fsize="0.8em">123456789 MGG</P>
           </TextWrapper>
         </CustomBox>
         <IconButton variant="text" style={{ padding: 0 }} className='icon-button'>
           <CustomBox>
             <TextWrapper>
-              <Iconloader type="fi" name="LogOut"/>
+              <Iconloader type="fi" name="LogOut" fontSize="0.8em"/>
             </TextWrapper>
           </CustomBox>
         </IconButton>

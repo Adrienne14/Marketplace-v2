@@ -14,7 +14,7 @@ export const sectionProp = `
 `
 
 export const CONTAINER_PROPS = `
-  max-width: 1440px;
+  max-width: 1200px;
   margin: 0 auto;
 `
 
