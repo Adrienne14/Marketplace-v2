@@ -1,13 +1,18 @@
-import { Button as MGGButton} from '@metagg/mgg-uikit'
 import React from 'react'
 import { Props } from './index.d'
+import Iconloader from '../Iconloader'
+import { StyledButton } from './styled'
+import { MiniBox } from '../Box'
+import { P } from '../Text'
 
-
-const Button = (props:Props) => {
+const Button = (props: Props) => {
+  const { children, iconType, icon } = props
   return (
-    <MGGButton>
-      {props.title}
-    </MGGButton>
+    <StyledButton variant="text">
+      <MiniBox>
+        <Iconloader type={iconType} name={icon} /> { children }
+      </MiniBox>
+    </StyledButton>
   )
 }
 
