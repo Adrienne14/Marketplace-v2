@@ -1,8 +1,13 @@
 import React from 'react'
+import { FaFilter } from 'react-icons/fa'
 
 const Filters = () => {
   return (
-    <div>Filters</div>
+    <div>
+      <button type='button'>
+       <FaFilter /> Filters
+      </button>
+    </div>
   )
 }
 

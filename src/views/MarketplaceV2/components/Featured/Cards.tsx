@@ -19,9 +19,10 @@ const Cards = (props) => {
         overflow: 'auto',
       }}
     >
-      {items.map((item) => {
+      {items.map((item, ind) => {
+        const id = ind+1
         return (
-          <Grid item alignItems="center" xs={12} md={6}>
+          <Grid key={id} item alignItems="center" xs={12} md={6}>
             <Card {...item} />
           </Grid>
         )

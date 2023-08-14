@@ -6,7 +6,7 @@ const Link: React.FC<AnchorHTMLAttributes<HTMLAnchorElement>> = ({ href, ...othe
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const Tag: any = isHttpLink ? 'a' : NavLink
-  const props = isHttpLink ? { href, target: '_blank', rel: 'noopener noreferrer' } : { to: href, smooth: true }
+  const props = isHttpLink ? { href, target: '_blank', rel: 'noopener noreferrer' } : { to: href, smooth: 'true' }
   return <Tag {...props} {...otherProps} />
 }
 

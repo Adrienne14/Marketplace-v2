@@ -1,7 +1,7 @@
 import React from 'react'
-import * as IconCollection from 'react-icons/fa'
 import styled from 'styled-components'
 import { SocialProp } from '../../constants/config'
+import Iconloader from '../Foundation/Iconloader'
 
 const Container = styled.div`
   display: flex;
@@ -14,17 +14,13 @@ const Container = styled.div`
     margin: 0 5px 0 5px;
   }
 `
-
-const icons = IconCollection as unknown as { [key: string]: React.FC }
 export default function Socials({ links }: { links: SocialProp[] }) {
   return (
     <Container>
       {links.map((link) => {
-        const src = `Fa${link.name}`
-        const Icon = icons[src] ?? icons.FaGlobe
         return (
           <a href={link.href} key={link.name} target="_blank" rel="noreferrer noopener">
-            <Icon />
+            <Iconloader type='fa' name={link.name} />
           </a>
         )
       })}
