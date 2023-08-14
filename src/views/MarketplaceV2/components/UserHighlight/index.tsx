@@ -2,14 +2,18 @@ import React from 'react'
 import { IconButton } from '@metagg/mgg-uikit'
 import { useLocation } from 'react-router-dom'
 import useTheme from 'hooks/useTheme'
+import useFirebaseAuth from 'hooks/useFirebaseAuth'
 import { P, TextWrapper } from '../Foundation/Text'
 import './style.css'
 import { MiniBox } from '../Foundation/Box'
 import { CustomBox, StyledDiv } from './styled'
 import Iconloader from '../Foundation/Iconloader'
+import UnlockButton from '../Foundation/UnlockButton'
+import Login from '../Foundation/Login'
 
 const UserHighlight = () => {
   const { theme } = useTheme()
+  const { user } = useFirebaseAuth()
   const { pathname } = useLocation()
   const pageMap = pathname
     .split('/')
@@ -32,18 +36,26 @@ const UserHighlight = () => {
     <StyledDiv>
       {renderPageMap()}
       <div className="user-h-actions">
-        <CustomBox>
-          <TextWrapper>
-            <P fsize="0.8em">123456789 MGG</P>
-          </TextWrapper>
-        </CustomBox>
-        <IconButton variant="text" style={{ padding: 0 }} className='icon-button'>
+        {user ? (
+          <>
+            <CustomBox>
+              <TextWrapper>
+                <P fsize="0.8em">123456789 MGG</P>
+              </TextWrapper>
+            </CustomBox>
+            <IconButton variant="text" style={{ padding: 0 }} className="icon-button">
+              <CustomBox>
+                <TextWrapper>
+                  <Iconloader type="fi" name="LogOut" fontSize="0.8em" />
+                </TextWrapper>
+              </CustomBox>
+            </IconButton>
+          </>
+        ) : (
           <CustomBox>
-            <TextWrapper>
-              <Iconloader type="fi" name="LogOut" fontSize="0.8em"/>
-            </TextWrapper>
+            <Login />
           </CustomBox>
-        </IconButton>
+        )}
       </div>
     </StyledDiv>
   )
