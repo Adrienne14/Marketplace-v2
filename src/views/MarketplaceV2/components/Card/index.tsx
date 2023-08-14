@@ -43,7 +43,7 @@ export default function Card(props: Props) {
         <SvgIcon Img={BadgeImg} width={50} height={50} />
       </CardHeader>
       <Display bg={spriteSrc}>
-        <SvgIcon Img={SpriteImg} width={125} height={125} />
+        <SvgIcon Img={SpriteImg} width={130} height={130} />
       </Display>
       <Details>
         <DetailsTxt>

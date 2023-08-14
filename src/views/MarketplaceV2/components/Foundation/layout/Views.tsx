@@ -8,7 +8,7 @@ import PageLoader from '../Loader'
 import '../../../styles/Marketplace.css'
 
 export const StyledViews = styled.div`
-  height: 100vh;
+  min-height: 100vh;
 `
 
 const ViewsLayout: React.FC = ({ children }) => {

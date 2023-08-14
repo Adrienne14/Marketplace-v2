@@ -1,4 +1,4 @@
-
+import { CardType } from "hooks/useMarketplaceV2Data";
 
 export enum RarityColors{
   LEGENDARY = '#ecb602',
@@ -6,15 +6,4 @@ export enum RarityColors{
   RARE = '#35d247'
 }
 
-export type Price = {
-  token: string;
-  fiat: string;
-}
-
-export type Props = {
-  name: string;
-  spriteName: string;
-  rarity: string;
-  badge: string;
-  price: Price;
-}
+export type Props = CardType

@@ -35,7 +35,7 @@ const GamefiPage = lazy(() => import('./views/Gamefi/NewUI/StakingPage'))
 
 // Marketplace pages import
 const MarketplaceV2 = lazy(() => import('./views/MarketplaceV2'))
-const NFTMarket = lazy(() => import('./views/MarketplaceV2/Views/Market'))
+const NFTMarket = lazy(() => import('./views/MarketplaceV2/Views/Market/Market'))
 // This config is required for number formatting
 BigNumber.config({
   EXPONENTIAL_AT: 1000,

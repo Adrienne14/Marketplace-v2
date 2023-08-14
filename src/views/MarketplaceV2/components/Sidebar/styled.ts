@@ -4,7 +4,7 @@ import { COLORS, SETTINGS_SIDEBAR } from 'views/MarketplaceV2/styles/constants'
 export const StyledPanel = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100%;
   justify-content: space-between;
   width: ${SETTINGS_SIDEBAR.size.width}px;
   background-color: ${COLORS.NAV};
@@ -16,21 +16,19 @@ export const StyledPanel = styled.div`
 export const StyledPanelBody = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
 `
 
-export const StyledPanelFooter = styled.div`
-`
+export const StyledPanelFooter = styled.div``
 
 export const Wrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
 `
 export const BodyWrapper = styled.div`
   position: relative;
   display: flex;
-  height: 100%;
+  min-height: 100%;
 `
 
 export const Inner = styled.div`

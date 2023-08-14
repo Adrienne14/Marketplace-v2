@@ -12,7 +12,7 @@ const Cards = (props) => {
       wrap="nowrap"
       mt={5}
       pb={5}
-      columnGap={{ xs: 4 }}
+      columnGap={{ xs: 2 }}
       sx={{
         overflowX: 'scroll',
         overflowY: 'hidden',

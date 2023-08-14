@@ -4,18 +4,18 @@ import ViewsLayout, { StyledViews } from '../components/Foundation/layout/Views'
 import Sidebar from '../components/Sidebar'
 import UserHighlight from '../components/UserHighlight'
 
-const Market = () => {
+const Main: React.FC = ({children}) => {
   return (
     <ViewsLayout>
       <StyledViews>
         <Sidebar>
           <UserHighlight />
           <Filters />
-          <div>Market</div>
+          {children}
         </Sidebar>
       </StyledViews>
     </ViewsLayout>
   )
 }
 
-export default Market
+export default Main

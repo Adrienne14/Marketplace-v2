@@ -12,8 +12,11 @@ export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-width: 220px;
-  max-width: 230px;
+  ${({theme}) => (`
+    ${theme.mediaQueries.xl} {
+      max-width: 100%;
+    }
+  `)}
 `
 const commonSectionStyle = (props?: { justify?: string; align?: string; padding?: string }) => {
   return `
@@ -33,7 +36,7 @@ const commonSectionStyle = (props?: { justify?: string; align?: string; padding?
 const PADDING = '10px'
 
 export const CardHeader = styled.div`
-  ${commonSectionStyle({ justify: 'space-around', align: 'center', padding: PADDING })}
+  ${commonSectionStyle({ justify: 'space-between', align: 'center', padding: PADDING })}
 `
 
 export const CardText = styled(TextWrapper)`
@@ -60,9 +63,8 @@ export const Display = styled(backgroundProp)<{ bg?: string }>`
 `
 
 export const Details = styled.div`
-  ${commonSectionStyle({ padding: PADDING, justify: 'space-around', align: 'center' })}
+  ${commonSectionStyle({ padding: PADDING, justify: 'space-between', align: 'center' })}
   flex: 1;
-  border: 1px solid blue;
 `
 
 export const Button = styled(MGGButton)`
