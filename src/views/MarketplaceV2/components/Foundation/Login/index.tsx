@@ -20,7 +20,6 @@ const Container = styled.div`
 
 export default function Login() {
   const { controllers } = useMarketplaceV2()
-  const { theme } = useTheme()
   const { modal } = controllers;
 
   return (
