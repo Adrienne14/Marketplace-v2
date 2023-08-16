@@ -79,7 +79,6 @@ const Label = styled(Grid)`
   align-items: center;
 `
 const Field = styled(Grid)`
-  border: 1px solid red;
   padding: 10px 0px;
 `
 const Value = styled(Text)`

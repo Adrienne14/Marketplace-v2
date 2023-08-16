@@ -31,7 +31,7 @@ export const Wrapper = styled.div`
 export const BodyWrapper = styled.div`
   position: relative;
   display: flex;
-  min-height: 100%;
+  min-height: 100vh;
   background-color: ${COLORS.INNER};
   background: ${COLORS.GRADIENT_INNER};
   
