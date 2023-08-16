@@ -45,7 +45,7 @@ const UserHighlight = () => {
             </CustomBox>
             <IconButton variant="text" style={{ padding: 0 }} className="icon-button">
               <CustomBox>
-                <TextWrapper>
+                <TextWrapper className='with-animation-enlarge'>
                   <Iconloader type="fi" name="LogOut" fontSize="0.8em" />
                 </TextWrapper>
               </CustomBox>

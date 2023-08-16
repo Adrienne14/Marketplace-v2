@@ -15,7 +15,7 @@ const UnlockButton = (props) => {
   const { modal } = controllers
 
   const handleClick = () => {
-    modal.handleClose()
+    modal.handleClose('auth')
     onPresentConnectModal()
   }
 

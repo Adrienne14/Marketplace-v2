@@ -24,7 +24,7 @@ export default function Login() {
 
   return (
     <>
-      <ConnectApp onClick={() => modal.handleOpen('auth')} variant='text' className="icon-button">
+      <ConnectApp onClick={() => modal.handleOpen('auth')} variant='text' className="icon-button with-animation-enlarge">
         <TextWrapper>
           <H3>
             <Iconloader {...iconSettings.signIn} /> &nbsp; Sign In

@@ -3,42 +3,71 @@ import styled from 'styled-components'
 import { Modal } from '@mui/material'
 import { Button, IconButton } from '@metagg/mgg-uikit'
 import useMarketplaceV2 from 'hooks/useMarketplaceV2'
+import BuyExtended from './Buy-extended'
 import { H1, TextWrapper, H3 } from '../Foundation/Text'
-import { ModalContainer, ModalSection } from '../Foundation/Authentication/styled'
+import { ModalContainer, ModalSection } from './styled'
 import { MiniBox } from '../Foundation/Box'
+import ModalComponent from './Modal'
 
 const BuyModal: React.FC<any> = (props) => {
+  const [option, setOption] = React.useState<string | null>(null)
+  const token1 = 'USDT-BEP20'
+  const token2 = 'USDT-ERC20'
   const { name } = props
   const { controllers } = useMarketplaceV2()
   const { modal } = controllers
+
+  const handleOption = (e) => {
+    e.preventDefault()
+    setOption(e.target.name)
+  }
+
+  React.useEffect(() => {
+    return setOption(null)
+  }, [])
+
+  const renderMain = () => (
+    <>
+      <TextWrapper align="center">
+        <H1>PAYMENT METHOD</H1>
+      </TextWrapper>
+      <DivActions className="payment-options">
+        <Button onClick={handleOption} name="credit_card" className="payment-option">
+          CREDIT CARD
+        </Button>
+        <Button onClick={handleOption} name={`crpyto_${token1}`} className="payment-option">
+          Crypto USDT (BEP-20)
+        </Button>
+        <Button onClick={handleOption} name={`crpyto_${token2}`} className="payment-option">
+          Crypto USDT (ERC-20)
+        </Button>
+      </DivActions>
+      <DivActions>
+        <MiniBox style={{ height: '40px', padding: '15px' }}>
+          <Button
+            className="icon-button with-animation-enlarge"
+            variant="text"
+            margin="0 auto"
+            padding="0"
+            onClick={() => modal.handleClose('buy')}
+          >
+            <H3>Okay</H3>
+          </Button>
+        </MiniBox>
+      </DivActions>
+    </>
+  )
+
   return (
-    <Modal open={modal.openModal?.buy} onClose={() => modal.handleClose('buy')} aria-labelledby="buy-modal">
-      <ModalContainer>
-        <ModalSection>
-          <TextWrapper align="center">
-            <H1>PAYMENT METHOD</H1>
-          </TextWrapper>
-          <Actions className="payment-options">
-            <Button className="payment-option">CREDIT CARD</Button>
-            <Button className="payment-option">Crypto USDT (BEP-20)</Button>
-            <Button className="payment-option">Crypto USDT (ERC-20)</Button>
-          </Actions>
-          <Actions>
-            <Button variant="text" margin="0 auto" padding="0" onClick={() => modal.handleClose('buy')}>
-              <MiniBox>
-                <H3>Okay</H3>
-              </MiniBox>
-            </Button>
-          </Actions>
-        </ModalSection>
-      </ModalContainer>
-    </Modal>
+    <ModalComponent type="buy">
+      <ModalSection>{!option ? renderMain() : <BuyExtended returnFn={{option, setOption}} />}</ModalSection>
+    </ModalComponent>
   )
 }
 
 export default BuyModal
 
-const Actions = styled.div`
+const DivActions = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

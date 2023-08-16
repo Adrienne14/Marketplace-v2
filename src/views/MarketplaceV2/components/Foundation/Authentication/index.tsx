@@ -4,10 +4,12 @@ import { FaWindowClose } from 'react-icons/fa'
 import useMarketplaceV2 from 'hooks/useMarketplaceV2'
 import { COLORS } from 'views/MarketplaceV2/styles/constants'
 import UnlockButton from '../UnlockButton'
-import { Box, Close, ModalContainer, ModalSection, StyledButton } from './styled'
+import { ModalContainer, ModalSection } from '../../Modals/styled'
+import { Box, Close, StyledButton } from './styled'
 import { TextWrapper, H1 } from '../Text'
 import RegistrationForm from './RegistrationForm'
 import SignInForm from './SignInForm'
+import ModalComponent from '../../Modals/Modal'
 
 const Authentication: React.FC = () => {
   const [isRegister, setIsRegister] = useState<boolean>(false)
@@ -16,21 +18,15 @@ const Authentication: React.FC = () => {
   const { modal } = controllers
 
   useEffect(() => {
-    if (!modal.openModal) {
+    if (!modal.openModal?.auth) {
       setIsLogin(false)
       setIsRegister(false)
     }
-  }, [setIsLogin, setIsRegister, modal.openModal])
+  }, [setIsLogin, setIsRegister, modal.openModal?.auth])
 
   return (
-    <Modal open={modal.openModal?.auth} onClose={() => modal.handleClose('auth')} aria-labelledby="auth-modal">
-      <ModalContainer>
+    <ModalComponent type="auth" withClose>
         <ModalSection>
-          <div style={{ textAlign: 'right' }}>
-            <Close name="auth" onClick={() => modal.handleClose('auth')} variant="text" style={{ width: '24px', height: '24px' }}>
-              <FaWindowClose />
-            </Close>
-          </div>
           {!isLogin && (
             <Box>
               <TextWrapper align="center" lineHeight="2em">
@@ -64,8 +60,7 @@ const Authentication: React.FC = () => {
             <UnlockButton customTitle="Login with wallet connection" />
           </ModalSection>
         )}
-      </ModalContainer>
-    </Modal>
+    </ModalComponent>
   )
 }
 

@@ -12,14 +12,14 @@ const Panel: React.FC<{ links: Props }> = (props) => {
         {links.map((link) => {
           return (
             <Navbutton key={link.name} href={link.href} className="link">
-              <Iconloader type="fa" name={link.name} />
+              <Iconloader type="fa" name={link.name} className="with-animation-enlarge" />
             </Navbutton>
           )
         })}
       </StyledPanelBody>
       <StyledPanelFooter className="sidebar-footer">
         <Navbutton href="/help" className="link">
-          <Iconloader type="fa" name="ExclamationCircle" />
+          <Iconloader type="fa" name="ExclamationCircle" className="with-animation-enlarge" />
         </Navbutton>
       </StyledPanelFooter>
     </StyledPanel>

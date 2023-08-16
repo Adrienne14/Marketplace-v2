@@ -8,6 +8,7 @@
   src: url('./fonts/One\ Slice.otf');
 }
 
+
 .main-drop-shadow {
   -webkit-box-shadow: 0px 0px 16px 3px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 16px 3px rgba(0, 0, 0, 0.75);
@@ -39,17 +40,18 @@ h6 {
 
 p {
   font-family: 'Mustica Pro';
-  font-weight: 300;
+  font-weight: 400;
 }
 
 button {
-
   &:focus,
   &:active {
     box-shadow: none !important;
   }
 }
 
+
+/* 
 .link,
 .icon-button {
   transition: transform 0.3s;
@@ -57,15 +59,22 @@ button {
 
 .link:hover {
   transform: scale(1.1);
-}
+} */
 
 .icon-button:hover {
-  transform: scale(1.1);
   background-color: transparent !important;
+}
+
+.with-animation-enlarge {
+  transition: transform 0.3s;
+}
+
+.with-animation-enlarge:hover {
+  transform: scale(1.1);
 }
 
 /* Override styles */
 .dsEMXs {
-  background-color: #131737!important;
+  background-color: #131737 !important;
   border: 2px solid #3898b8;
 }

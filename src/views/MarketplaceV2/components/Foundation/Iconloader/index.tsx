@@ -6,11 +6,11 @@ import { Props } from './index.d'
 const faIcons = FaIconModule as unknown as { [key: string]: React.FC }
 const fiIcons = FiIconModule as unknown as { [key: string]: React.FC }
 
-const Iconloader = ({ type, name, ...otherProps }: Props) => {
+const Iconloader = ({ type, name, ...rest }: Props) => {
   const capitalizeFirstLetter = (input: string): string => {
     return input.charAt(0).toUpperCase() + input.slice(1)
   }
-
+  
   const src = capitalizeFirstLetter(type) + name
   const [icon, setIcon] = React.useState<React.FC | null>(null)
 
@@ -26,9 +26,10 @@ const Iconloader = ({ type, name, ...otherProps }: Props) => {
       }
     }
     activeModule(type)
+    return () => setIcon(null);
   }, [type, src])
 
-  return <span {...otherProps}>{icon}</span>
+  return <span {...rest}>{icon}</span>
 }
 
 export default Iconloader

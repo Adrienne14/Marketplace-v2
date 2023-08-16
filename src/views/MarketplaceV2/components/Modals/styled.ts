@@ -1,5 +1,28 @@
 import { Button, IconButton } from '@metagg/mgg-uikit'
 import styled from 'styled-components'
+import { COLORS } from 'views/MarketplaceV2/styles/constants'
+
+export const ModalContainer = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 300px;
+  max-width: 300px;
+  boxshadow: 24;
+
+  ${({theme}) => (`
+    ${theme.mediaQueries.sm} {
+      max-width: 800px;
+    }
+  `)}
+`
+export const ModalSection = styled.section`
+  background-color: ${COLORS.CARD};
+  border: 2px solid #5aa2cf;
+  padding: 25px;
+  margin-bottom: 15px;
+`
 
 export const StyledButton = styled(Button)<{ bg?: string }>`
   width: 100%;

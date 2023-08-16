@@ -8,3 +8,7 @@ export const StyledButton = styled(Button)`
   margin: 0 5px; 
   padding: 0;
 `
+
+export const StyledMiniBox = styled(MiniBox)`
+  height: auto;
+`

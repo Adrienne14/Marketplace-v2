@@ -19,7 +19,7 @@ export default function Socials({ links }: { links: SocialProp[] }) {
     <Container>
       {links.map((link) => {
         return (
-          <a href={link.href} key={link.name} target="_blank" rel="noreferrer noopener" className='link'>
+          <a href={link.href} key={link.name} target="_blank" rel="noreferrer noopener" className='link with-animation-enlarge' >
             <Iconloader type='fa' name={link.name} />
           </a>
         )
