@@ -38,7 +38,7 @@ const placeholder: CardType[] = [
     },
   },
   {
-    name: 'Voidmancer',
+    name: 'Voidmancer2',
     spriteName: 'Voidmancer- Wizard',
     rarity: 'Rare',
     badge: 'Wizard',
@@ -48,7 +48,7 @@ const placeholder: CardType[] = [
     },
   },
   {
-    name: 'Voidmancer',
+    name: 'Voidmancer3',
     spriteName: 'Voidmancer- Wizard',
     rarity: 'Rare',
     badge: 'Wizard',
@@ -58,7 +58,7 @@ const placeholder: CardType[] = [
     },
   },
   {
-    name: 'Voidmancer',
+    name: 'Voidmancer4',
     spriteName: 'Voidmancer- Wizard',
     rarity: 'Rare',
     badge: 'Wizard',
@@ -68,87 +68,7 @@ const placeholder: CardType[] = [
     },
   },
   {
-    name: 'Voidmancer',
-    spriteName: 'Voidmancer- Wizard',
-    rarity: 'Rare',
-    badge: 'Wizard',
-    price: {
-      token: '100 MGG',
-      fiat: '1000',
-    },
-  },
-  {
-    name: 'Voidmancer',
-    spriteName: 'Voidmancer- Wizard',
-    rarity: 'Rare',
-    badge: 'Wizard',
-    price: {
-      token: '100 MGG',
-      fiat: '1000',
-    },
-  },
-  {
-    name: 'Voidmancer',
-    spriteName: 'Voidmancer- Wizard',
-    rarity: 'Rare',
-    badge: 'Wizard',
-    price: {
-      token: '100 MGG',
-      fiat: '1000',
-    },
-  },
-  {
-    name: 'Voidmancer',
-    spriteName: 'Voidmancer- Wizard',
-    rarity: 'Rare',
-    badge: 'Wizard',
-    price: {
-      token: '100 MGG',
-      fiat: '1000',
-    },
-  },
-  {
-    name: 'Voidmancer',
-    spriteName: 'Voidmancer- Wizard',
-    rarity: 'Rare',
-    badge: 'Wizard',
-    price: {
-      token: '100 MGG',
-      fiat: '1000',
-    },
-  },
-  {
-    name: 'Voidmancer',
-    spriteName: 'Voidmancer- Wizard',
-    rarity: 'Rare',
-    badge: 'Wizard',
-    price: {
-      token: '100 MGG',
-      fiat: '1000',
-    },
-  },
-  {
-    name: 'Voidmancer',
-    spriteName: 'Voidmancer- Wizard',
-    rarity: 'Rare',
-    badge: 'Wizard',
-    price: {
-      token: '100 MGG',
-      fiat: '1000',
-    },
-  },
-  {
-    name: 'Voidmancer',
-    spriteName: 'Voidmancer- Wizard',
-    rarity: 'Rare',
-    badge: 'Wizard',
-    price: {
-      token: '100 MGG',
-      fiat: '1000',
-    },
-  },
-  {
-    name: 'Voidmancer',
+    name: 'Voidmancer5',
     spriteName: 'Voidmancer- Wizard',
     rarity: 'Rare',
     badge: 'Wizard',

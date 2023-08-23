@@ -49,7 +49,7 @@ const BuyModal: React.FC<any> = (props) => {
             variant="text"
             margin="0 auto"
             padding="0"
-            onClick={() => modal.handleClose('buy')}
+            onClick={() => modal.handleClose(`buy-${name}`)}
           >
             <H3>Okay</H3>
           </Button>
@@ -59,7 +59,7 @@ const BuyModal: React.FC<any> = (props) => {
   )
 
   return (
-    <ModalComponent type="buy">
+    <ModalComponent type={`buy-${name}`}>
       <ModalSection>{!option ? renderMain() : <BuyExtended returnFn={{option, setOption}} />}</ModalSection>
     </ModalComponent>
   )
@@ -67,7 +67,7 @@ const BuyModal: React.FC<any> = (props) => {
 
 export default BuyModal
 
-const DivActions = styled.div`
+export const DivActions = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -13,7 +13,11 @@ export const ModalContainer = styled.div`
 
   ${({theme}) => (`
     ${theme.mediaQueries.sm} {
-      max-width: 800px;
+      max-width: 550px;
+    }
+
+    ${theme.mediaQueries.xl} {
+      max-width: 675px;
     }
   `)}
 `

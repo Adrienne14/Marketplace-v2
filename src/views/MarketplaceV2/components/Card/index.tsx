@@ -7,6 +7,7 @@ import { CardContainer, CardHeader, HeaderTxt, Display, Details, DetailsTxt, But
 import { H2, H5, P } from '../Foundation/Text'
 import SvgIcon from '../Foundation/SvgIcon'
 import Circle from '../Foundation/Circle'
+import BuyModal from '../Modals/Buy'
 
 export default function Card(props: Props) {
   const { name, spriteName, rarity, price, badge } = props
@@ -56,9 +57,10 @@ export default function Card(props: Props) {
             </P>
             <P fsize="0.8em">${price.fiat}</P>
           </DetailsTxt>
-          <Button onClick={() => modal.handleOpen('buy')}>BUY</Button>
+          <Button onClick={() => modal.handleOpen(`buy-${name}`)}>BUY</Button>
         </Details>
       </CardContainer>
+      <BuyModal name={name} />
     </>
   )
 }

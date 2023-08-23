@@ -26,7 +26,7 @@ const Nftlist = () => {
           </Grid>
         ))}
       </Grid>
-      <div>
+      <div style={{marginTop: '1.5rem'}}>
         {toDisplay <= data.length && (
           <button onClick={handleDisplay} type="button">
             view more

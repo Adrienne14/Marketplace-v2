@@ -14,6 +14,7 @@ const ModalComponent: React.FC<Props> = (props): JSX.Element => {
   const { controllers } = useMarketplaceV2()
   const { modal } = controllers
   const { withClose, type, children } = props
+ 
   return (
     <Modal open={modal.openModal[type] ?? false} onClose={() => modal.handleClose(type)}>
       <ModalContainer>

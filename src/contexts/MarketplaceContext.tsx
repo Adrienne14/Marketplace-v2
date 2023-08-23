@@ -9,12 +9,12 @@ export const MarketplaceV2Provider = ({ children }) => {
   // Controllers
   const [openModal, setOpenModal] = useState({})
   const handleOpen = (name) => {
-    setOpenModal({...openModal, [name]: true})
+    setOpenModal({[name]: true})
   }
   const handleClose = (name) => {
-    setOpenModal({...openModal, [name]: false})
+    setOpenModal({[name]: false})
   }
-
+  
   const fetchAssets = async (callback, q) => {
     try {
       const API_KEY = process.env.REACT_APP_GOOGLE_DRIVE_API_KEY
