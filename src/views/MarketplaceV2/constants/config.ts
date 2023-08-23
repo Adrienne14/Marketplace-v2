@@ -49,3 +49,5 @@ export const links: Links = {
     'Terms and Condition': 'https://www.google.com',
   },
 }
+
+export const GoogleDriveLink = 'https://drive.google.com/uc?id='

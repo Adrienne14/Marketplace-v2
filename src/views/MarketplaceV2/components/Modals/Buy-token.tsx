@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Modal } from '@mui/material'
 import { Button, IconButton } from '@metagg/mgg-uikit'
 import useMarketplaceV2 from 'hooks/useMarketplaceV2'
 import BuyExtended from './Buy-token_extend'

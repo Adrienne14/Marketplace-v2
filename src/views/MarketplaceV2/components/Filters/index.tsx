@@ -17,7 +17,7 @@ const Filters = () => {
           <P fsize="0.7em">Recently Added </P> &nbsp;
           <FaChevronDown color={theme.colors.MGG_accent2} />
         </MiniBox>
-        <Button iconType="fa" icon="Filter" title="Filters"/>
+        <Button variant='text' iconType="fa" icon="Filter" title="Filters"/>
       </TextWrapper>
     </Container>
   )
@@ -32,5 +32,9 @@ const Container = styled.div`
   .filter-actions {
     display: flex;
     align-items: center;
+
+    & > * {
+      height: 30px;
+    }
   }
 `

@@ -44,6 +44,8 @@ p {
 }
 
 button {
+  border-radius: 5px !important;
+
   &:focus,
   &:active {
     box-shadow: none !important;

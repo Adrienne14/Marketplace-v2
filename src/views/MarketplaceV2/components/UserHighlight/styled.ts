@@ -8,11 +8,14 @@ export const StyledDiv = styled.div`
   .user-h-actions {
     display: flex;
     align-items: center;
+
+    & > * {
+      height: 30px;
+    }
   }
 `
 
 export const CustomBox = styled(MiniBox)`
   font-size: 1em;
-  // margin: 0 0px; 
 `
 

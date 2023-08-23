@@ -34,8 +34,7 @@ const commonSectionStyle = (props?: { justify?: string; align?: string; padding?
 }
 
 const PADDING = '10px'
-
-export const CardHeader = styled.div`
+export const CardHeader = styled.header`
   ${commonSectionStyle({ justify: 'space-between', align: 'center', padding: PADDING })}
 `
 
@@ -43,9 +42,6 @@ export const CardText = styled(TextWrapper)`
   margin-right: 5px;
   line-height: 1.2em;
 `
-
-export const HeaderTxt = styled(CardText)``
-export const DetailsTxt = styled(CardText)``
 
 export const Display = styled(backgroundProp)<{ bg?: string }>`
   ${commonSectionStyle({ justify: 'center', align: 'center' })}

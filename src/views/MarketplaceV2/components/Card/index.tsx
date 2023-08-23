@@ -1,69 +1,37 @@
 import React, { useMemo, useCallback } from 'react'
 import useMarketplaceV2, { useQueryAsset, QueryType } from 'hooks/useMarketplaceV2'
-import { Flex } from '@metagg/mgg-uikit'
 import useTheme from 'hooks/useTheme'
-import { Props, RarityColors } from './index.d'
-import { CardContainer, CardHeader, HeaderTxt, Display, Details, DetailsTxt, Button } from './styled'
-import { H2, H5, P } from '../Foundation/Text'
-import SvgIcon from '../Foundation/SvgIcon'
-import Circle from '../Foundation/Circle'
-import BuyModal from '../Modals/Buy-token'
-import Anchor from '../Foundation/Anchor'
+import { GoogleDriveLink } from 'views/MarketplaceV2/constants/config'
+import { Props } from './index.d'
+import { CardContainer, Details, CardText as TextBox, Button } from './styled'
+import { H5, P } from '../Foundation/Text'
+import PurchaseNFT from '../Modals/Buy-nft'
+import Header from './Header'
+import SpriteDisplay from './Display'
 
 export default function Card(props: Props) {
+  const { theme } = useTheme()
   const { name, spriteName, rarity, price, badge } = props
   const { controllers } = useMarketplaceV2()
   const { modal } = controllers
-  const { theme } = useTheme()
-  const badgeId = useQueryAsset({ name: badge, type: QueryType.BADGES })
-  const spriteId = useQueryAsset({ name: spriteName, type: QueryType.SPRITES })
-  // const spriteId = sprites
-  const badgeSrc = `https://drive.google.com/uc?id=${badgeId}`
-  const spriteSrc = `https://drive.google.com/uc?id=${spriteId}`
-  const BadgeImg = <img alt="logo" src={badgeSrc} />
-  const SpriteImg = <img alt="logo" src={spriteSrc} />
-  // Query
-  const renderCircles = () => (
-    <Flex justifyContent="space-evenly">
-      {['#4bdffe', '#ee89ff', '#95ff88'].map((clr) => (
-        <Circle key={clr} color={clr} />
-      ))}
-    </Flex>
-  )
 
   return (
     <>
       <CardContainer className="secondary-drop-shadow">
-        <CardHeader>
-          <HeaderTxt>
-            <H2 fsize="1em">{name.toUpperCase()}</H2>
-            <Flex alignItems="center">
-              <P color={RarityColors[`${rarity.toUpperCase()}`]} fsize="0.8em">
-                {rarity}
-              </P>
-              &nbsp;
-              {renderCircles()}
-            </Flex>
-          </HeaderTxt>
-          <SvgIcon Img={BadgeImg} width={50} height={50} />
-        </CardHeader>
-        <Display bg={spriteSrc}>
-          <Anchor href={`/marketplace/:${badge}/:${name}`}>
-            <SvgIcon Img={SpriteImg} width={130} height={130} />
-          </Anchor>
-        </Display>
-
+        <Header {...{name, rarity, badge}} />
+        <SpriteDisplay {...{spriteName}} />
         <Details>
-          <DetailsTxt>
+          <TextBox>
             <H5 fsize="0.8em">Current Price</H5>
             <P fsize="1em" color={theme.colors.MGG_accent2}>
               {price.token}
             </P>
             <P fsize="0.8em">${price.fiat}</P>
-          </DetailsTxt>
+          </TextBox>
           <Button onClick={() => modal.handleOpen(`buy-${name}`)}>BUY</Button>
         </Details>
       </CardContainer>
+      {modal.openModal[`buy-${name}`] && <PurchaseNFT {...props} />}
     </>
   )
 }

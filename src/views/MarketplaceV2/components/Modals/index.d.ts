@@ -14,3 +14,7 @@ export type ConfirmProps = {
   icon: string;
   description: string
 }
+
+export const warningMsg = `
+  This transaction is not subject to cancellation. Any returns/refunds are not accepted.
+`

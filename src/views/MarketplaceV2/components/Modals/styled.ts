@@ -4,6 +4,7 @@ import { COLORS } from 'views/MarketplaceV2/styles/constants'
 
 export const ModalContainer = styled.div`
   position: absolute;
+  border-radius: 10px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -23,6 +24,7 @@ export const ModalContainer = styled.div`
 `
 export const ModalSection = styled.section`
   background-color: ${COLORS.CARD};
+  border-radius: 10px;
   border: 2px solid #5aa2cf;
   padding: 25px;
   margin-bottom: 15px;

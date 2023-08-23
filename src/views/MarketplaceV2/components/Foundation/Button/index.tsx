@@ -1,22 +1,26 @@
 import React from 'react'
+import { Button } from '@metagg/mgg-uikit'
 import { Props } from './index.d'
 import Iconloader from '../Iconloader'
 import { StyledButton, StyledMiniBox } from './styled'
 import { P, TextWrapper } from '../Text'
 
-const Button = ({ title, iconType, icon, children, style }: Props) => {
+const MarketPlaceButton = (props: Props) => {
+  const { title, iconType, icon, style, children, className, variant, onClick } = props
   return (
-    <StyledButton variant="text" className="icon-button" >
+    <StyledButton {...{ className, variant, onClick }}>
       <StyledMiniBox style={style}>
-        <TextWrapper className="with-animation-enlarge">
-          <P fsize="0.7em">
-            {icon && <Iconloader type={iconType} name={icon} />}
-            {title ?? children}
-          </P>
-        </TextWrapper>
+        {children ?? (
+          <TextWrapper className="with-animation-enlarge">
+            <P fsize="0.7em">
+              {icon && <Iconloader type={iconType} name={icon} />}
+              {title}
+            </P>
+          </TextWrapper>
+        )}
       </StyledMiniBox>
     </StyledButton>
   )
 }
 
-export default Button
+export default MarketPlaceButton
