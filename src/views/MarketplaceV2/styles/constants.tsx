@@ -50,7 +50,8 @@ export const COLORS: { [key: string]: string } = {
   NAV: 'rgb(41,30,92)',
   CONTAINER: '#110217',
   GRADIENT1: 'linear-gradient(0deg, rgba(41,30,92,1) 0%, rgba(210,136,244,1) 0%, rgba(9,9,121,1) 100%)',
-  CARD: '#282f64',
+  CARD: 'rgb(23,28,64)',
+  GRADIENT_CARD: 'linear-gradient(0deg, rgba(23,28,64,1) 0%, rgba(40,47,100,1) 100%)',
   GRADIENT_NAV: 'linear-gradient(0deg, rgba(41,30,92,1) 0%, rgba(19,23,55,1) 0%, rgba(36,42,91,1) 100%)',
   GRADIENT_INNER: 'linear-gradient(0deg, rgba(42,38,98,1) 0%, rgba(38,3,75,1) 100%)',
   INNER: 'rgb(42,38,98)'

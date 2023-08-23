@@ -15,6 +15,8 @@ export const StyledViews = styled.div`
 const ViewsLayout: React.FC = ({ children }) => {
   const [loaded, setLoaded] = useState<boolean>(false)
   const { badges, sprites } = useMarketplaceV2()
+  const { controllers } = useMarketplaceV2()
+  const { modal } = controllers
 
   React.useEffect(() => {
     if (badges.length !== 0 && sprites.length !== 0) {
@@ -26,7 +28,7 @@ const ViewsLayout: React.FC = ({ children }) => {
     <Page>
       <Navbar />
       {children}
-      <BuyModal />
+      {modal.openModal['buy-token'] && <BuyModal />}
       <Footer />
     </Page>
   ) : (

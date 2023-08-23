@@ -13,7 +13,8 @@ import store from 'state'
 import { AuthContextProvider } from 'contexts/AuthContext'
 import { MarketplaceV2Provider } from 'contexts/MarketplaceContext'
 import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css'
+import MarketplaceV2Providers from 'views/MarketplaceV2/Providers'
 
 const Providers: React.FC = ({ children }) => {
   return (
@@ -28,11 +29,9 @@ const Providers: React.FC = ({ children }) => {
               <ThemeContextProvider>
                 <LanguageProvider>
                   <RefreshContextProvider>
-                    <AuthContextProvider>
-                      <MarketplaceV2Provider>
-                    <ModalProvider>{children}</ModalProvider>
-                    </MarketplaceV2Provider>
-                    </AuthContextProvider>
+                    <MarketplaceV2Providers>
+                      <ModalProvider>{children}</ModalProvider>
+                    </MarketplaceV2Providers>
                   </RefreshContextProvider>
                 </LanguageProvider>
               </ThemeContextProvider>

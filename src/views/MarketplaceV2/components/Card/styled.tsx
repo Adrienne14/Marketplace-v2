@@ -7,6 +7,7 @@ import { backgroundProp } from '../Foundation/layout'
 
 export const CardContainer = styled.div`
   background-color: ${COLORS.CARD};
+  background: ${COLORS.GRADIENT_CARD};
   border: ${DEFAULT_BORDERS};
   border-radius: 5px;
   display: flex;

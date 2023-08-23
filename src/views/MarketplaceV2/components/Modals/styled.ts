@@ -24,6 +24,7 @@ export const ModalContainer = styled.div`
 `
 export const ModalSection = styled.section`
   background-color: ${COLORS.CARD};
+  background: ${COLORS.GRADIENT_CARD};
   border-radius: 10px;
   border: 2px solid #5aa2cf;
   padding: 25px;

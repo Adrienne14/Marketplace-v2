@@ -4,7 +4,7 @@ import { COLORS, DEFAULT_BORDERS } from 'views/MarketplaceV2/styles/constants'
 
 
 export const Container = styled.div`
-  background-color: ${COLORS.CARD};
+  background-color: transparent;
   border-radius: 5px;
   display: flex;
   flex-direction: column;

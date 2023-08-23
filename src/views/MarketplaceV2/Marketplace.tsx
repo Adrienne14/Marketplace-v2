@@ -3,6 +3,7 @@ import { PageContainer, StyledSection } from './components/Foundation/layout'
 import * as SECTIONS from './components/Sections'
 
 import ViewsLayout from './components/Foundation/layout/Views'
+import MarketplaceProviders from './Providers'
 // import Authentication from './components/Authentication'
 
 const sections = SECTIONS as unknown as { [key: string]: React.FC }
