@@ -4,13 +4,12 @@ import Iconloader from '../Iconloader'
 import { StyledButton, StyledMiniBox } from './styled'
 import { P, TextWrapper } from '../Text'
 
-const Button = (props: Props) => {
-  const { title, iconType, icon, children } = props
+const Button = ({ title, iconType, icon, children, style }: Props) => {
   return (
-    <StyledButton variant="text" className="icon-button">
-      <StyledMiniBox>
-        <TextWrapper className='with-animation-enlarge'>
-          <P fsize="0.8em">
+    <StyledButton variant="text" className="icon-button" >
+      <StyledMiniBox style={style}>
+        <TextWrapper className="with-animation-enlarge">
+          <P fsize="0.7em">
             {icon && <Iconloader type={iconType} name={icon} />}
             {title ?? children}
           </P>

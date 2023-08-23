@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import { Modal } from '@mui/material'
 import { Button, IconButton } from '@metagg/mgg-uikit'
 import useMarketplaceV2 from 'hooks/useMarketplaceV2'
-import BuyExtended from './Buy-extended'
+import BuyExtended from './Buy-token_extend'
 import { H1, TextWrapper, H3 } from '../Foundation/Text'
-import { ModalContainer, ModalSection } from './styled'
+import { ModalSection } from './styled'
 import { MiniBox } from '../Foundation/Box'
 import ModalComponent from './Modal'
 
@@ -13,7 +13,6 @@ const BuyModal: React.FC<any> = (props) => {
   const [option, setOption] = React.useState<string | null>(null)
   const token1 = 'USDT-BEP20'
   const token2 = 'USDT-ERC20'
-  const { name } = props
   const { controllers } = useMarketplaceV2()
   const { modal } = controllers
 
@@ -49,7 +48,7 @@ const BuyModal: React.FC<any> = (props) => {
             variant="text"
             margin="0 auto"
             padding="0"
-            onClick={() => modal.handleClose(`buy-${name}`)}
+            onClick={() => modal.handleClose("buy-token")}
           >
             <H3>Okay</H3>
           </Button>
@@ -59,7 +58,7 @@ const BuyModal: React.FC<any> = (props) => {
   )
 
   return (
-    <ModalComponent type={`buy-${name}`}>
+    <ModalComponent type="buy-token">
       <ModalSection>{!option ? renderMain() : <BuyExtended returnFn={{option, setOption}} />}</ModalSection>
     </ModalComponent>
   )

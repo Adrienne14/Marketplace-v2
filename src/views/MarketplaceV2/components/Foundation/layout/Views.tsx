@@ -6,7 +6,7 @@ import Navbar from '../../Navbar'
 import Footer from '../../Footer'
 import PageLoader from '../Loader'
 import '../../../styles/Marketplace.css'
-// import BuyModal from '../../Modals/Buy'
+import BuyModal from '../../Modals/Buy-token'
 
 export const StyledViews = styled.div`
   min-height: 100vh;
@@ -26,7 +26,7 @@ const ViewsLayout: React.FC = ({ children }) => {
     <Page>
       <Navbar />
       {children}
-      {/* <BuyModal /> */}
+      <BuyModal />
       <Footer />
     </Page>
   ) : (

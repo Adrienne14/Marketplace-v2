@@ -5,8 +5,8 @@ import useTheme from 'hooks/useTheme'
 import { Button, Flex, IconButton } from '@metagg/mgg-uikit'
 import { FaChevronCircleLeft } from 'react-icons/fa'
 import { H1, H3, P, P as Text, TextWrapper } from '../Foundation/Text'
-import Iconloader from '../Foundation/Iconloader'
-import { MiniBox } from '../Foundation/Box'
+import { ConfirmComponent } from './Modal'
+import { CONFIRM_TYPE } from './index.d'
 
 type Props = {
   returnFn: {
@@ -105,23 +105,14 @@ const BuyExtended: React.FC<Props> = (props) => {
     </Fields>
   )
 
-  const renderBuySuccess = () => (
-    <Flex alignItems="center" justifyContent="center" flexDirection="column" className='success-container'>
-      <H1 fsize="1.5em">SUCCESS!</H1>
-      <Iconloader type="fa" name="CheckCircle" style={{ color: theme.colors.MGG_accent1, fontSize: '5em', margin: '0.5em' }} />
-      <TextWrapper align="center" >
-        <P>
-          Your crpyto currency remittance instruction has been completed. The remittance time varies depending on
-          network conditions, so it may take a few minutes to several tens of minutes to confirm receipt of payment.
-        </P>
-      </TextWrapper>
-      <MiniBox style={{ height: '40px', padding: '15px', margin: '25px 0' }}>
-        <Button className="icon-button" variant="text" margin="0 auto" padding="0">
-          <H3>Okay</H3>
-        </Button>
-      </MiniBox>
-    </Flex>
-  )
+  const confirmData = {
+    type: CONFIRM_TYPE.success,
+    icon: 'CheckCircle',
+    description: `Your crpyto currency remittance instruction has been completed. The remittance time varies depending on
+    network conditions, so it may take a few minutes to several tens of minutes to confirm receipt of payment.`
+  }
+
+  const renderBuySuccess = () => <ConfirmComponent {...confirmData} />
 
   return (
     <StyledDiv>
@@ -155,11 +146,6 @@ export default BuyExtended
 const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
-
-  .success-container {
-    width: 80%;
-    margin: 0 auto;
-  }
 `
 const Fields = styled(Grid)`
   margin: 10px 0px;

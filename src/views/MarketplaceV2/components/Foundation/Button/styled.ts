@@ -11,4 +11,6 @@ export const StyledButton = styled(Button)`
 
 export const StyledMiniBox = styled(MiniBox)`
   height: auto;
+  justify-content: flex-start;
+  width: 100px;
 `

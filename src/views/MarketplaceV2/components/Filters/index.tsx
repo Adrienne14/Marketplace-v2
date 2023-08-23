@@ -12,15 +12,13 @@ const Filters = () => {
 
   return (
     <Container>
-      <div className="filter-actions">
-        <TextWrapper>
-          <MiniBox>
-            <P fsize="0.8em">Recently Added </P> &nbsp;
-            <FaChevronDown color={theme.colors.MGG_accent2} />
-          </MiniBox>
-        </TextWrapper>
-        <Button iconType="fa" icon="Filter" title="Filters" />
-      </div>
+      <TextWrapper className="filter-actions">
+        <MiniBox style={{ justifyContent: 'space-between'}}>
+          <P fsize="0.7em">Recently Added </P> &nbsp;
+          <FaChevronDown color={theme.colors.MGG_accent2} />
+        </MiniBox>
+        <Button iconType="fa" icon="Filter" title="Filters"/>
+      </TextWrapper>
     </Container>
   )
 }

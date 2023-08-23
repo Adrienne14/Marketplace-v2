@@ -7,7 +7,7 @@ import { CardContainer, CardHeader, HeaderTxt, Display, Details, DetailsTxt, But
 import { H2, H5, P } from '../Foundation/Text'
 import SvgIcon from '../Foundation/SvgIcon'
 import Circle from '../Foundation/Circle'
-import BuyModal from '../Modals/Buy'
+import BuyModal from '../Modals/Buy-token'
 import Anchor from '../Foundation/Anchor'
 
 export default function Card(props: Props) {
@@ -64,7 +64,6 @@ export default function Card(props: Props) {
           <Button onClick={() => modal.handleOpen(`buy-${name}`)}>BUY</Button>
         </Details>
       </CardContainer>
-      <BuyModal name={name} />
     </>
   )
 }
