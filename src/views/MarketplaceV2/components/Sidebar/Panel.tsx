@@ -18,7 +18,7 @@ const Panel: React.FC<{ links: Props }> = (props) => {
         })}
       </StyledPanelBody>
       <StyledPanelFooter className="sidebar-footer">
-        <Navbutton href="/help" className="link">
+        <Navbutton href="/help" className="link" target='_blank' rel='noopener noreferrer'>
           <Iconloader type="fa" name="ExclamationCircle" className="with-animation-enlarge" />
         </Navbutton>
       </StyledPanelFooter>
