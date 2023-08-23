@@ -10,6 +10,7 @@ import { CustomBox, StyledDiv } from './styled'
 import Iconloader from '../Foundation/Iconloader'
 import UnlockButton from '../Foundation/UnlockButton'
 import Login from '../Foundation/Login'
+import Anchor from '../Foundation/Anchor'
 
 const UserHighlight = () => {
   const { theme } = useTheme()
@@ -28,7 +29,7 @@ const UserHighlight = () => {
   const renderPageMap = () => (
     <TextWrapper>
       <P style={{ cursor: 'default' }}>
-        <span style={{ color: theme.colors.textSubtle }}>{pageMap[0]} &gt; </span> <span>{pageMap[1]}</span>
+        <Anchor href="/marketplace/nft" style={{ color: theme.colors.textSubtle }}>{pageMap[0]} &gt; </Anchor> <span>{pageMap[1].replace(/[^a-zA-Z ]/g, "")}</span>
       </P>
     </TextWrapper>
   )

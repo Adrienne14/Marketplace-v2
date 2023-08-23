@@ -8,6 +8,7 @@ import { H2, H5, P } from '../Foundation/Text'
 import SvgIcon from '../Foundation/SvgIcon'
 import Circle from '../Foundation/Circle'
 import BuyModal from '../Modals/Buy'
+import Anchor from '../Foundation/Anchor'
 
 export default function Card(props: Props) {
   const { name, spriteName, rarity, price, badge } = props
@@ -21,7 +22,7 @@ export default function Card(props: Props) {
   const spriteSrc = `https://drive.google.com/uc?id=${spriteId}`
   const BadgeImg = <img alt="logo" src={badgeSrc} />
   const SpriteImg = <img alt="logo" src={spriteSrc} />
- // Query 
+  // Query
   const renderCircles = () => (
     <Flex justifyContent="space-evenly">
       {['#4bdffe', '#ee89ff', '#95ff88'].map((clr) => (
@@ -47,8 +48,11 @@ export default function Card(props: Props) {
           <SvgIcon Img={BadgeImg} width={50} height={50} />
         </CardHeader>
         <Display bg={spriteSrc}>
-          <SvgIcon Img={SpriteImg} width={130} height={130} />
+          <Anchor href={`/marketplace/:${badge}/:${name}`}>
+            <SvgIcon Img={SpriteImg} width={130} height={130} />
+          </Anchor>
         </Display>
+
         <Details>
           <DetailsTxt>
             <H5 fsize="0.8em">Current Price</H5>

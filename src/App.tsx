@@ -36,6 +36,7 @@ const GamefiPage = lazy(() => import('./views/Gamefi/NewUI/StakingPage'))
 // Marketplace pages import
 const MarketplaceV2 = lazy(() => import('./views/MarketplaceV2'))
 const NFTMarket = lazy(() => import('./views/MarketplaceV2/Views/Market/Market'))
+const NFTPage = lazy(() => import('./views/MarketplaceV2/Views/NFTPage'))
 // This config is required for number formatting
 BigNumber.config({
   EXPONENTIAL_AT: 1000,
@@ -62,6 +63,7 @@ const App: React.FC = () => {
         <Switch>
           <Route path="/marketplace" exact component={MarketplaceV2} />
           <Route path="/marketplace/nft" exact component={NFTMarket} />
+          <Route path="/marketplace/:type/:nftID" exact component={NFTPage}/>
           <Menu>
             <NetworkRoute
               path="/farms"

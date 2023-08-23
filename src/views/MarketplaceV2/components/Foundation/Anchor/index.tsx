@@ -1,7 +1,7 @@
 import React, { AnchorHTMLAttributes } from 'react'
 import { NavLink } from 'react-router-dom'
 
-const Link: React.FC<AnchorHTMLAttributes<HTMLAnchorElement>> = ({ href, ...otherProps }) => {
+const Anchor: React.FC<AnchorHTMLAttributes<HTMLAnchorElement>> = ({ href, ...otherProps }) => {
   const isHttpLink = href?.startsWith('http')
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -10,4 +10,4 @@ const Link: React.FC<AnchorHTMLAttributes<HTMLAnchorElement>> = ({ href, ...othe
   return <Tag {...props} {...otherProps} />
 }
 
-export default Link
+export default Anchor
