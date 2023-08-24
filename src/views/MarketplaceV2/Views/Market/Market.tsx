@@ -1,12 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import { H1, TextWrapper } from 'views/MarketplaceV2/components/Foundation/Text'
+import Filters from 'views/MarketplaceV2/components/Filters'
 import Main from '../Main'
 import Nftlist from './Nftlist'
+
 
 const Market = () => {
   return (
     <Main>
+      <Filters />
       <StyledDiv>
         <TextWrapper>
         <H1 fsize='2em'>
@@ -26,5 +29,4 @@ const StyledDiv = styled.div`
   flex-direction: column;
   margin: 15px 0;
   padding: 15px 0px;
-
 `

@@ -7,6 +7,7 @@ import { H2, P } from '../Foundation/Text'
 import { RarityColors } from './index.d'
 import RenderCircles from './Circles'
 import SvgIcon from '../Foundation/SvgIcon'
+import Anchor from '../Foundation/Anchor'
 
 type Props = {
   name: string
@@ -22,7 +23,9 @@ const Header: React.FC<Props> = ({ name, rarity, badge }) => {
   return (
     <HeaderBox>
       <TextBox>
+        <Anchor href={`/marketplace/${badge}/${name}`}>
         <H2>{name.toUpperCase()}</H2>
+        </Anchor>
         <Div alignItems="center">
           <P color={RarityColors[`${rarity.toUpperCase()}`]} fsize="0.8em">
             {rarity}

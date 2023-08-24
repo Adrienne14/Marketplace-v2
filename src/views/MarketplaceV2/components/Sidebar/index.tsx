@@ -7,7 +7,7 @@ import { links } from './config'
 
 
 const Sidebar: React.FC = ({ children }) => {
-  const isWide = useMedia({ minWidth: 1000 })
+  // const isWide = useMedia({ minWidth: 1000 })
 
   return (
     <Wrapper>
