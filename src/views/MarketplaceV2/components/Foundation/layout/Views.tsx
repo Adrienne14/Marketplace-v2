@@ -12,28 +12,38 @@ export const StyledViews = styled.div`
   min-height: 100vh;
 `
 
-const ViewsLayout: React.FC = ({ children }) => {
-  const [loaded, setLoaded] = useState<boolean>(false)
-  const { badges, sprites } = useMarketplaceV2()
-  const { controllers } = useMarketplaceV2()
-  const { modal } = controllers
-
-  React.useEffect(() => {
-    if (badges.length !== 0 && sprites.length !== 0) {
-      setTimeout(() => setLoaded(true), 3000)
+const withLoading = (WrappedComponent) => {
+  return (props) => {
+    const [isLoading, setIsLoading] = useState<boolean>(true)
+    React.useEffect(() => {
+      const timer = setTimeout(() => {
+        setIsLoading(false)
+      }, 3000)
+      return () => clearTimeout(timer)
+    }, [])
+    if (isLoading) {
+      return <PageLoader />
     }
-  }, [badges, sprites])
-
-  return loaded ? (
+    return <WrappedComponent {...props} />
+  }
+}
+const VLayout: React.FC = (props) => {
+  const {
+    controllers: { modal },
+  } = useMarketplaceV2()
+  const { children } = props
+  return (
     <Page>
       <Navbar />
       {children}
       {modal.openModal['buy-token'] && <BuyModal />}
       <Footer />
     </Page>
-  ) : (
-    <PageLoader />
   )
+}
+const WrappedComponent = withLoading(VLayout)
+const ViewsLayout: React.FC = ({ children }) => {
+  return <WrappedComponent> {children} </WrappedComponent>
 }
 
 export default ViewsLayout
