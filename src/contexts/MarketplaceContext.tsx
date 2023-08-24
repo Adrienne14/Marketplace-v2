@@ -9,12 +9,15 @@ export const MarketplaceV2Provider = ({ children }) => {
   // Controllers
   const [openModal, setOpenModal] = useState({})
   const handleOpen = (name) => {
-    setOpenModal({[name]: true})
+    setOpenModal({ [name]: true })
   }
   const handleClose = (name) => {
-    setOpenModal({[name]: false})
+    setOpenModal({ [name]: false })
   }
-  
+  const handleClearModal = () => {
+    setOpenModal([])
+  }
+
   const fetchAssets = async (callback, q) => {
     try {
       const API_KEY = process.env.REACT_APP_GOOGLE_DRIVE_API_KEY
@@ -52,7 +55,7 @@ export const MarketplaceV2Provider = ({ children }) => {
 
   return (
     <MarketplaceV2Context.Provider
-      value={{ badges, sprites, controllers: { modal: { handleClose, handleOpen, openModal } } }}
+      value={{ badges, sprites, controllers: { modal: { handleClose, handleOpen, openModal, handleClearModal } } }}
     >
       {children}
     </MarketplaceV2Context.Provider>

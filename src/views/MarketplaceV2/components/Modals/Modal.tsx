@@ -43,6 +43,10 @@ export default ModalComponent
 export const ConfirmComponent: React.FC<ConfirmProps> = (props) => {
   const { theme } = useTheme()
   const { type, icon, description } = props
+  const {
+    controllers: { modal },
+  } = useMarketplaceV2()
+
   return (
     <div style={{ maxWidth: '350px' }}>
       <Flex flexDirection="column" alignItems="center" className="modal-confirm-container">
@@ -55,11 +59,11 @@ export const ConfirmComponent: React.FC<ConfirmProps> = (props) => {
         <TextWrapper align="center">
           <P>{description}</P>
         </TextWrapper>
-        <Flex padding='1.5em'>
+        <Flex padding="1.5em">
           <MarketPlaceButton
             className="icon-button"
             variant="text"
-            onClick={() => console.log('test')}
+            onClick={() => modal.handleClearModal()}
             style={{ justifyContent: 'center', height: '5vh' }}
           >
             <TextWrapper align="center">
