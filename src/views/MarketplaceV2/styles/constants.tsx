@@ -1,3 +1,5 @@
+import { POSITION } from "./index.d"
+
 export const breakpointMap: { [key: string]: number } = {
   xs: 370,
   sm: 576,
@@ -68,4 +70,17 @@ export const FONTSIZE: { [key: string]: string } = {
 export const FONTSTYLE: { [key: string]: string } = { 
   font1: 'Mustica Pro', 
   font2: 'One Splice' 
+}
+
+export const customSpacingProps = (type) => {
+  const toFind = Object.entries(JSON.parse(JSON.stringify(type)))
+  const res = toFind.map((f) => ({ [`${POSITION[`${f[0]}`]}`]: f[1] }))
+  const returnValue = res.map((r) => {
+    const spaceProp = Object.keys(r).pop()
+    const spaceValue = Object.values(r).pop()
+    const d = `${spaceProp}:${spaceValue};`
+    return d
+  })
+
+  return returnValue
 }

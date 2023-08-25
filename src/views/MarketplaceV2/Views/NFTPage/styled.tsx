@@ -1,14 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 
-export const Box = styled.div`
+export const ContentWrapper = styled.div`
   width: 100%;
-  border: 1px solid red;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   & > * {
-    margin: 10px 0px;
+    margin: 2em 0px;
   }
+
+  ${({theme}) => (`
+    ${theme.mediaQueries.md} {
+      padding: 0 5em;
+    }
+  `)}
 `
