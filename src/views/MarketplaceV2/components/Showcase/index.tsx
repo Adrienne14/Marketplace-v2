@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useFetchImg } from 'utils/assetFetch'
 import { SCREEN_SIZE } from 'views/MarketplaceV2/styles/constants'
-import Box from '../Foundation/Box'
+import Box from './Box'
 import { backgroundProp, sectionProp } from '../Foundation/layout'
 import { P, TextWrapper } from '../Foundation/Text'
 
@@ -34,10 +34,16 @@ ${({theme}) => `
 export default function Showcase() {
   const backgroundSrc = { name: 'Promotional Art', folder: 'background' }
   const image = useFetchImg(backgroundSrc)
+
+  const renderBox = () => {
+    const src = { name: 'Promotional Art', folder: 'background' }
+    return <Box {...{src}} />
+  }
+
   return (
     <Container bg={image}>
       <Holder>
-      <Box />
+      { renderBox() }
       <TextWrapper align='center'>
         <P fsize='0.8em'>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis dolor recusandae consequatur natus voluptatem laborum quam, excepturi nisi quo optio odio, vitae ut ducimus, rem error soluta vero. Alias, deserunt?
