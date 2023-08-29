@@ -1,27 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { MarketplaceV2DataContext } from 'contexts/MarketplaceDataContext'
+import { CardType } from 'contexts/index.d'
 
-export type Price = {
-  token: string
-  fiat: string
+const useMarketplaceV2Data = () => {
+  return useContext(MarketplaceV2DataContext)
 }
-
-export type CardType = {
-  name: string
-  spriteName: string
-  rarity: string
-  badge: string
-  price: Price
-}
+export default useMarketplaceV2Data;
 
 export const useMarketplaceV2FetchData = () => {
-  const [data, setData] = useState<CardType[] | []>([])
-
-  useEffect(() => {
-    setData(placeholder)
-  }, [])
+  const { data: {nfts, classes} } = useMarketplaceV2Data()
 
   return {
-    data,
+    data: nfts,
+    classes,
   }
 }
 
@@ -42,55 +33,3 @@ export const useMarketplaceV2FetchItem = (q) => {
   }
 }
 
-const placeholder: CardType[] = [
-  {
-    name: 'Voidmancer',
-    spriteName: 'Voidmancer- Wizard',
-    rarity: 'Rare',
-    badge: 'Wizard',
-    price: {
-      token: '100 MGG',
-      fiat: '1000',
-    },
-  },
-  {
-    name: 'Voidmancer2',
-    spriteName: 'Voidmancer- Wizard',
-    rarity: 'Rare',
-    badge: 'Wizard',
-    price: {
-      token: '100 MGG',
-      fiat: '1000',
-    },
-  },
-  {
-    name: 'Voidmancer3',
-    spriteName: 'Voidmancer- Wizard',
-    rarity: 'Rare',
-    badge: 'Wizard',
-    price: {
-      token: '100 MGG',
-      fiat: '1000',
-    },
-  },
-  {
-    name: 'Voidmancer4',
-    spriteName: 'Voidmancer- Wizard',
-    rarity: 'Rare',
-    badge: 'Wizard',
-    price: {
-      token: '100 MGG',
-      fiat: '1000',
-    },
-  },
-  {
-    name: 'Voidmancer5',
-    spriteName: 'Voidmancer- Wizard',
-    rarity: 'Rare',
-    badge: 'Wizard',
-    price: {
-      token: '100 MGG',
-      fiat: '1000',
-    },
-  },
-]

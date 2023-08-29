@@ -1,62 +1,50 @@
 import React from 'react'
 import { Grid } from '@mui/material'
-import useMarketplaceV2 from 'hooks/useMarketplaceV2'
 import { Button, Flex } from '@metagg/mgg-uikit'
+import useMarketplaceV2 from 'hooks/useMarketplaceV2'
+import useMarketplaceV2Data from 'hooks/useMarketplaceV2Data'
 import useTheme from 'hooks/useTheme'
 import Drawer from '../Foundation/Drawer'
-import { P, H1, TextWrapper } from '../Foundation/Text'
+import { P, TextWrapper } from '../Foundation/Text'
 import Iconloader from '../Foundation/Iconloader'
 import Accordion from '../Foundation/Accordion'
-import { OptionBox } from '../Foundation/Box'
 import Option from './Option'
 
 const Filter = () => {
   const { theme } = useTheme()
   const {
+    data: { classes },
+  } = useMarketplaceV2Data()
+  const {
+    badges,
     controllers: {
       drawer: { stateAnchor, toggleDrawer },
     },
   } = useMarketplaceV2()
 
-  const renderSample = () => {
+  const renderSortClasses = () => {
     return (
-      <Accordion name="Class">
-        <Grid container spacing={{xs: 1}} pt={2} pb={2}>
-          <Grid item xs={6}>
-            <Option />
-          </Grid>
-          <Grid item xs={6}>
-            <Option />
-          </Grid>
-          <Grid item xs={6}>
-            <Option />
-          </Grid>
-          <Grid item xs={6}>
-            <Option />
-          </Grid>
+        <Grid container spacing={{ xs: 1 }} pt={2} pb={2}>
+          {classes.map((cl) => (
+            <Grid item xs={6}>
+              <Option name={cl} />
+            </Grid>
+          ))}
         </Grid>
-        
-      </Accordion>
     )
   }
 
-  const renderContent = ({ content }: { content: JSX.Element }) => (
-    <TextWrapper>
-      <Flex flexDirection="column">
-        <P>
-          <Iconloader type="fa" name="Filter" />
-          Filters
-        </P>
-        <Flex justifyContent="flex-end">
-          <Button variant="text" style={{ padding: '0.5em', height: '25px' }}>
-            <P fsize="0.6em" color={theme.colors.textSubtle}>
-              Clear All
-            </P>
-          </Button>
-        </Flex>
-        {content}
-      </Flex>
-    </TextWrapper>
+  const renderSortRarity = () => {
+    return <h1>test</h1>
+  }
+  const renderSortCombatType = () => {
+    return <h1>test</h1>
+  }
+
+  const renderContent = ({content, type}:{content: JSX.Element, type: string}) => (
+    <Accordion name={type}>
+      {content}
+    </Accordion>
   )
 
   return (
@@ -66,7 +54,24 @@ const Filter = () => {
       handleClose={toggleDrawer('right', false)}
       handleOpen={toggleDrawer('right', true)}
     >
-      {renderContent({ content: renderSample() })}
+      <TextWrapper>
+      <Flex flexDirection="column">
+        <P>
+          <Iconloader type="fa" name="Filter" />
+          Filters
+        </P>
+        <Flex justifyContent="flex-end" marginTop="1em" marginBottom="1em">
+          <Button variant="text" style={{ padding: '0.5em', height: '25px' }}>
+            <P fsize="0.6em" color={theme.colors.textSubtle}>
+              Clear All
+            </P>
+          </Button>
+        </Flex>
+        {renderContent({content: renderSortClasses(), type: 'Class'})}
+        {renderContent({content: renderSortRarity(), type: 'Rarity'})}
+        {renderContent({content: renderSortCombatType(), type: 'Combat Type'})}
+      </Flex>
+    </TextWrapper>
     </Drawer>
   )
 }

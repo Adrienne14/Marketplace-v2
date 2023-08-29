@@ -30,19 +30,19 @@ const Drawer: React.FC<Props> = ({ children, ...props }) => {
 export default Drawer
 
 const StyledDiv = styled.div`
-  min-width: 100vw;
-  height: 100%;
+  width: 100vw;
+  min-height: 100%;
   background-color: ${COLORS.CARD};
   border: ${DEFAULT_BORDERS};
-
+  overflow-y: scroll;
   ${({theme}) => (`
     ${theme.mediaQueries.sm} {
-      min-width: 30vw;
+      width: 30vw;
     }
   `)}
 `
 const MainContent = styled.div`
-  padding: 1em;
+  padding: 1.5em;
 `
 const Close = styled(IconButton)`
   width: 24px;

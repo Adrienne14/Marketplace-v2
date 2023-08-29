@@ -5,8 +5,8 @@ export const MarketplaceV2Context = createContext(null)
 export const MarketplaceV2Provider = ({ children }) => {
   
 
-  const [badges, setBadges] = useState([])
-  const [sprites, setSprites] = useState([])
+  const [badgesState, setBadgesState] = useState([])
+  const [spritesState, setSpritesState] = useState([])
 
   // Controllers
   const [openModal, setOpenModal] = useState({})
@@ -65,20 +65,20 @@ export const MarketplaceV2Provider = ({ children }) => {
     const source = {
       badges: '19sD4_X6IDSdi2PnXIAu_cYjQeJS7RuLP',
       nfts: '1aSmYsI_GtkXA2nK0RRD7STiZKS1wgabJ',
+      classes: '1G0atGwIflWAvElS2nwwgRDo3KyF4i_Mw'
     }
-    fetchAssets(setBadges, source.badges)
-    fetchAssets(setSprites, source.nfts)
-
+    fetchAssets(setBadgesState, source.badges)
+    fetchAssets(setSpritesState, source.nfts)
     return () => {
-      setBadges([])
-      setSprites([])
+      setBadgesState([])
+      setSpritesState([])
       console.log('Cleared...')
     }
   }, [])
 
   return (
     <MarketplaceV2Context.Provider
-      value={{ badges, sprites, controllers: { modal: { handleClose, handleOpen, openModal, handleClearModal }, drawer: { toggleDrawer, stateAnchor }} }}
+      value={{ badges: badgesState, sprites: spritesState, controllers: { modal: { handleClose, handleOpen, openModal, handleClearModal }, drawer: { toggleDrawer, stateAnchor }} }}
     >
       {children}
     </MarketplaceV2Context.Provider>

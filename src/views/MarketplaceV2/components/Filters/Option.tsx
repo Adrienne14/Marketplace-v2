@@ -1,14 +1,25 @@
 import React from 'react'
 import { Flex } from '@metagg/mgg-uikit'
+import { Grid } from '@mui/material'
+import { QueryType, useQueryAsset } from 'hooks/useMarketplaceV2'
+import { GoogleDriveLink } from 'views/MarketplaceV2/constants/config'
 import { OptionBox } from '../Foundation/Box'
 import SvgIcon from '../Foundation/SvgIcon'
-import { TextWrapper } from '../Foundation/Text'
+import { P, TextWrapper } from '../Foundation/Text'
 
-const Option = () => {
+const Option = ({ name, ...props }: { name: string }) => {
+  const badgeId = useQueryAsset({ name, type: QueryType.BADGES })
+  const src = GoogleDriveLink + badgeId
+  const Img = <img alt="logo" src={src} />
+
   return (
-    <OptionBox>
-      {/* <SvgIcon /> */}
-      <TextWrapper p="1em">Archer</TextWrapper>
+    <OptionBox {...props}>
+      <TextWrapper p="0.2em">
+        <Flex alignItems='center'>
+          <SvgIcon Img={Img} width={35} height={35} />
+          <P fsize="0.7em" ml="0.3em">{name}</P>
+        </Flex>
+      </TextWrapper>
     </OptionBox>
   )
 }
