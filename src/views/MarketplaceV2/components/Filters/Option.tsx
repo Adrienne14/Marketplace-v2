@@ -16,7 +16,7 @@ const Option = ({ name, ...props }: { name: string }) => {
     <OptionBox {...props}>
       <TextWrapper p="0.2em">
         <Flex alignItems='center'>
-          <SvgIcon Img={Img} width={35} height={35} />
+          <SvgIcon Img={Img} width={25} height={25} />
           <P fsize="0.7em" ml="0.3em">{name}</P>
         </Flex>
       </TextWrapper>

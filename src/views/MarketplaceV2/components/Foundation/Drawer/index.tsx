@@ -37,7 +37,7 @@ const StyledDiv = styled.div`
   overflow-y: scroll;
   ${({theme}) => (`
     ${theme.mediaQueries.sm} {
-      width: 30vw;
+      width: 25vw;
     }
   `)}
 `
