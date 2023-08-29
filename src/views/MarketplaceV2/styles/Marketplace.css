@@ -45,7 +45,7 @@ p {
 
 button {
   border-radius: 5px !important;
-
+  font-family: 'Mustica Pro'!important;
   &:focus,
   &:active {
     box-shadow: none !important;

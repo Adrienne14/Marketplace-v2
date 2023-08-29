@@ -1,0 +1,1 @@
+export type TYPE_ANCHOR = 'top' | 'left' | 'bottom' | 'right';

@@ -1,8 +1,10 @@
 import React, { useContext, createContext, useEffect, useState } from 'react'
+import { TYPE_ANCHOR } from './index.d'
 
 export const MarketplaceV2Context = createContext(null)
-
 export const MarketplaceV2Provider = ({ children }) => {
+  
+
   const [badges, setBadges] = useState([])
   const [sprites, setSprites] = useState([])
 
@@ -16,6 +18,27 @@ export const MarketplaceV2Provider = ({ children }) => {
   }
   const handleClearModal = () => {
     setOpenModal([])
+  }
+
+  // For drawers 
+  const [ stateAnchor, setStateAnchor ] = useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  })
+
+  const toggleDrawer = (anchor: TYPE_ANCHOR, open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+    if (
+      event &&
+      event.type === 'keydown' &&
+      ((event as React.KeyboardEvent).key === 'Tab' ||
+        (event as React.KeyboardEvent).key === 'Shift')
+    ) {
+      return;
+    }
+
+    setStateAnchor({ ...stateAnchor, [anchor]: open})
   }
 
   const fetchAssets = async (callback, q) => {
@@ -55,7 +78,7 @@ export const MarketplaceV2Provider = ({ children }) => {
 
   return (
     <MarketplaceV2Context.Provider
-      value={{ badges, sprites, controllers: { modal: { handleClose, handleOpen, openModal, handleClearModal } } }}
+      value={{ badges, sprites, controllers: { modal: { handleClose, handleOpen, openModal, handleClearModal }, drawer: { toggleDrawer, stateAnchor }} }}
     >
       {children}
     </MarketplaceV2Context.Provider>

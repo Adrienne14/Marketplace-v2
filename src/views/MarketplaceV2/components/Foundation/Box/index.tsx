@@ -52,3 +52,6 @@ export const MiniBox = styled.div<MiniBoxProps>`
   font-size: 1em;
   background-color: #131737;
 `
+export const OptionBox = styled.div`
+  background-color: ${COLORS.CONTAINER};
+`
