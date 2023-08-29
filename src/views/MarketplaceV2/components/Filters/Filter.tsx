@@ -35,10 +35,10 @@ const Filter = () => {
   }
 
   const renderSortRarity = () => {
-    return <h1>test</h1>
+    return <h1>To be added...</h1>
   }
   const renderSortCombatType = () => {
-    return <h1>test</h1>
+    return <h1>To be added...</h1>
   }
 
   const renderContent = ({content, type}:{content: JSX.Element, type: string}) => (
