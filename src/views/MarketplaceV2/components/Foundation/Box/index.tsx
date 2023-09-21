@@ -33,12 +33,14 @@ const Wrapper = styled.div`
 `
 
 type MiniBoxProps = {
+  direction?: string;
   justify?: string;
   align?: string
+  height?: string
 } & Margins & Paddings
 
 export const MiniBox = styled.div<MiniBoxProps>`
-  border-radius: 5px;
+  border-radius: 3px;
   border: ${DEFAULT_BORDERS};
   display: flex;
   justify-content: ${({justify}) => (justify ?? 'center')};
@@ -46,11 +48,13 @@ export const MiniBox = styled.div<MiniBoxProps>`
   color: ${({theme}) => (theme.colors.text)};
   padding: 5px;
   margin: 5px 0;
+  font-size: 1em;
+  background-color: ${COLORS.MENU};
   ${({ p, pt, pb, pl, pr }) => customSpacingProps({ p, pt, pb, pl, pr })}
   ${({ m, mt, mb, ml, mr }) => customSpacingProps({ m, mt, mb, ml, mr })}
-  
-  font-size: 1em;
-  background-color: #131737;
+  ${({direction}) => direction && (`
+    flex-direction: ${direction};
+  `)}
 `
 export const OptionBox = styled.div`
   background-color: ${COLORS.CONTAINER};

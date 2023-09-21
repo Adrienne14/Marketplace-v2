@@ -26,7 +26,7 @@ const Filter = () => {
     return (
         <Grid container spacing={{ xs: 1 }} pt={2} pb={2}>
           {classes.map((cl) => (
-            <Grid item xs={6}>
+            <Grid key={cl} item xs={6}>
               <Option name={cl} />
             </Grid>
           ))}

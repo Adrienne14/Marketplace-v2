@@ -44,12 +44,16 @@ p {
 }
 
 button {
-  border-radius: 5px !important;
+  border-radius: 3px !important;
   font-family: 'Mustica Pro'!important;
   &:focus,
   &:active {
     box-shadow: none !important;
   }
+}
+
+button .option {
+  border-radius: none !important;
 }
 
 
