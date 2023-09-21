@@ -52,7 +52,7 @@ button {
   }
 }
 
-button .option {
+button.option {
   border-radius: none !important;
 }
 
