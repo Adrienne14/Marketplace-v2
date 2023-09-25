@@ -38,9 +38,9 @@ export const StyledPage = styled.div`
   background-color: ${COLORS.BACKGROUND};
 `
 
-export const StyledSection = styled.main`
+export const StyledSection = styled.main<{ mh?: string }>`
   background-color: ${COLORS.MAIN};
-  min-height: 60vh;
+  min-height: ${({ mh }) => mh ?? '60vh'};
   height: auto;
   position: relative;
   ${({ theme }) => `

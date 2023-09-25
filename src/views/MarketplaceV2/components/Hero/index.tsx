@@ -36,7 +36,7 @@ export default function Hero() {
   const image = useFetchImg(bannerSrc)
 
   return (
-    <Container bg={image}>
+    <Container bg={image} data-aos='fade-in'>
       <BannerHolder bg={image} />
     </Container>
   )

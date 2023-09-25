@@ -44,7 +44,7 @@ export default function Showcase() {
     <Container bg={image}>
       <Holder>
       { renderBox() }
-      <TextWrapper align='center'>
+      <TextWrapper align='center' data-aos='fade-in'>
         <P fsize='0.8em'>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis dolor recusandae consequatur natus voluptatem laborum quam, excepturi nisi quo optio odio, vitae ut ducimus, rem error soluta vero. Alias, deserunt?
         </P>

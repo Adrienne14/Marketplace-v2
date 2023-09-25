@@ -13,7 +13,7 @@ export default function Box({src}: {src: {name: string, folder: string}}): JSX.E
   const Img = <img alt="logo" src={source} />
 
   return (
-    <BoxContainer className="main-drop-shadow">
+    <BoxContainer className="main-drop-shadow" data-aos='flip-down' >
       <SvgIcon Img={Img} />
       <TextWrapper align="center">
         <Link href="/marketplace/nft" className='shc-nav'>

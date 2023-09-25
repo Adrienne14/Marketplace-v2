@@ -11,7 +11,7 @@ export default function Featured() {
 
   return (
     <Container>
-      <Board className='main-drop-shadow'>
+      <Board className='main-drop-shadow' data-aos='slide-right'>
         <TextWrapper>
           <H1 fsize="1.5em">LOREM IPSUM</H1>
         </TextWrapper>
