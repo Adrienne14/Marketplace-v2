@@ -1,14 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import useTheme from 'hooks/useTheme'
-import { FONTSTYLE, HEIGHT, PADDING } from 'views/MarketplaceV2/styles/constants'
-import { Button, useModal } from '@metagg/mgg-uikit'
 import useMarketplaceV2 from 'hooks/useMarketplaceV2'
-import useFirebaseAuth from 'hooks/useFirebaseAuth'
+import { HEIGHT, PADDING } from 'views/MarketplaceV2/styles/constants'
+import { marketplaceURL } from 'views/MarketplaceV2/constants/config'
 import Logo from '../Foundation/Logo'
-import Authentication from '../Foundation/Authentication'
-import Iconloader from '../Foundation/Iconloader'
-import { TextWrapper, H3 } from '../Foundation/Text'
+import Anchor from '../Foundation/Anchor'
 
 const Navbar = () => {
   const { controllers } = useMarketplaceV2()
@@ -16,7 +13,9 @@ const Navbar = () => {
   const { modal } = controllers
   return (
     <StyledNav>
+      <Anchor href={marketplaceURL}>
       <Logo size={60} />
+      </Anchor>
     </StyledNav>
   )
 }

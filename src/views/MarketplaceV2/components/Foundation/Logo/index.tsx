@@ -2,8 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { useFetchImg } from 'utils/assetFetch'
 import { PADDING } from 'views/MarketplaceV2/styles/constants'
-import { LOGO } from 'views/MarketplaceV2/constants/config'
+import { LOGO, marketplaceURL } from 'views/MarketplaceV2/constants/config'
 import SvgIcon from '../SvgIcon'
+import Anchor from '../Anchor'
 
 const LogoHolder = styled.div<{ max?: number }>`
   max-width: ${(props) => props.max ?? 80}px;
@@ -20,7 +21,6 @@ const LogoHolder = styled.div<{ max?: number }>`
   //     width: ${props.max ? `calc(${props.max - 5}px + 50px)` : '135px'};
   //   }
   // `}
-  
 `
 
 export default function Logo({ size }: { size?: number }) {
@@ -28,9 +28,11 @@ export default function Logo({ size }: { size?: number }) {
   const Img = <img alt="logo" src={src} />
 
   return (
-    <LogoHolder max={size}>
-      <SvgIcon Img={Img} />
-    </LogoHolder>
+    <Anchor href={marketplaceURL}>
+      <LogoHolder max={size}>
+        <SvgIcon Img={Img} />
+      </LogoHolder>
+    </Anchor>
   )
 }
 

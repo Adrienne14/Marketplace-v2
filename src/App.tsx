@@ -37,6 +37,7 @@ const GamefiPage = lazy(() => import('./views/Gamefi/NewUI/StakingPage'))
 const MarketplaceV2 = lazy(() => import('./views/MarketplaceV2'))
 const NFTMarket = lazy(() => import('./views/MarketplaceV2/Views/Market/Market'))
 const NFTPage = lazy(() => import('./views/MarketplaceV2/Views/NFTPage'))
+const UserPage = lazy(() => import('./views/MarketplaceV2/Views/User'))
 // This config is required for number formatting
 BigNumber.config({
   EXPONENTIAL_AT: 1000,
@@ -64,6 +65,7 @@ const App: React.FC = () => {
           <Route path="/marketplace" exact component={MarketplaceV2} />
           <Route path="/marketplace/nft" exact component={NFTMarket} />
           <Route path="/marketplace/:type/:nftID" exact component={NFTPage}/>
+          <Route path="/marketplace/my-page" exact component={UserPage} />
           <Menu>
             <NetworkRoute
               path="/farms"
@@ -121,17 +123,6 @@ const App: React.FC = () => {
               path="/gamefi/:type/:farmID"
               component={isChainSupported('GAMEFI', chainId) ? GamefiPage : NotSupported}
             />
-            {/* <Route path="/gamefi/:type/:farmID"
-              component={(props) => {
-                const { farmID, type } = props.match.params
-                return isChainSupported('LAUNCHPAD', chainId) ? (
-                  <GamefiPage farmID={farmID} type={type} />
-                ) : (
-                  <NotSupported title="Gamefi" supportedChainId={getSupportedChain('GAMEFI')} />
-                )
-              }}
-            /> */}
-            {/* <ComingSoon title="GameFi Vaults" /> */}
             <NetworkRoute
               path="/launchpad"
               Component={Guildpad}

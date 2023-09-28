@@ -1,8 +1,6 @@
-export interface SocialProp {
-  name: string
-  href: string
-}
+import { SocialProp, Links } from './config.d';
 
+export const marketplaceURL = '/marketplace'
 export const socials: SocialProp[] = [
   {
     name: 'Twitter',
@@ -38,11 +36,6 @@ export const socials: SocialProp[] = [
 export const LOGO = 'MSW Logo'
 
 // Footer
-export interface Links {
-  [key: string]: {
-    [key: string]: string
-  }
-}
 export const links: Links = {
   FOOTER: {
     'Privacy Policy': 'https://www.google.com',

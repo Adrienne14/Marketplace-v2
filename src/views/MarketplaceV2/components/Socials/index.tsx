@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { SocialProp } from '../../constants/config'
+import { SocialProp } from '../../constants/config.d'
 import Iconloader from '../Foundation/Iconloader'
 
 const Container = styled.div`

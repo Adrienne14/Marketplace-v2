@@ -32,7 +32,7 @@ const UserHighlight = () => {
       <Anchor href="/marketplace/nft" style={{ color: theme.colors.textSubtle }}>
         {pageMap[0]} &gt;{' '}
       </Anchor>{' '}
-      <span>{pageMap[1].replace(/[^a-zA-Z ]/g, '')}</span>
+      <span>{pageMap[1].replace(/[^a-zA-Z ]/g, ' ')}</span>
     </P>
   )
   return (

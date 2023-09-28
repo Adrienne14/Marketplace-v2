@@ -5,7 +5,6 @@ import styled from 'styled-components'
 import { Flex } from '@metagg/mgg-uikit'
 import { GoogleDriveLink } from 'views/MarketplaceV2/constants/config'
 import { QueryType, useQueryAsset } from 'hooks/useMarketplaceV2'
-import { useMarketplaceV2FetchItem } from 'hooks/useMarketplaceV2Data'
 import Field from 'views/MarketplaceV2/components/Foundation/Field'
 import SvgIcon from 'views/MarketplaceV2/components/Foundation/SvgIcon'
 import { H3, H4, P, TextWrapper } from 'views/MarketplaceV2/components/Foundation/Text'
@@ -13,31 +12,7 @@ import SpriteDisplay from 'views/MarketplaceV2/components/Card/Display'
 import Main from '../Main'
 import Box, { MiniBox } from '../../components/Foundation/Box'
 import { ContentWrapper } from './styled'
-
-const withGridLayout = (WrappedComponent) => {
-  return (props) => {
-    const [loaded, setIsLoaded] = React.useState(false)
-    const { nftId } = props
-    const { selected: nft } = useMarketplaceV2FetchItem(nftId)
-
-    React.useEffect(() => {
-      if (nft) {
-        setTimeout(() => setIsLoaded(true), 2000)
-      }
-      return () => clearTimeout(setTimeout(() => setIsLoaded(true), 2000))
-    }, [nft])
-
-    const modifiedProps = {
-      item: nft,
-      ...props,
-    }
-    return (
-      <Grid item xs={12} sm={6}>
-        {loaded ? <WrappedComponent {...modifiedProps} /> : <>Loading...</>}
-      </Grid>
-    )
-  }
-}
+import withGridLayout from './withGridLayout'
 
 const NftMain = (props) => {
   const { item } = props
@@ -95,8 +70,8 @@ const NftDetails = (props) => {
   const renderSkill = () => {
     return (
       <Grid container mt={1} spacing={2}>
-        <Grid item xs={7}>
-          <MiniBox p="1em" >
+        <Grid item xs={8}>
+          <MiniBox p="1em">
             <Flex flexDirection="column">
               <TextWrapper align="left">
                 <P fsize="1em" mt="0.5em" mb="0.5em">
@@ -110,9 +85,9 @@ const NftDetails = (props) => {
             </Flex>
           </MiniBox>
         </Grid>
-        <Grid item xs={5}>
+        <Grid item xs={4}>
           <Flex alignItems="center" style={{ width: '100%', height: '100%' }}>
-            <SvgIcon Img={badgeImg} width={150} height={150} />
+            <SvgIcon Img={badgeImg} width={100} height={100} />
           </Flex>
         </Grid>
       </Grid>
@@ -146,12 +121,14 @@ const NftPage: React.FC<RouteComponentProps<{ nftID: string }>> = ({
 }) => {
   return (
     <Main>
-      <StyledDiv>
-        <Grid container spacing={5}>
-          <WrappedMain nftId={nftID} />
-          <WrappedDetails nftId={nftID} />
-        </Grid>
-      </StyledDiv>
+      <TextWrapper>
+        <StyledDiv>
+          <Grid container spacing={5}>
+            <WrappedMain nftId={nftID} />
+            <WrappedDetails nftId={nftID} />
+          </Grid>
+        </StyledDiv>
+      </TextWrapper>
     </Main>
   )
 }
