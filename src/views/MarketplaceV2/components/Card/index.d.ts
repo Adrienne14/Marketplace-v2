@@ -1,4 +1,4 @@
-import { CardType } from "hooks/useMarketplaceV2Data";
+import { CardType } from "contexts/index.d";
 
 export enum RarityColors{
   LEGENDARY = '#ecb602',
