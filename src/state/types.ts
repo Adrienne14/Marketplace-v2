@@ -293,3 +293,20 @@ export interface State {
   teams: TeamsState
   collectibles: CollectiblesState
 }
+
+export interface PlayfabState {
+  isInitialized: boolean
+  isLoggedIn: boolean
+  user: PFuserState
+}
+
+export interface PFuserState {
+  data?: PlayFabClientModels.GetPlayerCombinedInfoResultPayload
+  walletAddress?: string
+}
+
+export interface PlayfabLoginResult {
+  code: number
+  data: PlayFabClientModels.LoginResult
+  stateus: string
+}

@@ -10,6 +10,7 @@ import achievementsReducer from './achievements'
 import guildpadReducer from './guildpads'
 import blockReducer from './block'
 import collectiblesReducer from './collectibles'
+import playfabReducer from './playfab'
 
 const store = configureStore({
   devTools: process.env.NODE_ENV !== 'production',
@@ -23,6 +24,7 @@ const store = configureStore({
     profile: profileReducer,
     teams: teamsReducer,
     collectibles: collectiblesReducer,
+    playfab: playfabReducer,
   },
 })
 

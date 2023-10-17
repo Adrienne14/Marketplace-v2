@@ -4,7 +4,7 @@ import NetworkRoute from 'components/NetworkRoute'
 import { HashRouter, Redirect, Route, Switch } from 'react-router-dom'
 import { ResetCSS } from '@metagg/mgg-uikit'
 import BigNumber from 'bignumber.js'
-import { PlayFab } from 'playfab-sdk';
+import { PlayFab } from 'playfab-sdk'
 import useEagerConnect from 'hooks/useEagerConnect'
 import { useFetchProfile, usePollBlockNumber, usePollCoreFarmData, useInitializePlayfab } from 'state/hooks'
 import { RedirectToFarms } from 'views/Farms/Redirects'
@@ -51,8 +51,8 @@ const ExternalRedirect = ({ to, ...routeProps }) => {
 
 const App: React.FC = () => {
   // Initialize playfab sdk settings
-  PlayFab.settings.titleId = process.env.REACT_APP_PLAYFAB_TITLE_ID ?? '';
-  PlayFab.settings.developerSecretKey = process.env.REACT_APP_PLAYFAB_DEV_KEY ?? '';
+  PlayFab.settings.titleId = process.env.REACT_APP_PLAYFAB_TITLE_ID ?? ''
+  PlayFab.settings.developerSecretKey = process.env.REACT_APP_PLAYFAB_DEV_KEY ?? ''
 
   const { chainId } = useWeb3React()
 
@@ -70,7 +70,7 @@ const App: React.FC = () => {
         <Switch>
           <Route path="/marketplace" exact component={MarketplaceV2} />
           <Route path="/marketplace/nft" exact component={NFTMarket} />
-          <Route path="/marketplace/:type/:nftID" exact component={NFTPage}/>
+          <Route path="/marketplace/:type/:nftID" exact component={NFTPage} />
           <Route path="/marketplace/my-page" exact component={UserPage} />
           <Menu>
             <NetworkRoute

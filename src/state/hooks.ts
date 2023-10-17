@@ -27,6 +27,8 @@ import {
   FarmsState,
   Guildpad,
   GuildpadState,
+  PlayfabState,
+  PFuserState,
   Pool,
   ProfileState,
   State,
@@ -42,6 +44,7 @@ import { fetchPoolsStakingLimitsAsync } from './pools'
 import { fetchFarmUserDataAsync, nonArchivedFarms } from './farms'
 import { fetchGuildpadUserDataAsync, fetchPublicGuildpadDataAsync } from './guildpads'
 import { MAINNET_CHAIN_ID } from '../config'
+import { initializePlayfabAsync } from './playfab'
 
 export const usePollFarmsData = (includeArchive = false) => {
   const dispatch = useAppDispatch()
@@ -514,4 +517,18 @@ export const useGuildpadData = () => {
       dispatch(fetchGuildpadUserDataAsync({ account, ids }))
     }
   }, [dispatch, slowRefresh, account])
+}
+
+// PlayFab
+export const useInitializePlayfab = () => {
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(initializePlayfabAsync())
+  }, [dispatch])
+}
+
+export const usePlayfabUser = (): PFuserState => {
+  const user = useSelector((state: PlayfabState) => state.user)
+  return user
 }
