@@ -4,8 +4,9 @@ import NetworkRoute from 'components/NetworkRoute'
 import { HashRouter, Redirect, Route, Switch } from 'react-router-dom'
 import { ResetCSS } from '@metagg/mgg-uikit'
 import BigNumber from 'bignumber.js'
+import { PlayFab } from 'playfab-sdk';
 import useEagerConnect from 'hooks/useEagerConnect'
-import { useFetchProfile, usePollBlockNumber, usePollCoreFarmData } from 'state/hooks'
+import { useFetchProfile, usePollBlockNumber, usePollCoreFarmData, useInitializePlayfab } from 'state/hooks'
 import { RedirectToFarms } from 'views/Farms/Redirects'
 import Footer from 'components/Footer'
 import GlobalStyle from './style/Global'
@@ -49,12 +50,17 @@ const ExternalRedirect = ({ to, ...routeProps }) => {
 }
 
 const App: React.FC = () => {
+  // Initialize playfab sdk settings
+  PlayFab.settings.titleId = process.env.REACT_APP_PLAYFAB_TITLE_ID ?? '';
+  PlayFab.settings.developerSecretKey = process.env.REACT_APP_PLAYFAB_DEV_KEY ?? '';
+
   const { chainId } = useWeb3React()
- 
+
   usePollBlockNumber()
   useEagerConnect()
   useFetchProfile()
   usePollCoreFarmData()
+  useInitializePlayfab()
 
   return (
     <HashRouter>
