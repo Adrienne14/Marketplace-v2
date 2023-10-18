@@ -8,7 +8,7 @@ import Logo from '../Foundation/Logo'
 import Anchor from '../Foundation/Anchor'
 import { useAppDispatch } from '../../../../state'
 import { usePlayfabUser } from '../../../../state/hooks'
-import { fetchPlayfabUser } from '../../../../state/playfab'
+import { fetchPlayfabUser, registerUser } from '../../../../state/playfab'
 
 const Navbar = () => {
   const { controllers } = useMarketplaceV2()
@@ -25,12 +25,24 @@ const Navbar = () => {
     console.log(user.payload)
   }
 
+  const HandleSignUp = async () => {
+    console.log('attempt sign up')
+    // Test register
+    const register = await dispatch(
+      registerUser({ email: 'tester23@email.com', username: 'tester23', password: '123123' }),
+    )
+
+    console.log('Register User:')
+    console.log(register.payload)
+  }
+
   return (
     <StyledNav>
       <Anchor href={marketplaceURL}>
         <Logo size={60} />
       </Anchor>
       <StyledBtn onClick={() => HandleSignIn()}>Sign in</StyledBtn>
+      <StyledBtn onClick={() => HandleSignUp()}>Register</StyledBtn>
     </StyledNav>
   )
 }

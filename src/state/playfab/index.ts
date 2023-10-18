@@ -8,6 +8,12 @@ interface UserCreds {
   password: string
 }
 
+interface UserSignUp {
+  email: string
+  username: string
+  password: string
+}
+
 const initialState: PlayfabState = {
   isInitialized: false,
   isLoggedIn: false,
@@ -116,6 +122,37 @@ export const fetchPlayfabUser = createAsyncThunk<PlayfabLoginResult | null, User
   },
 )
 
+export const registerUser = createAsyncThunk<
+  PlayFabClientModels.RegisterPlayFabUserResult | PlayFabModule.IPlayFabError | null,
+  UserSignUp
+>('playfab/registerUser', async (params) => {
+  let _result
+
+  PlayFabClient.RegisterPlayFabUser(
+    {
+      Email: params.email,
+      Username: params.username,
+      Password: params.password,
+      RequireBothUsernameAndEmail: true,
+    },
+    (error, result) => {
+      if (error) {
+        console.error(error.errorMessage)
+        _result = error
+        return
+      }
+      _result = result
+    },
+  )
+
+  await timeout(1800)
+  if (_result === undefined) {
+    console.warn(`register user timeout!`)
+  }
+
+  return _result
+})
+
 export const bindWallet = createAsyncThunk<
   PlayFabCloudScriptModels.ExecuteFunctionResult | null,
   { address: string; userId: string }
@@ -174,6 +211,10 @@ export const playfabSlice = createSlice({
           ? action.payload.data.InfoResultPayload.UserData.WalletAddress.Value
           : null
       }
+    })
+    // Register user to Playfab
+    builder.addCase(registerUser.fulfilled, (state, action) => {
+      console.log(action.payload)
     })
     // Bind wallet to playfab account
     builder.addCase(bindWallet.fulfilled, (state, action) => {
