@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react'
+import styled from 'styled-components'
 
 export const ContentWrapper = styled.div`
   width: 100%;
@@ -11,9 +11,9 @@ export const ContentWrapper = styled.div`
     margin: 2em 0px;
   }
 
-  ${({theme}) => (`
+  ${({ theme }) => `
     ${theme.mediaQueries.md} {
       padding: 0 5em;
     }
-  `)}
+  `}
 `

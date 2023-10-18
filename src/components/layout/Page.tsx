@@ -29,8 +29,6 @@ export const PageMeta: React.FC<{ guildpadTitle?: string }> = ({ guildpadTitle }
   const pageMeta = guildpadTitle ? getPadCustomMeta(guildpadTitle) : getCustomMeta(pathname, t) || {}
   const { title, description, image, favico } = { ...DEFAULT_META, ...pageMeta }
 
-
-
   const updateFavicon = (icon: string) => {
     const faviconTag = document.querySelector("link[rel*='icon']") as HTMLLinkElement
     if (faviconTag) {

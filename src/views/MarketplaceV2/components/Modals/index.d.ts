@@ -6,12 +6,12 @@ export type Props = {
 export enum CONFIRM_TYPE {
   success = 'success',
   failed = 'failed',
-  canceled = 'canceled'
+  canceled = 'canceled',
 }
 
 export type ConfirmProps = {
-  type: CONFIRM_TYPE;
-  icon: string;
+  type: CONFIRM_TYPE
+  icon: string
   description: string
 }
 

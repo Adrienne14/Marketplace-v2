@@ -3,8 +3,6 @@ import { TYPE_ANCHOR } from './index.d'
 
 export const MarketplaceV2Context = createContext(null)
 export const MarketplaceV2Provider = ({ children }) => {
-  
-
   const [badgesState, setBadgesState] = useState([])
   const [spritesState, setSpritesState] = useState([])
 
@@ -20,8 +18,8 @@ export const MarketplaceV2Provider = ({ children }) => {
     setOpenModal([])
   }
 
-  // For drawers 
-  const [ stateAnchor, setStateAnchor ] = useState({
+  // For drawers
+  const [stateAnchor, setStateAnchor] = useState({
     top: false,
     left: false,
     bottom: false,
@@ -32,13 +30,12 @@ export const MarketplaceV2Provider = ({ children }) => {
     if (
       event &&
       event.type === 'keydown' &&
-      ((event as React.KeyboardEvent).key === 'Tab' ||
-        (event as React.KeyboardEvent).key === 'Shift')
+      ((event as React.KeyboardEvent).key === 'Tab' || (event as React.KeyboardEvent).key === 'Shift')
     ) {
-      return;
+      return
     }
 
-    setStateAnchor({ ...stateAnchor, [anchor]: open})
+    setStateAnchor({ ...stateAnchor, [anchor]: open })
   }
 
   const fetchAssets = async (callback, q) => {
@@ -65,7 +62,7 @@ export const MarketplaceV2Provider = ({ children }) => {
     const source = {
       badges: '19sD4_X6IDSdi2PnXIAu_cYjQeJS7RuLP',
       nfts: '1aSmYsI_GtkXA2nK0RRD7STiZKS1wgabJ',
-      classes: '1G0atGwIflWAvElS2nwwgRDo3KyF4i_Mw'
+      classes: '1G0atGwIflWAvElS2nwwgRDo3KyF4i_Mw',
     }
     fetchAssets(setBadgesState, source.badges)
     fetchAssets(setSpritesState, source.nfts)
@@ -78,7 +75,14 @@ export const MarketplaceV2Provider = ({ children }) => {
 
   return (
     <MarketplaceV2Context.Provider
-      value={{ badges: badgesState, sprites: spritesState, controllers: { modal: { handleClose, handleOpen, openModal, handleClearModal }, drawer: { toggleDrawer, stateAnchor }} }}
+      value={{
+        badges: badgesState,
+        sprites: spritesState,
+        controllers: {
+          modal: { handleClose, handleOpen, openModal, handleClearModal },
+          drawer: { toggleDrawer, stateAnchor },
+        },
+      }}
     >
       {children}
     </MarketplaceV2Context.Provider>

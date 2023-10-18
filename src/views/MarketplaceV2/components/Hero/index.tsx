@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useFetchImg } from 'utils/assetFetch'
 import { MARGIN, PADDING } from 'views/MarketplaceV2/styles/constants'
-import { backgroundProp, sectionProp} from '../Foundation/layout'
+import { backgroundProp, sectionProp } from '../Foundation/layout'
 
 const Container = styled(backgroundProp)<{ bg?: string }>`
   background-color: transparent;
@@ -23,7 +23,7 @@ const BannerHolder = styled(backgroundProp)<{ bg?: string }>`
     border-radius: 5px;
   }
 
-  ${({theme}) => `
+  ${({ theme }) => `
     ${theme.mediaQueries.sm} {
       flex: 0.8;
       margin: ${MARGIN.SM}px auto;
@@ -36,7 +36,7 @@ export default function Hero() {
   const image = useFetchImg(bannerSrc)
 
   return (
-    <Container bg={image} data-aos='fade-in'>
+    <Container bg={image} data-aos="fade-in">
       <BannerHolder bg={image} />
     </Container>
   )

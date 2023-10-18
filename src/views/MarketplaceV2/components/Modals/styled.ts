@@ -12,7 +12,7 @@ export const ModalContainer = styled.div`
   max-width: 300px;
   boxshadow: 24;
 
-  ${({theme}) => (`
+  ${({ theme }) => `
     ${theme.mediaQueries.sm} {
       max-width: 550px;
     }
@@ -20,7 +20,7 @@ export const ModalContainer = styled.div`
     ${theme.mediaQueries.xl} {
       max-width: 675px;
     }
-  `)}
+  `}
 `
 export const ModalSection = styled.section`
   background-color: ${COLORS.CARD};

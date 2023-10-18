@@ -9,12 +9,7 @@ import Iconloader from '../Iconloader'
 const Drawer: React.FC<Props> = ({ children, ...props }) => {
   const { anchor, openState, handleClose, handleOpen } = props
   return (
-    <SwipeableDrawer
-      anchor={anchor}
-      open={openState}
-      onClose={handleClose}
-      onOpen={handleOpen}
-    >
+    <SwipeableDrawer anchor={anchor} open={openState} onClose={handleClose} onOpen={handleOpen}>
       <StyledDiv>
         <Flex justifyContent="flex-end">
           <Close variant="text" className="icon-button" style={{ width: '24px', height: '24px' }} onClick={handleClose}>
@@ -35,11 +30,11 @@ const StyledDiv = styled.div`
   background-color: ${COLORS.CARD};
   border: ${DEFAULT_BORDERS};
   overflow-y: scroll;
-  ${({theme}) => (`
+  ${({ theme }) => `
     ${theme.mediaQueries.sm} {
       width: 25vw;
     }
-  `)}
+  `}
 `
 const MainContent = styled.div`
   padding: 1.5em;

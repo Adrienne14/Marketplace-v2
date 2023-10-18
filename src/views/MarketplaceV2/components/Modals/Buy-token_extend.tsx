@@ -109,7 +109,7 @@ const BuyExtended: React.FC<Props> = (props) => {
     type: CONFIRM_TYPE.success,
     icon: 'CheckCircle',
     description: `Your crpyto currency remittance instruction has been completed. The remittance time varies depending on
-    network conditions, so it may take a few minutes to several tens of minutes to confirm receipt of payment.`
+    network conditions, so it may take a few minutes to several tens of minutes to confirm receipt of payment.`,
   }
 
   const renderBuySuccess = () => <ConfirmComponent {...confirmData} />

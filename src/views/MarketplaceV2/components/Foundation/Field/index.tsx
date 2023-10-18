@@ -13,14 +13,14 @@ const Field = (props: Props) => {
   const description = Object.values(props)[0]
   return (
     <FieldWrapper>
-        <Flex justifyContent="space-between" style={{ width: '100%' }}>
-          <TextWrapper>
-          <P fsize='0.6em'>{title}</P>
-          </TextWrapper>
-          <TextWrapper>
-          <P fsize='0.6em'>{description}</P>
-          </TextWrapper>
-        </Flex>
+      <Flex justifyContent="space-between" style={{ width: '100%' }}>
+        <TextWrapper>
+          <P fsize="0.6em">{title}</P>
+        </TextWrapper>
+        <TextWrapper>
+          <P fsize="0.6em">{description}</P>
+        </TextWrapper>
+      </Flex>
     </FieldWrapper>
   )
 }
@@ -30,5 +30,4 @@ export default Field
 const FieldWrapper = styled(MiniBox)`
   width: 100%;
   padding: 5px;
-
 `

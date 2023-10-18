@@ -11,7 +11,7 @@ const RegistrationForm: React.FC = () => {
   return (
     <>
       <h2>New Registration:</h2>
-      <Form name="Register" submitFn={register}/>
+      <Form name="Register" submitFn={register} />
     </>
   )
 }

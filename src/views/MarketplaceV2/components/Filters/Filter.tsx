@@ -27,9 +27,9 @@ const Filter = () => {
   const handleClearSelect = () => setSelected([])
   const handleSelect = (filterName) => {
     if (selected.includes(filterName)) {
-      setSelected(prevSelected => prevSelected.filter((s) => s !== filterName));
-    } else { 
-      setSelected(prevSelected => ([...prevSelected, filterName]));
+      setSelected((prevSelected) => prevSelected.filter((s) => s !== filterName))
+    } else {
+      setSelected((prevSelected) => [...prevSelected, filterName])
     }
   }
 
@@ -38,8 +38,13 @@ const Filter = () => {
       <Grid container spacing={{ xs: 1 }} pt={2} pb={2}>
         {classes.map((cl) => (
           <Grid key={cl} item xs={12} lg={6}>
-            <button onClick={() => handleSelect(cl)} type='button' style={{width: '100%'}} className={`filter-btn ${selected.includes(cl) && 'selected'}`}>
-            <Option name={cl} />
+            <button
+              onClick={() => handleSelect(cl)}
+              type="button"
+              style={{ width: '100%' }}
+              className={`filter-btn ${selected.includes(cl) && 'selected'}`}
+            >
+              <Option name={cl} />
             </button>
           </Grid>
         ))}

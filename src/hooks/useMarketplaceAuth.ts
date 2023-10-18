@@ -17,11 +17,11 @@ export const signUp = async (payload: Payload) => {
 }
 
 export const signIn = async (payload: Payload) => {
-  const { email } = payload;
+  const { email } = payload
   try {
     const response = await axios.get(`${url}/list`)
-    const user = response.data.find(u => u.email === email)
-    return user;
+    const user = response.data.find((u) => u.email === email)
+    return user
   } catch (err: any) {
     throw new Error(err.message)
   }

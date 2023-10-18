@@ -44,7 +44,7 @@
       flex-direction: row;
     }
   }
-  
+
   @media (min-width: main.$breakpoint-desktopSM) {
     .page-body {
       padding: 3rem;
@@ -57,6 +57,5 @@
       justify-content: center;
       align-items: flex-start;
     }
-
   }
 }

@@ -1,9 +1,9 @@
-import { CardType } from "contexts/index.d";
+import { CardType } from 'contexts/index.d'
 
-export enum RarityColors{
+export enum RarityColors {
   LEGENDARY = '#ecb602',
   EPIC = '#a535ca',
-  RARE = '#35d247'
+  RARE = '#35d247',
 }
 
 export type Props = CardType

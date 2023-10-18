@@ -4,7 +4,6 @@ import { Spinner } from '@metagg/mgg-uikit'
 import Section, { StyledPage } from '../layout'
 import Logo from '../Logo'
 
-
 const Wrapper = styled(StyledPage)`
   display: flex;
   justify-content: center;

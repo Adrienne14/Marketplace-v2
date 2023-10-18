@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import Card from '../Card'
 import './style.css'
 
-
 const Cards = (props) => {
   const { items } = props
   return (
@@ -39,9 +38,9 @@ export default Cards
 
 const StyledDiv = styled.div`
   min-width: 220px;
-  ${({theme}) => (`
+  ${({ theme }) => `
     ${theme.mediaQueries.xl} {
       min-width: 250px;
     }
-  `)}
+  `}
 `

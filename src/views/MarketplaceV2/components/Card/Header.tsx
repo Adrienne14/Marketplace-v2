@@ -2,7 +2,7 @@ import React from 'react'
 import { Flex as Div } from '@metagg/mgg-uikit'
 import { QueryType, useQueryAsset } from 'hooks/useMarketplaceV2'
 import { GoogleDriveLink } from 'views/MarketplaceV2/constants/config'
-import { CardHeader as HeaderBox, CardText as TextBox} from './styled'
+import { CardHeader as HeaderBox, CardText as TextBox } from './styled'
 import { H2, P } from '../Foundation/Text'
 import { RarityColors } from './index.d'
 import RenderCircles from './Circles'
@@ -24,7 +24,7 @@ const Header: React.FC<Props> = ({ name, rarity, badge }) => {
     <HeaderBox>
       <TextBox>
         <Anchor href={`/marketplace/${badge}/${name}`}>
-        <H2>{name.toUpperCase()}</H2>
+          <H2>{name.toUpperCase()}</H2>
         </Anchor>
         <Div alignItems="center">
           <P color={RarityColors[`${rarity.toUpperCase()}`]} fsize="0.8em">

@@ -9,16 +9,19 @@ import { P, TextWrapper } from '../Foundation/Text'
 import Filter from './Filter'
 import Dropdown from '../Foundation/Dropdown'
 
-
 const Filters = () => {
   const { theme } = useTheme()
-  const { controllers: {drawer: {toggleDrawer }}} = useMarketplaceV2()
+  const {
+    controllers: {
+      drawer: { toggleDrawer },
+    },
+  } = useMarketplaceV2()
 
   return (
     <Container>
       <TextWrapper className="filter-actions">
         <Dropdown filters={filters} />
-        <Button onClick={toggleDrawer('right', true)} variant='text' iconType="fa" icon="Filter" title="Filters"/>
+        <Button onClick={toggleDrawer('right', true)} variant="text" iconType="fa" icon="Filter" title="Filters" />
       </TextWrapper>
       <Filter />
     </Container>
@@ -27,11 +30,7 @@ const Filters = () => {
 
 export default Filters
 
-const filters = [
-  'Recently Added',
-  'Low Price Order',
-  'Highest Price Order'
-]
+const filters = ['Recently Added', 'Low Price Order', 'Highest Price Order']
 
 const Container = styled.div`
   display: flex;

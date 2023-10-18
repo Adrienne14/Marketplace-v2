@@ -105,7 +105,7 @@ export const AuthContextProvider = ({ children }) => {
   }
 
   const logout = (payload, code) => {
-    setUser(null);
+    setUser(null)
   }
 
   return <AuthContext.Provider value={{ user, register, requestOtp, login, logout }}>{children}</AuthContext.Provider>

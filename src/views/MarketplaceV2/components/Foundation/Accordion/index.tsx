@@ -5,24 +5,21 @@ import useTheme from 'hooks/useTheme'
 import { Props } from './index.d'
 import { H1, P } from '../Text'
 
-
-const Accordion: React.FC<Props> = ({children, ...props}) => {
-  const { name } = props;
+const Accordion: React.FC<Props> = ({ children, ...props }) => {
+  const { name } = props
   const { theme } = useTheme()
 
   return (
-    <MUIAccordion sx={{backgroundColor: 'transparent'}}>
+    <MUIAccordion sx={{ backgroundColor: 'transparent' }}>
       <AccordionSummary
         expandIcon={<ChevronDown color={theme.colors.MGG_accent2} />}
         aria-controls={`${name.toLowerCase()}-content`}
         id={`${name.toLowerCase()}-header`}
-        sx={{borderBottom: `1px solid ${theme.colors.MGG_accent2}`}}
+        sx={{ borderBottom: `1px solid ${theme.colors.MGG_accent2}` }}
       >
         <H1>{name}</H1>
       </AccordionSummary>
-      <AccordionDetails>
-          {children}
-      </AccordionDetails>
+      <AccordionDetails>{children}</AccordionDetails>
     </MUIAccordion>
   )
 }

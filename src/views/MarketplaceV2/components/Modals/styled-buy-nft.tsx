@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { COLORS, DEFAULT_BORDERS } from 'views/MarketplaceV2/styles/constants'
 
-
 export const Container = styled.div`
   background-color: transparent;
   border-radius: 5px;

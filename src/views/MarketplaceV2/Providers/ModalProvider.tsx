@@ -6,11 +6,7 @@ const ModalProvider = () => {
   const { controllers } = useMarketplaceV2()
   const { modal } = controllers
 
-  return (
-    <>
-      {modal.openModal['buy-token'] && <BuyModal />}
-    </>
-  )
+  return <>{modal.openModal['buy-token'] && <BuyModal />}</>
 }
 
 export default ModalProvider

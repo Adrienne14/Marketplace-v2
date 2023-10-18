@@ -7,16 +7,16 @@ import SvgIcon from '../Foundation/SvgIcon'
 import { H4, P, TextWrapper } from '../Foundation/Text'
 import Link from '../Foundation/Anchor'
 
-export default function Box({src}: {src: {name: string, folder: string}}): JSX.Element {
+export default function Box({ src }: { src: { name: string; folder: string } }): JSX.Element {
   const { theme } = useTheme()
   const source = useFetchImg(src)
   const Img = <img alt="logo" src={source} />
 
   return (
-    <BoxContainer className="main-drop-shadow" data-aos='flip-down' >
+    <BoxContainer className="main-drop-shadow" data-aos="flip-down">
       <SvgIcon Img={Img} />
       <TextWrapper align="center">
-        <Link href="/marketplace/nft" className='shc-nav'>
+        <Link href="/marketplace/nft" className="shc-nav">
           <H4 fsize="0.9em" color={theme.colors.MGG_accent1}>
             Click here to buy
           </H4>

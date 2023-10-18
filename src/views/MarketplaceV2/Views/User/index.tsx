@@ -57,7 +57,7 @@ const UserMain = (props) => {
     return (
       <StyledBox>
         <Flex>
-          <H2 fsize='1.5em'>POINT</H2>
+          <H2 fsize="1.5em">POINT</H2>
         </Flex>
       </StyledBox>
     )

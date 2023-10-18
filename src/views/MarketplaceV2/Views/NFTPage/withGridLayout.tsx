@@ -2,7 +2,6 @@ import React from 'react'
 import { useMarketplaceV2FetchItem } from 'hooks/useMarketplaceV2Data'
 import { Grid } from '@mui/material'
 
-
 const withGridLayout = (WrappedComponent) => {
   return (props) => {
     const [loaded, setIsLoaded] = React.useState(false)

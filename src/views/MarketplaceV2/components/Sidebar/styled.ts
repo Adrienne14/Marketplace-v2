@@ -34,13 +34,12 @@ export const BodyWrapper = styled.div`
   min-height: 100vh;
   background-color: ${COLORS.INNER};
   background: ${COLORS.GRADIENT_INNER};
-  
 `
 
 export const Inner = styled.div`
   flex-grow: 1;
   padding: 15px;
-  ${({theme}) => (`
+  ${({ theme }) => `
     ${theme.mediaQueries.sm} {
       padding: 24px;
     }
@@ -48,5 +47,5 @@ export const Inner = styled.div`
       ${CONTAINER_PROPS}
     }
 
-  `)}
+  `}
 `

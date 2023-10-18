@@ -26,40 +26,40 @@ const Authentication: React.FC = () => {
 
   return (
     <ModalComponent type="auth" withClose>
-        <ModalSection>
-          {!isLogin && (
-            <Box>
-              <TextWrapper align="center" lineHeight="2em">
-                <H1 fsize="1.5em">Click here for new registration</H1>
-                {!isRegister ? (
-                  <StyledButton onClick={() => setIsRegister(true)}>REGISTER</StyledButton>
-                ) : (
-                  <RegistrationForm />
-                )}
-              </TextWrapper>
-            </Box>
-          )}
-          {!isRegister && !isLogin && <hr />}
-          {!isRegister && (
-            <Box>
-              <TextWrapper align="center" lineHeight="2em">
-                {!isLogin && <H1 fsize="1.5em">If you have an account, click here</H1>}
-                {!isLogin ? (
-                  <StyledButton bg={COLORS.MAIN} onClick={() => setIsLogin(true)}>
-                    SIGN IN
-                  </StyledButton>
-                ) : (
-                 <SignInForm />
-                )}
-              </TextWrapper>
-            </Box>
-          )}
-        </ModalSection>
-        {isLogin && (
-          <ModalSection>
-            <UnlockButton customTitle="Login with wallet connection" />
-          </ModalSection>
+      <ModalSection>
+        {!isLogin && (
+          <Box>
+            <TextWrapper align="center" lineHeight="2em">
+              <H1 fsize="1.5em">Click here for new registration</H1>
+              {!isRegister ? (
+                <StyledButton onClick={() => setIsRegister(true)}>REGISTER</StyledButton>
+              ) : (
+                <RegistrationForm />
+              )}
+            </TextWrapper>
+          </Box>
         )}
+        {!isRegister && !isLogin && <hr />}
+        {!isRegister && (
+          <Box>
+            <TextWrapper align="center" lineHeight="2em">
+              {!isLogin && <H1 fsize="1.5em">If you have an account, click here</H1>}
+              {!isLogin ? (
+                <StyledButton bg={COLORS.MAIN} onClick={() => setIsLogin(true)}>
+                  SIGN IN
+                </StyledButton>
+              ) : (
+                <SignInForm />
+              )}
+            </TextWrapper>
+          </Box>
+        )}
+      </ModalSection>
+      {isLogin && (
+        <ModalSection>
+          <UnlockButton customTitle="Login with wallet connection" />
+        </ModalSection>
+      )}
     </ModalComponent>
   )
 }

@@ -27,4 +27,4 @@ export const actionCodeSettings = {
   url: 'http://localhost:3000/#/marketplace',
   // This must be true.
   handleCodeInApp: true,
-};
+}
