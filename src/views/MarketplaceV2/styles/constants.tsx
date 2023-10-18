@@ -45,7 +45,7 @@ export const PADDING: { [key: string]: { [key: string]: number } } = {
 export const HEIGHT: { [key: string]: number } = { FOOTER: 15, MENU: 10 }
 
 // Colors
-export const DEFAULT_BORDERS = '1px solid #3898b8'
+export const DEFAULT_BORDERS = '2px solid #3898b8'
 export const COLORS: { [key: string]: string } = {
   BACKGROUND: '#110217',
   MAIN: '#291e5c',
@@ -58,6 +58,7 @@ export const COLORS: { [key: string]: string } = {
   GRADIENT_INNER: 'linear-gradient(0deg, rgba(42,38,98,1) 0%, rgba(38,3,75,1) 100%)',
   INNER: 'rgb(42,38,98)',
   MENU: '#131737',
+  BORDER: '#3898b8'
 }
 // Margins
 export const MARGIN: { [key: string]: number } = { SM: 24 }

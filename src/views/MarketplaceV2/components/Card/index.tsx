@@ -1,7 +1,7 @@
 import React, { useMemo, useCallback } from 'react'
+import { useHistory } from 'react-router-dom'
 import useMarketplaceV2, { useQueryAsset, QueryType } from 'hooks/useMarketplaceV2'
 import useTheme from 'hooks/useTheme'
-import { GoogleDriveLink } from 'views/MarketplaceV2/constants/config'
 import { Props } from './index.d'
 import { CardContainer, Details, CardText as TextBox, Button } from './styled'
 import { H5, P } from '../Foundation/Text'
@@ -14,10 +14,22 @@ export default function Card(props: Props) {
   const { name, spriteName, rarity, price, badge } = props
   const { controllers } = useMarketplaceV2()
   const { modal } = controllers
+  const history = useHistory()
+
+  const handleNav = (event) => {
+    event.preventDefault()
+
+    history.push(`/marketplace/${badge}/${name}`)
+  }
+
+  const handleBuy = (event) => {
+    event.stopPropagation()
+    modal.handleOpen(`buy-${name}`)
+  }
 
   return (
     <>
-      <CardContainer className="secondary-drop-shadow">
+      <CardContainer className="secondary-drop-shadow" onClick={handleNav}>
         <Header {...{ name, rarity, badge }} />
         <SpriteDisplay {...{ spriteName }} />
         <Details>
@@ -28,7 +40,7 @@ export default function Card(props: Props) {
             </P>
             <P fsize="0.8em">${price.fiat}</P>
           </TextBox>
-          <Button onClick={() => modal.handleOpen(`buy-${name}`)}>BUY</Button>
+          <Button onClick={handleBuy} className='with-animation-tilt-n-move-shaking' >BUY</Button>
         </Details>
       </CardContainer>
       {modal.openModal[`buy-${name}`] && <PurchaseNFT {...props} />}
