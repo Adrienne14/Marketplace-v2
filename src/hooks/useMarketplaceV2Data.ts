@@ -5,10 +5,12 @@ import { CardType } from 'contexts/index.d'
 const useMarketplaceV2Data = () => {
   return useContext(MarketplaceV2DataContext)
 }
-export default useMarketplaceV2Data;
+export default useMarketplaceV2Data
 
 export const useMarketplaceV2FetchData = () => {
-  const { data: {nfts, classes} } = useMarketplaceV2Data()
+  const {
+    data: { nfts, classes },
+  } = useMarketplaceV2Data()
 
   return {
     data: nfts,
@@ -32,4 +34,3 @@ export const useMarketplaceV2FetchItem = (q) => {
     selected,
   }
 }
-

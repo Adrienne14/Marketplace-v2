@@ -6,12 +6,11 @@ import Cards from './Cards'
 import { H1, TextWrapper } from '../Foundation/Text'
 
 export default function Featured() {
-
   const { data } = useMarketplaceV2FetchData()
 
   return (
     <Container>
-      <Board className='main-drop-shadow' data-aos='slide-right'>
+      <Board className="main-drop-shadow" data-aos="slide-right">
         <TextWrapper>
           <H1 fsize="1.5em">LOREM IPSUM</H1>
         </TextWrapper>

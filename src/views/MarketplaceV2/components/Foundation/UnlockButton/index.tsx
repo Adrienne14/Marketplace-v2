@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, useWalletModal } from '@metagg/mgg-uikit'
-import styled from 'styled-components';
+import styled from 'styled-components'
 import useAuth from 'hooks/useAuth'
 import useMarketplaceV2 from 'hooks/useMarketplaceV2'
 import { useTranslation } from 'contexts/Localization'
@@ -30,5 +30,5 @@ export default UnlockButton
 
 const StyledConnect = styled(Button)`
   background-color: ${COLORS.MAIN};
-  border: 1px solid ${({theme}) => (theme.colors.text)};
+  border: 1px solid ${({ theme }) => theme.colors.text};
 `

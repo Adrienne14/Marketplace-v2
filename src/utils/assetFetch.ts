@@ -23,16 +23,14 @@ export const getImageUrlFromToken = (token: Token) => {
   return `./images/tokens/${address}.${token.iconExtension ?? 'svg'}`
 }
 
-// Marketplace 
+// Marketplace
 
 export const useFetchAssetsLocal = () => {
-  return './images/marketplace-assets';
+  return './images/marketplace-assets'
 }
 
-export const useFetchImg = ({name, folder, extension}:{name:string;folder?:string;extension?:string}) => {
-  const origin = useFetchAssetsLocal();
-  const fldr = folder ?? 'logo'; 
-  return `${origin}/${fldr}/${name}.${extension ?? 'png'}`;
+export const useFetchImg = ({ name, folder, extension }: { name: string; folder?: string; extension?: string }) => {
+  const origin = useFetchAssetsLocal()
+  const fldr = folder ?? 'logo'
+  return `${origin}/${fldr}/${name}.${extension ?? 'png'}`
 }
-
-

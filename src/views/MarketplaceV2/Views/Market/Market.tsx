@@ -5,16 +5,13 @@ import Filters from 'views/MarketplaceV2/components/Filters'
 import Main from '../Main'
 import Nftlist from './Nftlist'
 
-
 const Market = () => {
   return (
     <Main>
       <Filters />
       <StyledDiv>
         <TextWrapper>
-        <H1 fsize='2em'>
-          LOREM IPSUM
-        </H1>
+          <H1 fsize="2em">LOREM IPSUM</H1>
         </TextWrapper>
         <Nftlist />
       </StyledDiv>

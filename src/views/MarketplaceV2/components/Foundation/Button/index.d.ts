@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
 export interface Props extends React.HTMLProps<HTMLButtonElement> {
-  iconType?: string;
-  icon?: string;
+  iconType?: string
+  icon?: string
   variant?: any
 }

@@ -33,12 +33,8 @@ export const SvgContainer = styled.div<{
 `
 
 const SvgIcon: React.FC<Props> = (props) => {
-  const { Icon, Img} = props
-  return (
-    <SvgContainer {...props}>
-      { Icon?? Img }
-    </SvgContainer>
-  )
+  const { Icon, Img } = props
+  return <SvgContainer {...props}>{Icon ?? Img}</SvgContainer>
 }
 
 export default SvgIcon

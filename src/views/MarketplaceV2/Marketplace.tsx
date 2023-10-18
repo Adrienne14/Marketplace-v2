@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import Aos from 'aos'
-import "aos/dist/aos.css"
+import 'aos/dist/aos.css'
 import { PageContainer, StyledSection } from './components/Foundation/layout'
 import * as SECTIONS from './components/Sections'
 import ViewsLayout from './components/Foundation/layout/Views'
@@ -10,11 +10,10 @@ import MarketplaceProviders from './Providers'
 const sections = SECTIONS as unknown as { [key: string]: React.FC }
 
 const MarketplaceV2: React.FC = () => {
-
   useEffect(() => {
     Aos.init({
-      duration: 2000
-    });
+      duration: 2000,
+    })
   }, [])
 
   return (
@@ -23,7 +22,7 @@ const MarketplaceV2: React.FC = () => {
         const Sec = sections[key] as React.FC
         return (
           <StyledSection key={key}>
-            <PageContainer >
+            <PageContainer>
               <Sec />
             </PageContainer>
           </StyledSection>

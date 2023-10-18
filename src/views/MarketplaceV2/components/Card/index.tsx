@@ -18,8 +18,8 @@ export default function Card(props: Props) {
   return (
     <>
       <CardContainer className="secondary-drop-shadow">
-        <Header {...{name, rarity, badge}} />
-        <SpriteDisplay {...{spriteName}} />
+        <Header {...{ name, rarity, badge }} />
+        <SpriteDisplay {...{ spriteName }} />
         <Details>
           <TextBox>
             <H5 fsize="0.8em">Current Price</H5>

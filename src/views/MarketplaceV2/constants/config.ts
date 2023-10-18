@@ -1,4 +1,4 @@
-import { SocialProp, Links } from './config.d';
+import { SocialProp, Links } from './config.d'
 
 export const marketplaceURL = '/marketplace'
 export const socials: SocialProp[] = [
@@ -31,7 +31,6 @@ export const socials: SocialProp[] = [
     href: 'https://www.reddit.com/r/SparkPoint/',
   },
 ]
-
 
 export const LOGO = 'MSW Logo'
 

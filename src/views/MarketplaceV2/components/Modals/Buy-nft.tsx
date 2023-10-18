@@ -17,7 +17,7 @@ const PurchaseNFT: React.FC<any> = (props) => {
   const { controllers } = useMarketplaceV2()
   const { modal } = controllers
 
-  const [ isPurchaseNft, setIsPurchaseNft ] = React.useState<boolean>(false)
+  const [isPurchaseNft, setIsPurchaseNft] = React.useState<boolean>(false)
   const handleBuy = () => {
     setIsPurchaseNft(true)
   }
@@ -45,7 +45,7 @@ const PurchaseNFT: React.FC<any> = (props) => {
             <H3>Cancel</H3>
           </TextWrapper>
         </MarketPlaceButton>
-        <MGGButton className="with-animation-enlarge" onClick={handleBuy} >
+        <MGGButton className="with-animation-enlarge" onClick={handleBuy}>
           <TextWrapper>
             <H3>BUY</H3>
           </TextWrapper>
@@ -53,9 +53,9 @@ const PurchaseNFT: React.FC<any> = (props) => {
       </ActionWrapper>
     </Container>
   )
-  
+
   // sample state for confirmation message
-  
+
   const confirmMsg = {
     type: CONFIRM_TYPE.success,
     icon: 'CheckCircle',
@@ -66,13 +66,7 @@ const PurchaseNFT: React.FC<any> = (props) => {
 
   return (
     <ModalComponent type={`buy-${name}`}>
-      <ModalSection>
-        {isPurchaseNft? (
-          <ConfirmComponent {...confirmMsg} />
-        ): (
-          renderMain()
-        )}
-      </ModalSection>
+      <ModalSection>{isPurchaseNft ? <ConfirmComponent {...confirmMsg} /> : renderMain()}</ModalSection>
     </ModalComponent>
   )
 }

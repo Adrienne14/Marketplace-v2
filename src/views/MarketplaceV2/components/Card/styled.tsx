@@ -13,11 +13,11 @@ export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  ${({theme}) => (`
+  ${({ theme }) => `
     ${theme.mediaQueries.xl} {
       max-width: 100%;
     }
-  `)}
+  `}
 `
 const commonSectionStyle = (props?: { justify?: string; align?: string; padding?: string }) => {
   return `

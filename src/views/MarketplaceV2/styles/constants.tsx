@@ -1,4 +1,4 @@
-import { POSITION } from "./index.d"
+import { POSITION } from './index.d'
 
 export const breakpointMap: { [key: string]: number } = {
   xs: 370,
@@ -57,20 +57,21 @@ export const COLORS: { [key: string]: string } = {
   GRADIENT_NAV: 'linear-gradient(0deg, rgba(41,30,92,1) 0%, rgba(19,23,55,1) 0%, rgba(36,42,91,1) 100%)',
   GRADIENT_INNER: 'linear-gradient(0deg, rgba(42,38,98,1) 0%, rgba(38,3,75,1) 100%)',
   INNER: 'rgb(42,38,98)',
-  MENU: '#131737'
+  MENU: '#131737',
 }
 // Margins
 export const MARGIN: { [key: string]: number } = { SM: 24 }
 // Font size
-export const FONTSIZE: { [key: string]: string } = { 
-  SM: '12px', 
-  MD: '16px', 
-  XL: '20px', 
-  XXL: '30px' }
+export const FONTSIZE: { [key: string]: string } = {
+  SM: '12px',
+  MD: '16px',
+  XL: '20px',
+  XXL: '30px',
+}
 // Font style
-export const FONTSTYLE: { [key: string]: string } = { 
-  font1: 'Mustica Pro', 
-  font2: 'One Splice' 
+export const FONTSTYLE: { [key: string]: string } = {
+  font1: 'Mustica Pro',
+  font2: 'One Splice',
 }
 
 export const customSpacingProps = (type) => {

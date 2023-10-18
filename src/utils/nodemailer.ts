@@ -7,11 +7,11 @@ export const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: email,
-    pass
-  }
+    pass,
+  },
 })
 
 export const mailOptions = (user) => ({
   from: email,
-  to: user 
+  to: user,
 })

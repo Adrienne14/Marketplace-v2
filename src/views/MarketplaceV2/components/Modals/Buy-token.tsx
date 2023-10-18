@@ -47,7 +47,7 @@ const BuyModal: React.FC<any> = (props) => {
             variant="text"
             margin="0 auto"
             padding="0"
-            onClick={() => modal.handleClose("buy-token")}
+            onClick={() => modal.handleClose('buy-token')}
           >
             <H3>Okay</H3>
           </Button>
@@ -58,7 +58,7 @@ const BuyModal: React.FC<any> = (props) => {
 
   return (
     <ModalComponent type="buy-token">
-      <ModalSection>{!option ? renderMain() : <BuyExtended returnFn={{option, setOption}} />}</ModalSection>
+      <ModalSection>{!option ? renderMain() : <BuyExtended returnFn={{ option, setOption }} />}</ModalSection>
     </ModalComponent>
   )
 }

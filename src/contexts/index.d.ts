@@ -1,7 +1,7 @@
-export type TYPE_ANCHOR = 'top' | 'left' | 'bottom' | 'right';
+export type TYPE_ANCHOR = 'top' | 'left' | 'bottom' | 'right'
 
 export enum CLASSES {
-  archer ='Archer',
+  archer = 'Archer',
   artillery = 'Artillery',
   berserker = 'Berserker',
   darkKnight = 'Dark Knight',
@@ -27,4 +27,3 @@ export type CardType = {
   badge: CLASSES
   price: Price
 }
-

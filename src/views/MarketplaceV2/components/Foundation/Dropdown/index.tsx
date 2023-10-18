@@ -21,10 +21,8 @@ const Dropdown: React.FC<Props> = ({ filters }) => {
   return (
     <MiniBox className="dropdown" direction="column" align="center" justify="space-between" p="0">
       <DropdownBtn className="dropbtn">
-        <P fsize="0.7em">
-          {option} &nbsp;
-        </P>
-        <FaChevronDown color={theme.colors.MGG_accent2} className='dropdown-icon' />
+        <P fsize="0.7em">{option} &nbsp;</P>
+        <FaChevronDown color={theme.colors.MGG_accent2} className="dropdown-icon" />
       </DropdownBtn>
       <DropdownContent className="dropdown-content">
         {filters.map((filter) => (

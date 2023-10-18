@@ -1,7 +1,7 @@
 declare global {
   interface Window {
-    gapi: any;
+    gapi: any
   }
 }
 
-export {};
+export {}

@@ -10,7 +10,7 @@ const Iconloader = ({ type, name, ...rest }: Props) => {
   const capitalizeFirstLetter = (input: string): string => {
     return input.charAt(0).toUpperCase() + input.slice(1)
   }
-  
+
   const src = capitalizeFirstLetter(type) + name
   const [icon, setIcon] = React.useState<React.FC | null>(null)
 
@@ -26,7 +26,7 @@ const Iconloader = ({ type, name, ...rest }: Props) => {
       }
     }
     activeModule(type)
-    return () => setIcon(null);
+    return () => setIcon(null)
   }, [type, src])
 
   return <span {...rest}>{icon}</span>

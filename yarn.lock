@@ -16836,6 +16836,16 @@ pkg-up@3.1.0, pkg-up@^3.1.0:
   dependencies:
     find-up "^3.0.0"
 
+playfab-sdk@^2.138.230929:
+  version "2.138.230929"
+  resolved "https://registry.yarnpkg.com/playfab-sdk/-/playfab-sdk-2.138.230929.tgz#b2081f66065203d3bcc5fa4ecbcd61efee67f20e"
+  integrity sha512-/rsd5ONPW815pi6j1oI52p5y1RQtB5DwYr3NiCRm9PiDkSk66NOTsA+Kn4s8jNLDqKc+YZOeMVIIqVUbupS9rA==
+
+playfab-web-sdk@^1.156.230929:
+  version "1.156.230929"
+  resolved "https://registry.yarnpkg.com/playfab-web-sdk/-/playfab-web-sdk-1.156.230929.tgz#501ca4d20e608d8d00fe5b35a399df9f122d7a8a"
+  integrity sha512-6bwri7RyT9pUNnmegKMHVXO84w6MEVYONmqLN8ExaG8RhlFvEwo+B/dxCRiZhgKImFlAdMmwEQkk/r79BAFbjQ==
+
 please-upgrade-node@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/please-upgrade-node/-/please-upgrade-node-3.2.0.tgz#aeddd3f994c933e4ad98b99d9a556efa0e2fe942"

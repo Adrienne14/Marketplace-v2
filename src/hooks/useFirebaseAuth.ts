@@ -5,4 +5,4 @@ const useFirebaseAuth = () => {
   return useContext(AuthContext)
 }
 
-export default useFirebaseAuth;
+export default useFirebaseAuth

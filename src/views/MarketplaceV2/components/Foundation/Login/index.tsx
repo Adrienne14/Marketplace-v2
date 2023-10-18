@@ -9,8 +9,6 @@ import { H3, TextWrapper } from '../Text'
 import Iconloader from '../Iconloader'
 import Authentication from '../Authentication'
 
-
-
 const Container = styled.div`
   border: 1px solid red;
   display: flex;
@@ -20,11 +18,15 @@ const Container = styled.div`
 
 export default function Login() {
   const { controllers } = useMarketplaceV2()
-  const { modal } = controllers;
+  const { modal } = controllers
 
   return (
     <>
-      <ConnectApp onClick={() => modal.handleOpen('auth')} variant='text' className="icon-button with-animation-enlarge">
+      <ConnectApp
+        onClick={() => modal.handleOpen('auth')}
+        variant="text"
+        className="icon-button with-animation-enlarge"
+      >
         <TextWrapper>
           <H3>
             <Iconloader {...iconSettings.signIn} /> &nbsp; Sign In

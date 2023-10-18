@@ -3,12 +3,10 @@ import styled from 'styled-components'
 import { Margins, Paddings } from 'views/MarketplaceV2/styles/index.d'
 import { COLORS, DEFAULT_BORDERS, customSpacingProps } from 'views/MarketplaceV2/styles/constants'
 
-const Box: React.FC<React.HTMLAttributes<HTMLDivElement>>= ({children, ...props}):JSX.Element => {
+const Box: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children, ...props }): JSX.Element => {
   return (
     <Container {...props}>
-      <Wrapper>
-      {children}
-      </Wrapper>
+      <Wrapper>{children}</Wrapper>
     </Container>
   )
 }
@@ -27,34 +25,37 @@ const Container = styled.div`
 const Wrapper = styled.div`
   width: 100%;
 
-  // ${({theme}) => theme.mediaQueries.md} {
+  // ${({ theme }) => theme.mediaQueries.md} {
   //   width: 55%;
   // }
 `
 
 type MiniBoxProps = {
-  direction?: string;
-  justify?: string;
+  direction?: string
+  justify?: string
   align?: string
   height?: string
-} & Margins & Paddings
+} & Margins &
+  Paddings
 
 export const MiniBox = styled.div<MiniBoxProps>`
   border-radius: 3px;
   border: ${DEFAULT_BORDERS};
   display: flex;
-  justify-content: ${({justify}) => (justify ?? 'center')};
-  align-items: ${({align}) => (align ?? 'center')};
-  color: ${({theme}) => (theme.colors.text)};
+  justify-content: ${({ justify }) => justify ?? 'center'};
+  align-items: ${({ align }) => align ?? 'center'};
+  color: ${({ theme }) => theme.colors.text};
   padding: 5px;
   margin: 5px 0;
   font-size: 1em;
   background-color: ${COLORS.MENU};
   ${({ p, pt, pb, pl, pr }) => customSpacingProps({ p, pt, pb, pl, pr })}
   ${({ m, mt, mb, ml, mr }) => customSpacingProps({ m, mt, mb, ml, mr })}
-  ${({direction}) => direction && (`
+  ${({ direction }) =>
+    direction &&
+    `
     flex-direction: ${direction};
-  `)}
+  `}
 `
 export const OptionBox = styled.div`
   background-color: ${COLORS.CONTAINER};

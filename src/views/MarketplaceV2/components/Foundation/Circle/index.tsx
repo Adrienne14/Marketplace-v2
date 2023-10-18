@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Circle = ({color}:{color?: string}) => {
-  return <StyledCircle color={color}/>
+const Circle = ({ color }: { color?: string }) => {
+  return <StyledCircle color={color} />
 }
 
 export default Circle
@@ -18,5 +18,5 @@ margin: 0px 2px;
 `
 
 Circle.defaultProps = {
-  color: ''
+  color: '',
 }

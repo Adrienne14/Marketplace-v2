@@ -9,14 +9,13 @@ import PageLoader from '../Loader'
 import '../../../styles/Marketplace.css'
 import BuyModal from '../../Modals/Buy-token'
 
-
 export const StyledViews = styled.div`
   min-height: 100vh;
 `
 
 const withLoading = (WrappedComponent) => {
   return (props) => {
-    const { data } = props;
+    const { data } = props
     const [isLoading, setIsLoading] = useState<boolean>(true)
     React.useEffect(() => {
       if (!data) {
