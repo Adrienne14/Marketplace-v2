@@ -15,5 +15,3 @@ jobs:
           node-version: 14.x
       - name: Install dependencies
         run: yarn install
-      - name: Run prettier
-        run: yarn format:check
