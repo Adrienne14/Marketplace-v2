@@ -6,9 +6,11 @@ import { TextWrapper } from '../Foundation/Text'
 import { backgroundProp } from '../Foundation/layout'
 
 export const CardContainer = styled.div`
+  cursor: pointer;
   background-color: ${COLORS.CARD};
   background: ${COLORS.GRADIENT_CARD};
   border: ${DEFAULT_BORDERS};
+  outline: solid 0px ${COLORS.BORDER};
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -16,8 +18,15 @@ export const CardContainer = styled.div`
   ${({ theme }) => `
     ${theme.mediaQueries.xl} {
       max-width: 100%;
+      margin: 0.5em;
     }
   `}
+
+  transition: outline 0.1s ease;
+  &:hover {
+    outline-width: 5px;
+  }
+
 `
 const commonSectionStyle = (props?: { justify?: string; align?: string; padding?: string }) => {
   return `
@@ -62,6 +71,7 @@ export const Display = styled(backgroundProp)<{ bg?: string }>`
 export const Details = styled.div`
   ${commonSectionStyle({ padding: PADDING, justify: 'space-between', align: 'center' })}
   flex: 1;
+  z-index: 2;
 `
 
 export const Button = styled(MGGButton)`
