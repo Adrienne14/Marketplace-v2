@@ -56,7 +56,7 @@ export const CardText = styled(TextWrapper)`
 export const Display = styled(backgroundProp)<{ bg?: string }>`
   ${commonSectionStyle({ justify: 'center', align: 'center' })}
   flex: 3;
-  border: 2px solid #5aa2cf;
+  border: 4px solid ${COLORS.BORDER};
   position: relative;
   border-radius: 10px;
   & img {
