@@ -3,12 +3,13 @@ import { Flex, IconButton } from '@metagg/mgg-uikit'
 import styled from 'styled-components'
 import { Grid } from '@mui/material'
 import Iconloader from 'views/MarketplaceV2/components/Foundation/Iconloader'
-import { H2, H5, P, TextWrapper } from 'views/MarketplaceV2/components/Foundation/Text'
+import MarketPlaceButton from 'views/MarketplaceV2/components/Foundation/Button'
+import { H2, H3, H5, P, TextWrapper } from 'views/MarketplaceV2/components/Foundation/Text'
 import Box, { MiniBox } from '../../components/Foundation/Box'
 import withGridLayout from './withGridLayout'
 import Main from '../Main'
 import { FIELD_INFO } from './index.d'
-import { ContentWrapper } from './styled'
+import { Button, ContentWrapper } from './styled'
 
 const tempStats = {
   basicInfo: {
@@ -21,7 +22,7 @@ const tempStats = {
 const UserMain = (props) => {
   const renderInfo = () => {
     return (
-      <StyledBox>
+      <StyledBox p="1em">
         <Grid container spacing={2}>
           <Grid item xs={12} sm={10}>
             <Grid container spacing={{ xs: 1, sm: 2 }}>
@@ -31,10 +32,10 @@ const UserMain = (props) => {
                 return (
                   <>
                     <Grid item xs={12} sm={5}>
-                      <H5 fsize="0.7em">{field}</H5>
+                      <H5 fsize="0.9em">{field}</H5>
                     </Grid>
                     <Grid item xs={12} sm={7}>
-                      <P fsize="0.7em">: {val}</P>
+                      <P fsize="0.9em">: {val}</P>
                     </Grid>
                   </>
                 )
@@ -53,20 +54,64 @@ const UserMain = (props) => {
     )
   }
 
+  const boxInfo = (name: string) => {
+    return (
+      <Flex alignItems="center" justifyContent="space-between">
+        <H2 fsize="1.5em">{name}</H2>
+        <Flex justifyContent="space-between" flex="0.2">
+          <IconButton variant="text" className="icon-button">
+            <MiniBox m="0">
+              <Iconloader type="fa" name="Redo" fontSize="1em" />
+            </MiniBox>
+          </IconButton>
+          <IconButton variant="text" className="icon-button">
+            <MiniBox m="0">
+              <Iconloader type="fa" name="InfoCircle" fontSize="1em" />
+            </MiniBox>
+          </IconButton>
+        </Flex>
+      </Flex>
+    )
+  }
+
   const renderPoint = () => {
     return (
-      <StyledBox>
-        <Flex>
-          <H2 fsize="1.5em">POINT</H2>
-        </Flex>
+      <StyledBox p="1em">
+        {boxInfo('point')}
+        <Grid container columnSpacing={{ xs: 2, md: 5 }} mt={2}>
+          <Grid item xs={9}>
+            <MiniBox m="0">
+              <P>123456 MGG | 0.00</P>
+            </MiniBox>
+          </Grid>
+          <Grid item xs={3}>
+            <Button h="100%">BUY</Button>
+          </Grid>
+        </Grid>
       </StyledBox>
     )
   }
+
+  const renderCoin = () => (
+    <StyledBox p="1em">
+      {boxInfo('coin')}
+      <MiniBox>test</MiniBox>
+      <Flex justifyContent='center'>
+        <MarketPlaceButton variant="text" style={{ justifyContent: 'center', width: '100%' }}>
+          <TextWrapper>
+            <H3>WITHDRAW</H3>
+          </TextWrapper>
+        </MarketPlaceButton>
+        <Button w="20%">BUY</Button>
+      </Flex>
+    </StyledBox>
+  )
 
   return (
     <ContentWrapper>
       {renderInfo()}
       {renderPoint()}
+      {renderCoin()}
     </ContentWrapper>
   )
 }
@@ -95,6 +140,6 @@ const StyledDiv = styled.div`
   margin: 15px 0;
   padding: 15px 0px;
 `
-const StyledBox = styled(Box).attrs({ className: 'secondary-drop-shadow' })`
+const StyledBox = styled(Box).attrs({ className: 'secondary-drop-shadow' })<{ p?: string }>`
   word-wrap: break-word;
 `

@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button as MGGButton } from '@metagg/mgg-uikit'
 import { COLORS, DEFAULT_BORDERS } from 'views/MarketplaceV2/styles/constants'
 import { TextWrapper } from '../Foundation/Text'
 import { backgroundProp } from '../Foundation/layout'
+import { DefaultButton } from '../Foundation/Button/styled'
 
 export const CardContainer = styled.div`
   cursor: pointer;
@@ -74,7 +74,7 @@ export const Details = styled.div`
   z-index: 2;
 `
 
-export const Button = styled(MGGButton)`
+export const Button = styled(DefaultButton)`
   border-radius: 5px;
   width: 30%;
 `

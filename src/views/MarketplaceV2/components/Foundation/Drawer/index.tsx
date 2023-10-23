@@ -32,9 +32,17 @@ const StyledDiv = styled.div`
   overflow-y: scroll;
   ${({ theme }) => `
     ${theme.mediaQueries.sm} {
+      width: 35vw;
+    }
+
+    ${theme.mediaQueries.md} {
       width: 25vw;
     }
   `}
+  &::-webkit-scrollbar-track {
+    box-shadow: none;
+    border-radius: 0;
+  }
 `
 const MainContent = styled.div`
   padding: 1.5em;

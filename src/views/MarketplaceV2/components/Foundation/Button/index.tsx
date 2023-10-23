@@ -6,9 +6,9 @@ import { StyledButton, StyledMiniBox } from './styled'
 import { P, TextWrapper } from '../Text'
 
 const MarketPlaceButton = (props: Props) => {
-  const { title, iconType, icon, style, children, className, variant, onClick } = props
+  const { title, iconType, icon, style, children, className, variant, onClick, p, m } = props
   return (
-    <StyledButton {...{ className, variant, onClick }}>
+    <StyledButton {...{ className, variant, onClick, p, m }}>
       <StyledMiniBox style={style}>
         {children ?? (
           <TextWrapper className="with-animation-enlarge">

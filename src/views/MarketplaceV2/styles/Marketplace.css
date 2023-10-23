@@ -77,6 +77,10 @@ button.option {
   animation: tilt-n-move-shaking 0.25s infinite;
 }
 
+.icon-button {
+  width: auto;
+}
+
 .icon-button:hover {
   background-color: transparent !important;
 }

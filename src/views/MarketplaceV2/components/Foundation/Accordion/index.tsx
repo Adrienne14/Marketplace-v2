@@ -10,7 +10,7 @@ const Accordion: React.FC<Props> = ({ children, ...props }) => {
   const { theme } = useTheme()
 
   return (
-    <MUIAccordion sx={{ backgroundColor: 'transparent' }}>
+    <MUIAccordion sx={{ backgroundColor: 'transparent',  boxShadow: 'none',}}>
       <AccordionSummary
         expandIcon={<ChevronDown color={theme.colors.MGG_accent2} />}
         aria-controls={`${name.toLowerCase()}-content`}
