@@ -9,7 +9,13 @@ import Box, { MiniBox } from '../../components/Foundation/Box'
 import withGridLayout from './withGridLayout'
 import Main from '../Main'
 import { FIELD_INFO } from './index.d'
-import { Button, ContentWrapper } from './styled'
+import { Button, ContentWrapper, NavButton, NavDiv } from './styled'
+import Cointable from './Cointable'
+import Table from './Table'
+import TxTab from './TxTab'
+
+
+// Tempdata collection
 
 const tempStats = {
   basicInfo: {
@@ -19,7 +25,75 @@ const tempStats = {
   },
 }
 
+const tempData = [
+  {
+    date: '2023.07.27',
+    status: 'Success',
+    tx: 'Buy',
+    amount: '102.00',
+    type: 'Market Money',
+  },
+  {
+    date: '2023.07.27',
+    status: 'Fail',
+    tx: 'Buy',
+    amount: '102.00',
+    type: 'Market Money',
+  },
+]
+
+const tempTx = {
+  coin: [
+    {
+      date: '2023.07.27',
+      status: 'Success',
+      tx: 'Buy',
+      amount: '102.00',
+      type: 'Market Money',
+    },
+  ],
+  nft: [
+    {
+      date: '2023.07.27',
+      status: 'Success',
+      tx: 'Buy',
+      amount: '102.00',
+      type: 'Market Money',
+    },
+    {
+      date: '2023.07.27',
+      status: 'Fail',
+      tx: 'Buy',
+      amount: '102.00',
+      type: 'Market Money',
+    },
+  ],
+}
+
 const UserMain = (props) => {
+  const { txData: {coin, nft}, tabController: {active} } = props
+  const txD = React.useMemo(() => active === 0? coin : nft, [active, coin, nft])
+
+  const boxInfo = (name: string) => {
+    return (
+      <Flex alignItems="center" justifyContent="space-between">
+        <H2 fsize="1.5em">{name}</H2>
+        <Flex justifyContent="space-between" flex="0.2">
+          <IconButton variant="text" className="icon-button">
+            <MiniBox m="0">
+              <Iconloader type="fa" name="Redo" fontSize="1em" />
+            </MiniBox>
+          </IconButton>
+          <IconButton variant="text" className="icon-button">
+            <MiniBox m="0">
+              <Iconloader type="fa" name="InfoCircle" fontSize="1em" />
+            </MiniBox>
+          </IconButton>
+        </Flex>
+      </Flex>
+    )
+  }
+
   const renderInfo = () => {
     return (
       <StyledBox p="1em">
@@ -54,26 +128,6 @@ const UserMain = (props) => {
     )
   }
 
-  const boxInfo = (name: string) => {
-    return (
-      <Flex alignItems="center" justifyContent="space-between">
-        <H2 fsize="1.5em">{name}</H2>
-        <Flex justifyContent="space-between" flex="0.2">
-          <IconButton variant="text" className="icon-button">
-            <MiniBox m="0">
-              <Iconloader type="fa" name="Redo" fontSize="1em" />
-            </MiniBox>
-          </IconButton>
-          <IconButton variant="text" className="icon-button">
-            <MiniBox m="0">
-              <Iconloader type="fa" name="InfoCircle" fontSize="1em" />
-            </MiniBox>
-          </IconButton>
-        </Flex>
-      </Flex>
-    )
-  }
-
   const renderPoint = () => {
     return (
       <StyledBox p="1em">
@@ -81,7 +135,7 @@ const UserMain = (props) => {
         <Grid container columnSpacing={{ xs: 2, md: 5 }} mt={2}>
           <Grid item xs={9}>
             <MiniBox m="0">
-              <P>123456 MGG | 0.00</P>
+              <P fsize="0.9em">123456 MGG | 0.00</P>
             </MiniBox>
           </Grid>
           <Grid item xs={3}>
@@ -95,8 +149,10 @@ const UserMain = (props) => {
   const renderCoin = () => (
     <StyledBox p="1em">
       {boxInfo('coin')}
-      <MiniBox>test</MiniBox>
-      <Flex justifyContent='center'>
+      <MiniBox p="0.5em" m="0.5em 0">
+        <Cointable />
+      </MiniBox>
+      <Flex justifyContent="center">
         <MarketPlaceButton variant="text" style={{ justifyContent: 'center', width: '100%' }}>
           <TextWrapper>
             <H3>WITHDRAW</H3>
@@ -107,11 +163,38 @@ const UserMain = (props) => {
     </StyledBox>
   )
 
+  const renderActivityHistory = () => (
+    <StyledBox p="1em">
+      <Flex alignItems="center" justifyContent="space-between">
+        <H2 fsize="1.5em">Activity History</H2>
+        <MarketPlaceButton title="View All" style={{ justifyContent: 'center' }} />
+      </Flex>
+      <MiniBox p="2em 0.5em" m="0.5em 0">
+        <Table data={tempData} />
+      </MiniBox>
+    </StyledBox>
+  )
+
+  const renderTxHistory = () => (
+    <StyledBox p="1em">
+      <Flex alignItems="center" justifyContent="space-between">
+        <H2 fsize="1.5em">Transaction History</H2>
+        <MarketPlaceButton title="View All" style={{ justifyContent: 'center' }} />
+      </Flex>
+      <TxTab tabController={props.tabController} />
+      <MiniBox p="0.5em" m="0 0 0.5em  0">
+        <Table data={txD} />
+      </MiniBox>
+    </StyledBox>
+  )
+
   return (
     <ContentWrapper>
       {renderInfo()}
       {renderPoint()}
       {renderCoin()}
+      {renderActivityHistory()}
+      {renderTxHistory()}
     </ContentWrapper>
   )
 }
@@ -119,12 +202,15 @@ const UserMain = (props) => {
 const WrappedMain = withGridLayout(UserMain)
 
 const User = () => {
+  const [active, setActive] = useState(0)
   return (
     <Main>
       <TextWrapper>
         <StyledDiv>
           <Grid container spacing={5}>
-            <WrappedMain {...{ mediaQ: { xs: 12, md: 6, lg: 5 } }} />
+            <WrappedMain
+              {...{ mediaQ: { xs: 12, md: 6, lg: 5 }, tabController: { active, setActive }, txData: { ...tempTx } }}
+            />
           </Grid>
         </StyledDiv>
       </TextWrapper>

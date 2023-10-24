@@ -1,5 +1,7 @@
+import { Button as MGGButton } from '@metagg/mgg-uikit';
 import styled from 'styled-components'
 import { DefaultButton } from 'views/MarketplaceV2/components/Foundation/Button/styled'
+import { COLORS } from 'views/MarketplaceV2/styles/constants';
 
 export const ContentWrapper = styled.div`
   width: 100%;
@@ -24,4 +26,14 @@ export const Button = styled(DefaultButton)<{ w?: string; h?: string }>`
   ${({ h }) => `
     height: ${h};
   `}
+`
+export const NavDiv = styled.div`
+
+`
+export const NavButton = styled(MGGButton)`
+  width: 60px;
+  height: 4vh;
+  border-radius: 0!important;
+  background-color: transparent;
+  // border: 1px solid ${COLORS.BORDER};
 `
