@@ -7,6 +7,7 @@ import { FaChevronCircleLeft } from 'react-icons/fa'
 import { H1, H3, P, P as Text, TextWrapper } from '../Foundation/Text'
 import { ConfirmComponent } from './Modal'
 import { CONFIRM_TYPE } from './index.d'
+import Dropdown from '../Foundation/Dropdown'
 
 type Props = {
   returnFn: {
@@ -24,19 +25,19 @@ const BuyExtended: React.FC<Props> = (props) => {
   }
   const renderFields = () => (
     <Fields container>
-      {/* <Field container item xs={12}>
-          <Label item xs={6} container>
-            <Grid item xs={6}>
-              <Text>Quantity</Text>
-            </Grid>
-            <Grid item xs={2}>
-              <Text>:</Text>
-            </Grid>
-          </Label>
-          <Grid item xs={6}>
-            <Value>$0.00</Value>
+      <Field container item xs={12}>
+        <Label item xs={4} container>
+          <Grid item xs={10}>
+            <Text>Quantity</Text>
           </Grid>
-        </Field> */}
+          <Grid item xs={2}>
+            <Text>:</Text>
+          </Grid>
+        </Label>
+        <Grid item xs={4} md={2}>
+          <Dropdown filters={qtySample} />
+        </Grid>
+      </Field>
       <Field container item xs={12}>
         <Label item xs={4} container>
           <Grid item xs={10}>
@@ -142,6 +143,8 @@ const BuyExtended: React.FC<Props> = (props) => {
 }
 
 export default BuyExtended
+
+const qtySample = ['0.00', '10.00', '100.00', '300.00', '500.00', '1,000.00']
 
 const StyledDiv = styled.div`
   display: flex;
