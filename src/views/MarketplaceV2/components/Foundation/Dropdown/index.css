@@ -4,8 +4,8 @@
 }
 
 .dropbtn {
-  width: max-content;
-  min-width: 120px;
+  width: 100%;
+  /* min-width: 120px; */
   cursor: pointer;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .dropdown-content {
-  display: none;
+  /* display: none; */
   position: absolute;
   min-width: 100%;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -39,6 +39,10 @@
   display: flex;
 }
 
+.dropdown-item:active .dropdown {
+  display: none;
+}
+
 .dropdown-icon {
   -webkit-transition: 0.6s ease-out;
   -moz-transition: 0.6s ease-out;
@@ -46,7 +50,7 @@
 }
 
 .dropdown:hover .dropdown-icon {
-  -webkit-transform: rotateZ(540deg);
-  -moz-transform: rotateZ(540deg);
-  transform: rotateZ(540deg);
+  -webkit-transform: rotateZ(180deg);
+  -moz-transform: rotateZ(180deg);
+  transform: rotateZ(180deg);
 }
