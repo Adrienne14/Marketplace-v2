@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Grid } from '@mui/material'
 import { Flex, IconButton } from '@metagg/mgg-uikit'
 import { useMarketplaceV2FetchData } from 'hooks/useMarketplaceV2Data'
+import BasicTooltip from 'views/MarketplaceV2/components/Foundation/Tooltip'
 import MarketPlaceButton from 'views/MarketplaceV2/components/Foundation/Button'
 import { P, H2, TextWrapper } from 'views/MarketplaceV2/components/Foundation/Text'
 import { MiniBox } from 'views/MarketplaceV2/components/Foundation/Box'
@@ -29,14 +30,12 @@ const CategoryList = ({ active, setActive }) => (
 
 const DisplayNft = ({ data }) => {
   return (
-    <Grid container wrap='wrap' spacing={5}>
-      {
-        data.map((d) => (
-          <Grid item xs={12} md={6}>
-            <NftCard {...d} />
-          </Grid>
-        ))
-      }
+    <Grid container wrap="wrap" spacing={5}>
+      {data.map((d) => (
+        <Grid item xs={12} md={6}>
+          <NftCard {...d} />
+        </Grid>
+      ))}
     </Grid>
   )
 }
@@ -51,12 +50,13 @@ const NftCollection = (props) => {
         <Flex alignItems="center" justifyContent="space-between">
           <H2 fsize="1.2em">OWNED CHARACTERS/ITEMS</H2>
           <Flex justifyContent="space-between" alignItems="center" flex="0.2">
-            <IconButton variant="text" className="icon-button">
+            <BasicTooltip title="Owned Characters or Items">
               <MiniBox>
                 <Iconloader type="fa" name="InfoCircle" fontSize="1em" />
               </MiniBox>
-            </IconButton>
-           <MarketPlaceButton variant="text" title="Item List" style={{ justifyContent: 'center' }} height="50%" />
+            </BasicTooltip>
+
+            <MarketPlaceButton variant="text" title="Item List" style={{ justifyContent: 'center' }} height="50%" />
           </Flex>
         </Flex>
 

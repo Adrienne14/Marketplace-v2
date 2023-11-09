@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Flex, IconButton } from '@metagg/mgg-uikit'
-import styled from 'styled-components'
 import { Grid } from '@mui/material'
 import Iconloader from 'views/MarketplaceV2/components/Foundation/Iconloader'
 import MarketPlaceButton from 'views/MarketplaceV2/components/Foundation/Button'
+import BasicTooltip from 'views/MarketplaceV2/components/Foundation/Tooltip'
 import { H2, H3, H5, P, TextWrapper } from 'views/MarketplaceV2/components/Foundation/Text'
+import useMarketplaceV2 from 'hooks/useMarketplaceV2'
 import { MiniBox } from '../../components/Foundation/Box'
-import withGridLayout from './withGridLayout'
-import Main from '../Main'
 import { FIELD_INFO } from './index.d'
 import { ActionDiv, Button, ContentWrapper, NavButton, NavDiv, StyledBox } from './styled'
 import Cointable from './Cointable'
@@ -16,6 +15,10 @@ import TxTab from './TxTab'
 
 const UserMain = (props) => {
   const {
+    controllers: { modal },
+  } = useMarketplaceV2()
+
+  const {
     txHistory: { coin, nft },
     activityHistory,
     stats,
@@ -23,21 +26,21 @@ const UserMain = (props) => {
   } = props
   const txD = React.useMemo(() => (active === 0 ? coin : nft), [active, coin, nft])
 
-  const boxInfo = (name: string) => {
+  const boxInfo = (name: string, tooltip: string) => {
     return (
       <Flex alignItems="center" justifyContent="space-between">
         <H2 fsize="1.2em">{name}</H2>
-        <Flex justifyContent="space-between" flex="0.2">
+        <Flex justifyContent="space-between" flex="0.2" alignItems="center">
           <IconButton variant="text" className="icon-button">
             <MiniBox m="0">
               <Iconloader type="fa" name="Redo" fontSize="1em" />
             </MiniBox>
           </IconButton>
-          <IconButton variant="text" className="icon-button">
-            <MiniBox m="0">
+          <BasicTooltip title={tooltip}>
+            <MiniBox m="0" style={{ height: '50%' }}>
               <Iconloader type="fa" name="InfoCircle" fontSize="1em" />
             </MiniBox>
-          </IconButton>
+          </BasicTooltip>
         </Flex>
       </Flex>
     )
@@ -80,7 +83,7 @@ const UserMain = (props) => {
   const renderPoint = () => {
     return (
       <StyledBox p="1em">
-        {boxInfo('point')}
+        {boxInfo('point', 'Access point')}
         <Grid container columnSpacing={{ xs: 2, md: 5 }} mt={2}>
           <Grid item xs={9}>
             <MiniBox m="0">
@@ -88,7 +91,9 @@ const UserMain = (props) => {
             </MiniBox>
           </Grid>
           <Grid item xs={3}>
-            <Button h="100%">BUY</Button>
+            <Button h="100%" onClick={() => modal.handleOpen('buy-token')}>
+              BUY
+            </Button>
           </Grid>
         </Grid>
       </StyledBox>
@@ -97,7 +102,7 @@ const UserMain = (props) => {
 
   const renderCoin = () => (
     <StyledBox p="1em">
-      {boxInfo('coin')}
+      {boxInfo('coin', 'Access coin')}
       <MiniBox p="0.5em" m="0.5em 0">
         <Cointable />
       </MiniBox>
@@ -107,7 +112,9 @@ const UserMain = (props) => {
             <H3 className="with-animation-enlarge">WITHDRAW</H3>
           </TextWrapper>
         </MarketPlaceButton>
-        <Button w="20%">BUY</Button>
+        <Button w="20%" onClick={() => modal.handleOpen('buy-token')}>
+          BUY
+        </Button>
       </ActionDiv>
     </StyledBox>
   )
