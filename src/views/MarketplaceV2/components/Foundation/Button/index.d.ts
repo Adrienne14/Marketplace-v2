@@ -6,4 +6,5 @@ export interface Props extends React.HTMLProps<HTMLButtonElement> {
   variant?: any
   p?: string;
   m?: string;
+  height?: string;
 }

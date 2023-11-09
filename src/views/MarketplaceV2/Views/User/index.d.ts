@@ -1,3 +1,5 @@
+import { CardType } from "contexts/index.d";
+
 export enum FIELD_INFO {
   email = 'EMAIL ADDRESS',
   wallet = 'WALLET ADDRESS',
@@ -17,3 +19,5 @@ export type TableProps = {
     amount: string;
     type: string
 }
+
+export type NftProps = CardType

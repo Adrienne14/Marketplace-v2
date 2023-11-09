@@ -5,15 +5,15 @@ import { Grid } from '@mui/material'
 import Iconloader from 'views/MarketplaceV2/components/Foundation/Iconloader'
 import MarketPlaceButton from 'views/MarketplaceV2/components/Foundation/Button'
 import { H2, H3, H5, P, TextWrapper } from 'views/MarketplaceV2/components/Foundation/Text'
-import Box, { MiniBox } from '../../components/Foundation/Box'
+import { MiniBox } from '../../components/Foundation/Box'
 import withGridLayout from './withGridLayout'
 import Main from '../Main'
 import { FIELD_INFO } from './index.d'
-import { Button, ContentWrapper, NavButton, NavDiv } from './styled'
+import { ActionDiv, Button, ContentWrapper, NavButton, NavDiv, StyledBox } from './styled'
 import Cointable from './Cointable'
 import Table from './Table'
 import TxTab from './TxTab'
-
+import NftCollection from './NftCollection'
 
 // Tempdata collection
 
@@ -71,13 +71,16 @@ const tempTx = {
 }
 
 const UserMain = (props) => {
-  const { txData: {coin, nft}, tabController: {active} } = props
-  const txD = React.useMemo(() => active === 0? coin : nft, [active, coin, nft])
+  const {
+    txData: { coin, nft },
+    tabController: { active },
+  } = props
+  const txD = React.useMemo(() => (active === 0 ? coin : nft), [active, coin, nft])
 
   const boxInfo = (name: string) => {
     return (
       <Flex alignItems="center" justifyContent="space-between">
-        <H2 fsize="1.5em">{name}</H2>
+        <H2 fsize="1.2em">{name}</H2>
         <Flex justifyContent="space-between" flex="0.2">
           <IconButton variant="text" className="icon-button">
             <MiniBox m="0">
@@ -105,10 +108,10 @@ const UserMain = (props) => {
                 const val = stat[1]
                 return (
                   <>
-                    <Grid item xs={12} sm={5}>
+                    <Grid item xs={5} sm={5}>
                       <H5 fsize="0.9em">{field}</H5>
                     </Grid>
-                    <Grid item xs={12} sm={7}>
+                    <Grid item xs={7} sm={7}>
                       <P fsize="0.9em">: {val}</P>
                     </Grid>
                   </>
@@ -152,22 +155,22 @@ const UserMain = (props) => {
       <MiniBox p="0.5em" m="0.5em 0">
         <Cointable />
       </MiniBox>
-      <Flex justifyContent="center">
+      <ActionDiv justifyContent="center">
         <MarketPlaceButton variant="text" style={{ justifyContent: 'center', width: '100%' }}>
-          <TextWrapper>
-            <H3>WITHDRAW</H3>
+          <TextWrapper >
+            <H3 className="with-animation-enlarge">WITHDRAW</H3>
           </TextWrapper>
         </MarketPlaceButton>
         <Button w="20%">BUY</Button>
-      </Flex>
+      </ActionDiv>
     </StyledBox>
   )
 
   const renderActivityHistory = () => (
     <StyledBox p="1em">
       <Flex alignItems="center" justifyContent="space-between">
-        <H2 fsize="1.5em">Activity History</H2>
-        <MarketPlaceButton title="View All" style={{ justifyContent: 'center' }} />
+        <H2 fsize="1.2em">Activity History</H2>
+        <MarketPlaceButton variant="text" title="View All" style={{ justifyContent: 'center' }} height="50%" />
       </Flex>
       <MiniBox p="2em 0.5em" m="0.5em 0">
         <Table data={tempData} />
@@ -178,8 +181,8 @@ const UserMain = (props) => {
   const renderTxHistory = () => (
     <StyledBox p="1em">
       <Flex alignItems="center" justifyContent="space-between">
-        <H2 fsize="1.5em">Transaction History</H2>
-        <MarketPlaceButton title="View All" style={{ justifyContent: 'center' }} />
+        <H2 fsize="1.2em">Transaction History</H2>
+        <MarketPlaceButton variant="text" title="View All" style={{ justifyContent: 'center' }} height="50%" />
       </Flex>
       <TxTab tabController={props.tabController} />
       <MiniBox p="0.5em" m="0 0 0.5em  0">
@@ -200,6 +203,7 @@ const UserMain = (props) => {
 }
 
 const WrappedMain = withGridLayout(UserMain)
+const WrappedNftList = withGridLayout(NftCollection)
 
 const User = () => {
   const [active, setActive] = useState(0)
@@ -211,6 +215,7 @@ const User = () => {
             <WrappedMain
               {...{ mediaQ: { xs: 12, md: 6, lg: 5 }, tabController: { active, setActive }, txData: { ...tempTx } }}
             />
+            <WrappedNftList {...{ mediaQ: { xs: 12, md: 6, lg: 7 } }} />
           </Grid>
         </StyledDiv>
       </TextWrapper>
@@ -225,7 +230,4 @@ const StyledDiv = styled.div`
   flex-direction: column;
   margin: 15px 0;
   padding: 15px 0px;
-`
-const StyledBox = styled(Box).attrs({ className: 'secondary-drop-shadow' })<{ p?: string }>`
-  word-wrap: break-word;
 `

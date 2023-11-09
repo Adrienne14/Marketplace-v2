@@ -45,13 +45,13 @@ const UserHighlight = () => {
             <>
               <IconButton variant="text" className="icon-button" onClick={() => modal.handleOpen('buy-token')}>
                 <CustomBox>
-                  <P fsize="0.7em">123456789 MGG &nbsp;</P>
-                  <Iconloader type="fa" name="Coins" fontSize="0.7em" className="with-animation-enlarge" />
+                  <P fsize="0.6em">123456789 MGG &nbsp;</P>
+                  <Iconloader type="fa" name="Coins" fontSize="0.6em" className="with-animation-enlarge" />
                 </CustomBox>
               </IconButton>
               <IconButton variant="text" style={{ padding: 0 }} className="icon-button">
                 <CustomBox>
-                  <Iconloader type="fi" name="LogOut" fontSize="0.7em" className="with-animation-enlarge" />
+                  <Iconloader type="fi" name="LogOut" fontSize="0.6em" className="with-animation-enlarge" />
                 </CustomBox>
               </IconButton>
             </>

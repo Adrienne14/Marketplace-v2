@@ -1,7 +1,8 @@
-import { Button as MGGButton } from '@metagg/mgg-uikit';
+import { Button as MGGButton, Flex } from '@metagg/mgg-uikit';
 import styled from 'styled-components'
 import { DefaultButton } from 'views/MarketplaceV2/components/Foundation/Button/styled'
 import { COLORS } from 'views/MarketplaceV2/styles/constants';
+import Box from '../../components/Foundation/Box'
 
 export const ContentWrapper = styled.div`
   width: 100%;
@@ -36,4 +37,15 @@ export const NavButton = styled(MGGButton)`
   border-radius: 0!important;
   background-color: transparent;
   // border: 1px solid ${COLORS.BORDER};
+`
+
+export const StyledBox = styled(Box).attrs({ className: 'secondary-drop-shadow' })<{ p?: string }>`
+  word-wrap: break-word;
+`
+
+export const ActionDiv = styled(Flex)`
+  height:4vh;
+  & > * {
+    height: 100%;
+  }
 `

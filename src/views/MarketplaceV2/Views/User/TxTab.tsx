@@ -13,7 +13,7 @@ const TxTab = ({
     tabController.setActive(newValue)
   }
   return (
-    <div>
+    <div style={{marginTop: '0.5em'}}>
       <Tabbutton activeIndex={tabController.active === 0} onClick={() => handleChange(0)} variant="text">
         COIN
       </Tabbutton>
@@ -29,5 +29,13 @@ export default TxTab
 const Tabbutton = styled(Button)<{ activeIndex?: boolean }>`
   color: white;
   border: ${DEFAULT_BORDERS};
-  background-color: ${({ activeIndex }) => (activeIndex ? COLORS.MENU : 'transparent')}; ;
-`
+  background-color: ${({ activeIndex }) => (activeIndex ? COLORS.MENU : 'transparent')};
+  height: 25px;
+  font-size: 0.8em;
+
+  ${({theme}) => `
+    ${theme.mediaQueries.sm} {
+      height: 50px;
+    }
+  `}
+  `
