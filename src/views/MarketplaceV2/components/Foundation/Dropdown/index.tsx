@@ -12,25 +12,36 @@ import './index.css'
 const Dropdown: React.FC<Props> = ({ filters }) => {
   const { theme } = useTheme()
   const [option, setOption] = React.useState(filters[0])
-  const [display, setDisplay] = React.useState<string>('none')
+  const [display, setDisplay] = React.useState<boolean>(false)
 
   const handleChange = (event) => {
     setOption(event.target.value as string)
+    setDisplay(false)
+  }
+
+  const handleToggleShow = (event) => {
+    setDisplay(!display)
+  }
+
+  const handleHide = (event) => {
+    setDisplay(false)
   }
 
   return (
     <MiniBox className="dropdown" direction="column" align="center" justify="space-between" p="0">
-      <DropdownBtn className="dropbtn">
+      <DropdownBtn className="dropbtn" onMouseEnter={handleToggleShow} onClick={handleToggleShow}>
         <P fsize="0.7em">{option} &nbsp;</P>
-        <FaChevronDown color={theme.colors.MGG_accent2} className="dropdown-icon" />
+        <FaChevronDown color={theme.colors.MGG_accent2} className="dropdown-icon" fontSize="0.6em" />
       </DropdownBtn>
-      <DropdownContent className="dropdown-content">
-        {filters.map((filter) => (
-          <Option key={filter} value={filter} onClick={handleChange} type="button" className="dropdown-item option">
-            {filter}
-          </Option>
-        ))}
-      </DropdownContent>
+      {display && (
+        <DropdownContent className="dropdown-content" onMouseLeave={handleHide}>
+          {filters.map((filter) => (
+            <Option key={filter} value={filter} onClick={handleChange} type="button" className="dropdown-item option">
+              {filter}
+            </Option>
+          ))}
+        </DropdownContent>
+      )}
     </MiniBox>
   )
 }

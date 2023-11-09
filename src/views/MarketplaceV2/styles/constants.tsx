@@ -45,7 +45,7 @@ export const PADDING: { [key: string]: { [key: string]: number } } = {
 export const HEIGHT: { [key: string]: number } = { FOOTER: 15, MENU: 10 }
 
 // Colors
-export const DEFAULT_BORDERS = '2px solid #3898b8'
+export const DEFAULT_BORDERS = '1px solid #3898b8'
 export const COLORS: { [key: string]: string } = {
   BACKGROUND: '#110217',
   MAIN: '#291e5c',
