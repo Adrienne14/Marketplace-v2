@@ -1,5 +1,5 @@
 import React from 'react'
-import { IconButton } from '@metagg/mgg-uikit'
+import { IconButton, Flex } from '@metagg/mgg-uikit'
 import { useLocation } from 'react-router-dom'
 import useTheme from 'hooks/useTheme'
 import useFirebaseAuth from 'hooks/useFirebaseAuth'
@@ -43,17 +43,15 @@ const UserHighlight = () => {
           {/* revert this condition */}
           {!user ? (
             <>
-              <CustomBox>
-                <P fsize="0.7em">123456789 MGG</P>
-              </CustomBox>
               <IconButton variant="text" className="icon-button" onClick={() => modal.handleOpen('buy-token')}>
                 <CustomBox>
-                  <Iconloader type="fa" name="Coins" fontSize="0.7em" className="with-animation-enlarge" />
+                  <P fsize="0.6em">123456789 MGG &nbsp;</P>
+                  <Iconloader type="fa" name="Coins" fontSize="0.6em" className="with-animation-enlarge" />
                 </CustomBox>
               </IconButton>
               <IconButton variant="text" style={{ padding: 0 }} className="icon-button">
                 <CustomBox>
-                  <Iconloader type="fi" name="LogOut" fontSize="0.7em" className="with-animation-enlarge" />
+                  <Iconloader type="fi" name="LogOut" fontSize="0.6em" className="with-animation-enlarge" />
                 </CustomBox>
               </IconButton>
             </>

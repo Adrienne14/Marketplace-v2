@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { COLORS, SETTINGS_SIDEBAR, breakpointMap } from 'views/MarketplaceV2/styles/constants'
 import { CONTAINER_PROPS } from '../Foundation/layout'
 
+
 export const StyledPanel = styled.div`
   display: flex;
   flex-direction: column;
@@ -38,7 +39,7 @@ export const BodyWrapper = styled.div`
 
 export const Inner = styled.div`
   flex-grow: 1;
-  padding: 15px;
+  padding: 10px;
   ${({ theme }) => `
     ${theme.mediaQueries.sm} {
       padding: 24px;
@@ -49,3 +50,4 @@ export const Inner = styled.div`
 
   `}
 `
+

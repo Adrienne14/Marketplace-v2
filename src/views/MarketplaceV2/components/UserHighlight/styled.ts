@@ -9,9 +9,9 @@ export const StyledDiv = styled.div`
     display: flex;
     align-items: center;
 
-    & > * {
-      height: 30px;
-    }
+    // & > * {
+    //   height: 30px;
+    // }
   }
 `
 

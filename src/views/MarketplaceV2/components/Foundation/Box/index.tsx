@@ -13,7 +13,7 @@ const Box: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children, ...prop
 
 export default Box
 
-const Container = styled.div`
+const Container = styled.div<Margins & Paddings>`
   background: ${COLORS.CARD};
   background: ${COLORS.GRADIENT_CARD};
   padding: 2em;
@@ -21,6 +21,8 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
+  ${({ p, pt, pb, pl, pr }) => customSpacingProps({ p, pt, pb, pl, pr })}
+  ${({ m, mt, mb, ml, mr }) => customSpacingProps({ m, mt, mb, ml, mr })}
 `
 const Wrapper = styled.div`
   width: 100%;
