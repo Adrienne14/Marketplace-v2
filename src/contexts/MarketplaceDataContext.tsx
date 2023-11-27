@@ -1,13 +1,48 @@
 import React, { createContext } from 'react'
 import { CardType, CLASSES } from './index.d'
+import useSubgraphQuery from '../hooks/useSubgraph';
+import {getBalanceAmount} from '../utils/formatBalance';
 
 export const MarketplaceV2DataContext = createContext(null)
 export const MarketplaceV2DataProvider = ({ children }) => {
   const [nftsState, setNftsState] = React.useState<CardType[] | []>([])
   const [classesState, setClassesState] = React.useState([])
 
+  const { data, loading, error } = useSubgraphQuery(`
+    query {
+      listings(first: 10, where: { status: "0" }, orderBy: id, orderDirection: desc) {
+        id
+        seller
+        tokenId
+        price
+        blockTimestamp
+      }
+    }
+  `);
+
   React.useEffect(() => {
-    setNftsState(placeholder)
+    if (!loading && !error) {
+      console.log(data.data.listings)
+      
+      let nfts = []
+      for ( let x = 0 ; x < data.data.listings.length ; x++ ) {
+        nfts.push({
+          name: `${data.data.listings[x].name}`,
+          spriteName: `Warrior- ${data.data.listings[x].attributes.find((attr) => attr.trait_type === "Class").value}`,
+          rarity: 'Rare*',
+          badge: data.data.listings[x].attributes.find((attr) => attr.trait_type === "Class").value,
+          price: {
+            token: `${getBalanceAmount(data.data.listings[x].price)} MATIC`,
+            fiat: 'Not available',
+          }
+        })
+      }
+  
+      setNftsState(nfts)
+    }
+  }, [data, loading, error])
+
+  React.useEffect(() => {
     setClassesState(classes)
   }, [])
 
