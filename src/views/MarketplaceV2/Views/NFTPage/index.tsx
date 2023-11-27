@@ -2,9 +2,10 @@ import React from 'react'
 import { RouteComponentProps } from 'react-router-dom'
 import { Grid } from '@mui/material'
 import styled from 'styled-components'
-import { Flex } from '@metagg/mgg-uikit'
+import { Button, Flex } from '@metagg/mgg-uikit'
 import { GoogleDriveLink } from 'views/MarketplaceV2/constants/config'
-import { QueryType, useQueryAsset } from 'hooks/useMarketplaceV2'
+import PurchaseNFT from 'views/MarketplaceV2/components/Modals/Buy-nft'
+import useMarketplaceV2, { QueryType, useQueryAsset } from 'hooks/useMarketplaceV2'
 import Field from 'views/MarketplaceV2/components/Foundation/Field'
 import SvgIcon from 'views/MarketplaceV2/components/Foundation/SvgIcon'
 import { H3, H4, P, TextWrapper } from 'views/MarketplaceV2/components/Foundation/Text'
@@ -12,30 +13,45 @@ import SpriteDisplay from 'views/MarketplaceV2/components/Card/Display'
 import Main from '../Main'
 import Box, { MiniBox } from '../../components/Foundation/Box'
 import { ContentWrapper } from './styled'
+
 import withGridLayout from './withGridLayout'
 
 const NftMain = (props) => {
+  const {
+    controllers: { modal },
+  } = useMarketplaceV2()
   const { item } = props
   const style = {
     minHeight: '300px',
   }
+
+  const handleBuy = (event) => {
+    modal.handleOpen(`buy-${item.name}`)
+    console.log(modal)
+  }
+
   return (
-    <ContentWrapper>
-      <Flex justifyContent="center">
-        <H3 fsize="1.5em">{item.name}</H3>
-      </Flex>
-      <div style={{ width: '70%' }}>
-        <SpriteDisplay {...{ spriteName: item.spriteName, width: 150, height: 150, style }} />
-      </div>
-      <Box className="secondary-drop-shadow">
-        <TextWrapper align="center">
-          <H4 fsize="1.5em">MGG 100.00</H4>
-          <P fsize="0.7em" mt="1em">
-            This Latest data is being acquired. It will be available for purchase as soon as the latest data is updated.
-          </P>
-        </TextWrapper>
-      </Box>
-    </ContentWrapper>
+      <ContentWrapper>
+        <Flex justifyContent="center">
+          <H3 fsize="1.5em">{item.name}</H3>
+        </Flex>
+        <div style={{ width: '70%' }}>
+          <SpriteDisplay {...{ spriteName: item.spriteName, width: 150, height: 150, style }} />
+        </div>
+        <Box className="secondary-drop-shadow">
+          <TextWrapper align="center">
+            <H4 fsize="1.5em">MGG 100.00</H4>
+            <P fsize="0.7em" mt="1em">
+              This Latest data is being acquired. It will be available for purchase as soon as the latest data is
+              updated.
+            </P>
+          </TextWrapper>
+        </Box>
+        <Button onClick={handleBuy} className="with-animation-tilt-n-move-shaking">
+          BUY
+        </Button>
+        {modal.openModal[`buy-${item.name}`] && <PurchaseNFT {...{...item}} />}
+      </ContentWrapper>
   )
 }
 
