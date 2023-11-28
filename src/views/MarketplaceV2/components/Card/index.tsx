@@ -38,7 +38,6 @@ export default function Card(props: Props) {
             <P fsize="1em" color={theme.colors.MGG_accent2}>
               {price.token}
             </P>
-            <P fsize="0.8em">${price.fiat}</P>
           </TextBox>
           <Button onClick={handleBuy} className='with-animation-tilt-n-move-shaking' >BUY</Button>
         </Details>
