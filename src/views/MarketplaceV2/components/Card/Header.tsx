@@ -18,7 +18,7 @@ type Props = {
 const Header: React.FC<Props> = ({ name, rarity, badge }) => {
   const badgeId = useQueryAsset({ name: badge, type: QueryType.BADGES })
   const src = GoogleDriveLink + badgeId
-  const Img = <img alt="logo" src={src} />
+  const Img = <img alt="logo" src={`/images/marketplace-assets/logo/${badge}.png`} />
 
   return (
     <HeaderBox>

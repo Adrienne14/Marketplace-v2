@@ -62,7 +62,7 @@ export const MarketplaceV2DataProvider = ({ children }) => {
       for ( let x = 0 ; x < data.data.listings.length ; x++ ) {
         nfts.push({
           name: `${data.data.listings[x].name}`,
-          spriteName: `Warrior- ${data.data.listings[x].attributes.find((attr) => attr.trait_type === "Class").value}`,
+          spriteName: `${data.data.listings[x].name}- ${data.data.listings[x].attributes.find((attr) => attr.trait_type === "Class").value}`,
           rarity: getRarity(data.data.listings[x].attributes),
           badge: data.data.listings[x].attributes.find((attr) => attr.trait_type === "Class").value,
           price: {

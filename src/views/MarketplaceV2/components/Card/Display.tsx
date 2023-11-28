@@ -11,14 +11,20 @@ type Props = {
   style?: any
 }
 
+const getHashId = (str: string): string => {
+  const parts = str.split('#');
+  return parts.length > 1 ? parts[1] : '';
+}
+
 const SpriteDisplay = ({ spriteName, width, height, style }: Props) => {
+  console.log(spriteName)
   const spriteId = useQueryAsset({
     name: spriteName,
     type: QueryType.SPRITES,
   })
   const w = width ?? 130
   const h = height ?? 130
-  const src = GoogleDriveLink + spriteId
+  const src = `https://metasaga-warriors-api-o485.vercel.app/api/image/${getHashId(spriteName)}`
   const Img = <img alt="logo" src={src} />
   return (
     <Display bg={src} style={style}>
