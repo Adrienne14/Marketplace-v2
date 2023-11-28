@@ -18,7 +18,6 @@ const useSubgraphQuery = (query) => {
         }
         
         setData(response.data);
-        console.log(response.data);
         setLoading(false);
       } catch (error) {
         setError(error);

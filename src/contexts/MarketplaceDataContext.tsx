@@ -7,7 +7,7 @@ const getRarity = (attributes: any[]) => {
   if (attributes.find((attr) => attr.trait_type === "1/1")) {
     return 'Legendary';
   }
-  
+
   switch (attributes.find((attr) => attr.trait_type === "Class").value) {
     case 'Archer':
       return 'Common'
@@ -58,8 +58,6 @@ export const MarketplaceV2DataProvider = ({ children }) => {
 
   React.useEffect(() => {
     if (!loading && !error) {
-      console.log(data.data.listings)
-      
       let nfts = []
       for ( let x = 0 ; x < data.data.listings.length ; x++ ) {
         nfts.push({
