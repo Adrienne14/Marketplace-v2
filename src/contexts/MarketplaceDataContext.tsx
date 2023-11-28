@@ -3,6 +3,42 @@ import { CardType, CLASSES } from './index.d'
 import useSubgraphQuery from '../hooks/useSubgraph';
 import {getBalanceAmount} from '../utils/formatBalance';
 
+const getRarity = (attributes: any[]) => {
+  if (attributes.find((attr) => attr.trait_type === "1/1")) {
+    return 'Legendary';
+  }
+  
+  switch (attributes.find((attr) => attr.trait_type === "Class").value) {
+    case 'Archer':
+      return 'Common'
+    case 'Artillery':
+      return 'Rare'
+    case 'Berserker':
+      return 'Uncommon'
+    case 'Dark Knight':
+      return 'Epic'
+    case 'Elemental':
+      return 'Rare'
+    case 'Engineer':
+      return 'Uncommon'
+    case 'Knight':
+      return 'Common'
+    case 'Magitek':
+      return 'Epic'
+    case 'Musketeer':
+      return 'Common'
+    case 'Plague Doctor':
+      return 'Uncommon'
+    case 'Vicar':
+      return 'Uncommon'
+    case 'Wizard':
+      return 'Common'
+  }
+
+  // If none of the above, return undefined or some default value
+  return "Unknown";
+}
+
 export const MarketplaceV2DataContext = createContext(null)
 export const MarketplaceV2DataProvider = ({ children }) => {
   const [nftsState, setNftsState] = React.useState<CardType[] | []>([])
@@ -29,7 +65,7 @@ export const MarketplaceV2DataProvider = ({ children }) => {
         nfts.push({
           name: `${data.data.listings[x].name}`,
           spriteName: `Warrior- ${data.data.listings[x].attributes.find((attr) => attr.trait_type === "Class").value}`,
-          rarity: 'Rare*',
+          rarity: getRarity(data.data.listings[x].attributes),
           badge: data.data.listings[x].attributes.find((attr) => attr.trait_type === "Class").value,
           price: {
             token: `${getBalanceAmount(data.data.listings[x].price)} MATIC`,
