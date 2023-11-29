@@ -31,7 +31,7 @@ export default function Card(props: Props) {
     <>
       <CardContainer className="secondary-drop-shadow" onClick={handleNav}>
         <Header {...{ name, rarity, badge }} />
-        <SpriteDisplay {...{ spriteName }} />
+        <SpriteDisplay {...{ spriteName }} style={{margin: '0 10px'}} />
         <Details>
           <TextBox>
             <H5 fsize="0.8em">Current Price</H5>

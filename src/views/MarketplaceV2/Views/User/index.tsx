@@ -6,15 +6,14 @@ import withGridLayout from './withGridLayout'
 import Main from '../Main'
 import UserMain from './Usermain'
 import NftCollection from './NftCollection'
+import './UserStyle.css'
 
 // Tempdata collection
 
-const tempStats = {
-  basicInfo: {
-    email: 'email.add@mgg.com',
-    wallet: '0x0000',
-    credit: 'NA',
-  },
+const tempUserInfo = {
+  email: 'email.add@mgg.com',
+  wallet: '0x0000',
+  credit: 'NA',
 }
 
 const tempActivityData = [
@@ -69,6 +68,12 @@ const WrappedNftList = withGridLayout(NftCollection)
 
 const User = () => {
   const [active, setActive] = useState(0)
+  // TODO: Replace with actual data
+  const [userInfo, setUserInfo] = useState(tempUserInfo)
+  const handleUserInfo = (payload: { field: string, value: string }) => {
+    setUserInfo({ ...userInfo, [`${payload.field}`]: payload.value })
+    console.log(userInfo)
+  }
   return (
     <Main>
       <TextWrapper>
@@ -80,7 +85,8 @@ const User = () => {
                 tabController: { active, setActive },
                 txHistory: { ...tempTx },
                 activityHistory: tempActivityData,
-                stats: tempStats,
+                userInfo,
+                handleFunctions: { handleUserInfo },
               }}
             />
             <WrappedNftList {...{ mediaQ: { xs: 12, md: 6, lg: 7 } }} />

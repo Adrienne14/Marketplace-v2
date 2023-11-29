@@ -12,3 +12,12 @@
     width: 24px;
   }
 }
+
+.custom-dot-list-style .react-multi-carousel-dot button {
+  background-color: #fff;
+  border: 1px solid #3898b8;
+}
+
+.custom-dot-list-style .react-multi-carousel-dot--active button {
+  background-color: #4bdefd;
+}

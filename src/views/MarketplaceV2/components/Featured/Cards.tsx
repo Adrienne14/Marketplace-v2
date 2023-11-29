@@ -1,42 +1,57 @@
 import React from 'react'
-import { Grid } from '@mui/material'
+import Carousel from 'react-multi-carousel'
+import 'react-multi-carousel/lib/styles.css'
 import styled from 'styled-components'
 import Card from '../Card'
 import './style.css'
 
 const Cards = (props) => {
   const { items } = props
+
   return (
-    <Grid
-      className="scrollable-container"
-      container
-      wrap="nowrap"
-      mt={5}
-      pb={5}
-      columnSpacing={{ xs: 2 }}
-      sx={{
-        overflowX: 'scroll',
-        overflowY: 'hidden',
-        overflow: 'auto',
-      }}
+    <Carousel
+      responsive={responsive}
+      infinite
+      showDots
+      autoPlay
+      removeArrowOnDeviceType={['tablet', 'mobile']}
+      containerClass="carousel-container"
+      dotListClass="custom-dot-list-style"
     >
       {items.map((item, ind) => {
         const id = ind + 1
         return (
-          <Grid key={id} item alignItems="center" xs={12}>
-            <StyledDiv>
-              <Card {...item} />
-            </StyledDiv>
-          </Grid>
+          <StyledDiv>
+            <Card {...item} />
+          </StyledDiv>
         )
       })}
-    </Grid>
+    </Carousel>
   )
+}
+const responsive = {
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3,
+    slidesToSlide: 3, // optional, default to 1.
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+    slidesToSlide: 2, // optional, default to 1.
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+    slidesToSlide: 1, // optional, default to 1.
+  },
 }
 
 export default Cards
 
 const StyledDiv = styled.div`
+  margin: 5vh 0px;
+  padding: 2vh;
   min-width: 220px;
   ${({ theme }) => `
     ${theme.mediaQueries.xl} {
