@@ -25,7 +25,7 @@ const NftMain = (props) => {
         <H3 fsize="1.5em">{item.name}</H3>
       </Flex>
       <div style={{ width: '70%' }}>
-        <SpriteDisplay {...{ spriteName: item.spriteName, width: 150, height: 150, style }} />
+        <SpriteDisplay {...{ spriteName: item.spriteName, width: 150, height: 150, style, hideBg: true }} />
       </div>
       <Box className="secondary-drop-shadow">
         <TextWrapper align="center">
