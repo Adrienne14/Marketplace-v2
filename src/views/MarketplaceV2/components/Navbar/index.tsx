@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import useTheme from 'hooks/useTheme'
 import useMarketplaceV2 from 'hooks/useMarketplaceV2'
 import { HEIGHT, PADDING } from 'views/MarketplaceV2/styles/constants'
-import { marketplaceURL } from 'views/MarketplaceV2/constants/config'
+import { mswURL } from 'views/MarketplaceV2/constants/config'
 import Logo from '../Foundation/Logo'
 import Anchor from '../Foundation/Anchor'
 import { useAppDispatch } from '../../../../state'
@@ -38,9 +38,7 @@ const Navbar = () => {
 
   return (
     <StyledNav>
-      <Anchor href={marketplaceURL}>
-        <Logo size={60} />
-      </Anchor>
+      <Logo size={60} url={mswURL} />
       <StyledBtn onClick={() => HandleSignIn()}>Sign in</StyledBtn>
       <StyledBtn onClick={() => HandleSignUp()}>Register</StyledBtn>
     </StyledNav>
