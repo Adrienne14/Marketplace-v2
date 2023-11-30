@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { toast } from 'react-toastify'
 import useToast from 'hooks/useToast'
-import useFirebaseAuth from 'hooks/useFirebaseAuth'
+import useMarketplaceAuth from 'hooks/useMarketplaceAuth'
 import { TextWrapper } from '../Text'
 import { FORM_TYPE, Props } from './index.d'
 
 const Form: React.FC<Props> = (props) => {
   const { name, submitFn } = props
-  const { requestOtp } = useFirebaseAuth()
+  const { requestOtp } = useMarketplaceAuth()
   const [email, setEmail] = useState<string>('')
   const [code, setCode] = useState<string>('')
   const [disableOtp, setDisableOtp] = useState<boolean>(false)
