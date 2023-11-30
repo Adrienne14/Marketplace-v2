@@ -23,7 +23,7 @@ import { getSupportedChain, isChainSupported } from './utils/settings'
 const Farms = lazy(() => import('./views/Farms'))
 const Pools = lazy(() => import('./views/Pools'))
 const Gamefi = lazy(() => import('./views/Gamefi'))
-const ComingSoon = lazy(() => import('./views/ComingSoon'))
+const ComingSoon = lazy(() => import('./views/MarketplaceV2/Views/ComingSoon'))
 const Marketplace = lazy(() => import('./views/Marketplace'))
 const NftMarket = lazy(() => import('./views/Marketplace/Market'))
 const HistoryMarketplace = lazy(() => import('./views/Marketplace/History'))
@@ -72,6 +72,10 @@ const App: React.FC = () => {
           <Route path="/marketplace/nft" exact component={NFTMarket} />
           <Route path="/marketplace/:type/:nftID" exact component={NFTPage} />
           <Route path="/marketplace/my-page" exact component={UserPage} />
+          <Route path="/marketplace/market" component={ComingSoon} />
+          <Route path="/marketplace/web" component={ComingSoon} />
+          <Route path="/marketplace/groups" component={ComingSoon} />
+          <Route path="/marketplace/help" component={ComingSoon} />
           <Menu>
             <NetworkRoute
               path="/farms"
