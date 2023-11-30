@@ -21,11 +21,15 @@ const UserMain = (props) => {
   const {
     txHistory: { coin, nft },
     activityHistory,
-    stats,
+    userInfo,
     tabController: { active },
+    handleFunctions: { handleUserInfo },
   } = props
   const txD = React.useMemo(() => (active === 0 ? coin : nft), [active, coin, nft])
-
+  const [enableEdit, setEnableEdit] = useState<boolean>(false)
+  const handleEdit = () => {
+    setEnableEdit(!enableEdit)
+  }
   const boxInfo = (name: string, tooltip: string) => {
     return (
       <Flex alignItems="center" justifyContent="space-between">
@@ -52,16 +56,24 @@ const UserMain = (props) => {
         <Grid container spacing={2}>
           <Grid item xs={12} sm={10}>
             <Grid container spacing={{ xs: 1, sm: 2 }}>
-              {Object.entries(stats.basicInfo).map((stat) => {
-                const field = FIELD_INFO[`${stat[0]}`]
-                const val = stat[1]
+              {Object.entries(userInfo).map((info) => {
+                const field = FIELD_INFO[`${info[0]}`]
+                const val = info[1].toString()
                 return (
                   <>
                     <Grid item xs={5} sm={5}>
-                      <H5 fsize="0.9em">{field}</H5>
+                      <H5 fsize="0.9em">{field}:</H5>
                     </Grid>
                     <Grid item xs={7} sm={7}>
-                      <P fsize="0.9em">: {val}</P>
+                      {enableEdit ? (
+                        <input
+                          className='user-input'
+                          value={val}
+                          onChange={(e) => handleUserInfo({ field: info[0], value: e.target.value })}
+                        />
+                      ) : (
+                        <P fsize="0.9em">{val}</P>
+                      )}
                     </Grid>
                   </>
                 )
@@ -69,7 +81,7 @@ const UserMain = (props) => {
             </Grid>
           </Grid>
           <Grid item xs={12} sm={2} display="flex" alignItems="center" justifyContent="center">
-            <IconButton variant="text" className="icon-button">
+            <IconButton variant="text" className="icon-button" onClick={handleEdit}>
               <MiniBox>
                 <Iconloader type="fa" name="Edit" fontSize="1em" />
               </MiniBox>
