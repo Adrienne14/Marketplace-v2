@@ -1,13 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { toast } from 'react-toastify'
-import useToast from 'hooks/useToast'
-import useFirebaseAuth from 'hooks/useFirebaseAuth'
-import { sendEmail } from 'hooks/useMarketplaceAuth'
-import { TextWrapper } from '../Text'
+import useMarketplaceAuth from 'hooks/useMarketplaceAuth'
 import Form from '../Form'
 
 const RegistrationForm: React.FC = () => {
-  const { register } = useFirebaseAuth()
+  const { register } = useMarketplaceAuth()
   return (
     <>
       <h2>New Registration:</h2>

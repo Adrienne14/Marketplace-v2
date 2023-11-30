@@ -1,9 +1,17 @@
+import React, { useContext } from 'react'
 import axios from 'axios'
 import { mailOptions, transporter } from 'utils/nodemailer'
+import { AuthContext } from 'contexts/AuthContext'
 
 export type Payload = {
   email: string
 }
+
+const useMarketplaceAuth = () => {
+  return useContext(AuthContext)
+}
+
+export default useMarketplaceAuth
 
 const url = 'http://localhost:8000'
 
