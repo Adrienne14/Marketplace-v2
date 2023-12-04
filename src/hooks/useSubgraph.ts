@@ -9,9 +9,9 @@ const useSubgraphQuery = (query) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.post(process.env.REACT_APP_SUBGRAPH_URL, { query });
+        const url = process.env.REACT_APP_SUBGRAPH_URL ? process.env.REACT_APP_SUBGRAPH_URL : 'https://api.thegraph.com/subgraphs/name/pancakeswap/exchange';
+        const response = await axios.post(url, { query });
         
-
         for (let x = 0 ; x < response.data.data.listings.length ; x++) {
           const details = await axios.get(`${process.env.REACT_APP_MSW_API}/api/warrior/${response.data.data.listings[x].tokenId}`);
           response.data.data.listings[x] = { ...response.data.data.listings[x], ...details.data };
@@ -19,8 +19,8 @@ const useSubgraphQuery = (query) => {
         
         setData(response.data);
         setLoading(false);
-      } catch (error) {
-        setError(error);
+      } catch (err) {
+        setError(err);
         setLoading(false);
       }
     };

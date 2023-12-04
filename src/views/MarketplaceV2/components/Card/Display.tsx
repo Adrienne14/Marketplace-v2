@@ -5,8 +5,8 @@ import { QueryType, useQueryAsset } from 'hooks/useMarketplaceV2'
 import { Display } from './styled'
 import SvgIcon from '../Foundation/SvgIcon'
 
-
 type Props = {
+  id: string
   spriteName: string
   width?: number
   height?: number
@@ -14,18 +14,14 @@ type Props = {
   hideBg?: boolean
 }
 
-const getHashId = (str: string): string => {
-  const parts = str.split('#');
-  return parts.length > 1 ? parts[1] : '';
-}
-const SpriteDisplay = ({ spriteName, width, height, style, hideBg }: Props) => {
+const SpriteDisplay = ({ id, spriteName, width, height, style, hideBg }: Props) => {
   const spriteId = useQueryAsset({
     name: spriteName,
     type: QueryType.SPRITES,
   })
   const w = width ?? 130
   const h = height ?? 130
-  const src = `https://metasaga-warriors-api-o485.vercel.app/api/image/${getHashId(spriteName)}`
+  const src = `https://metasaga-warriors-api-o485.vercel.app/api/image/${id}`
   const Img = <img alt="logo" src={src} />
   return !hideBg ? (
     <Display bg={src} style={style}>

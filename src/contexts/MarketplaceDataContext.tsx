@@ -33,10 +33,34 @@ const getRarity = (attributes: any[]) => {
       return 'Uncommon'
     case 'Wizard':
       return 'Common'
+    default:
+      return 'Unknown'
   }
+}
 
-  // If none of the above, return undefined or some default value
-  return "Unknown";
+const getHashId = (str: string): string => {
+  const parts = str.split('#');
+  return parts.length > 1 ? parts[1] : '';
+}
+
+const getName = (data) => {
+  if (data.attributes.find((attr) => attr.trait_type === "1/1")) {
+    return data.attributes.find((attr) => attr.trait_type === "1/1").value
+  }
+  
+  return data.name
+}
+
+const getSpriteName = (data) => {
+  if (data.attributes.find((attr) => attr.trait_type === "1/1")) {
+    return data.attributes.find((attr) => attr.trait_type === "1/1").value
+  }
+  
+  return getHashId(data.name)
+}
+
+const getClassName = (data) => {
+  return data.attributes.find((attr) => attr.trait_type === "Class").value
 }
 
 export const MarketplaceV2DataContext = createContext(null)
@@ -58,14 +82,17 @@ export const MarketplaceV2DataProvider = ({ children }) => {
 
   React.useEffect(() => {
     if (!loading && !error) {
-      let nfts = []
+      const nfts = []
       for ( let x = 0 ; x < data.data.listings.length ; x++ ) {
         nfts.push({
-          name: `${data.data.listings[x].name}`,
-          spriteName: `${data.data.listings[x].name}- ${data.data.listings[x].attributes.find((attr) => attr.trait_type === "Class").value}`,
+          id: getHashId(data.data.listings[x].name),
+          listingId: data.data.listings[x].id,
+          name: getName(data.data.listings[x]),
+          spriteName: `${getSpriteName(data.data.listings[x])}- ${getClassName(data.data.listings[x])}`,
           rarity: getRarity(data.data.listings[x].attributes),
-          badge: data.data.listings[x].attributes.find((attr) => attr.trait_type === "Class").value,
+          badge: getClassName(data.data.listings[x]),
           price: {
+            raw: data.data.listings[x].price,
             token: `${getBalanceAmount(data.data.listings[x].price)} MATIC`,
             fiat: 'Not available',
           }
