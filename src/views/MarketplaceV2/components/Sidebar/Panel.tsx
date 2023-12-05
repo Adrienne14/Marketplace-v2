@@ -1,8 +1,10 @@
 import React from 'react'
+import { marketplaceURL } from 'views/MarketplaceV2/constants/config'
 import { StyledPanel, StyledPanelBody, StyledPanelFooter } from './styled'
 import { Props } from './index.d'
 import Navbutton from './Navbutton'
 import Iconloader from '../Foundation/Iconloader'
+
 
 const Panel: React.FC<{ links: Props }> = (props) => {
   const { links } = props
@@ -18,7 +20,7 @@ const Panel: React.FC<{ links: Props }> = (props) => {
         })}
       </StyledPanelBody>
       <StyledPanelFooter className="sidebar-footer">
-        <Navbutton href="/help" className="link" target="_blank" rel="noopener noreferrer">
+        <Navbutton href={`${marketplaceURL}/help`} className="link" target="_blank" rel="noopener noreferrer">
           <Iconloader type="fa" name="ExclamationCircle" className="with-animation-enlarge" />
         </Navbutton>
       </StyledPanelFooter>
