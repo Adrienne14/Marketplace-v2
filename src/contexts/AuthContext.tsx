@@ -1,56 +1,10 @@
-import React, { useContext, createContext, useEffect, useState } from 'react'
-// import { GoogleAuthProvider, signInWithPopup, signInWithRedirect, signOut, onAuthStateChanged } from 'firebase/auth'
-import {
-  createUserWithEmailAndPassword,
-  sendSignInLinkToEmail,
-  isSignInWithEmailLink,
-  signOut,
-  onAuthStateChanged,
-  sendEmailVerification,
-} from 'firebase/auth'
-import usePersistState from 'hooks/usePersistState'
+import React, { createContext, useState } from 'react'
 import { signUp, otpChecker, signIn } from 'hooks/useMarketplaceAuth'
-import { auth, actionCodeSettings } from '../Firebase'
+
 
 export const AuthContext = createContext(null)
 
 export const AuthContextProvider = ({ children }) => {
-  // const [ user, setUser ] = useState({});
-  // const googleSignIn = async() => {
-  //   try {
-  //     const provider = new GoogleAuthProvider()
-  //     await signInWithPopup(auth, provider)
-  //   } catch (e) {
-  //       console.error(e)
-  //   }
-  // }
-
-  // const logOut = () => {
-  //   signOut(auth)
-  // }
-
-  // useEffect(() => {
-  //   const unsubscribe = onAuthStateChanged(auth, currUser => {
-  //     setUser(currUser)
-  //   })
-
-  //   return () => unsubscribe();
-  // }, [])
-  // const createUser = (email, password) => {
-  //   return createUserWithEmailAndPassword(auth, email, password)
-  // }
-
-  // const verifyEmail = (email) => {
-  //   return sendSignInLinkToEmail(auth, email, actionCodeSettings)
-  // }
-
-  // useEffect(() => {
-  //   const unsubscribe = isSignInWithEmailLink
-  //   return () => {
-  //     unsubscribe()
-  //   }
-  // }, [])
-
   /* Temporary logic for registration */
 
   const [user, setUser] = useState()
