@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { mailOptions, transporter } from 'utils/nodemailer'
 
 export type Payload = {
   email: string
@@ -39,16 +38,5 @@ export const otpChecker = (code) => {
 export const sendEmail = async (payload) => {
   // development - not recommended for production
 
-  try {
-    await transporter.sendMail({
-      ...mailOptions(payload.email),
-      subject: 'OTP Code',
-      text: payload.code,
-    })
-
-    return 'Success!'
-  } catch (e: any) {
-    console.error(e.message)
-    throw new Error(e.message)
-  }
+ return 'success'
 }
