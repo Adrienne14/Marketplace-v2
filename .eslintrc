@@ -11,9 +11,14 @@
     "browser": true,
     "jest": true
   },
-  "extends": "@pancakeswap/eslint-config-pancake",
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "import"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "rules": {
-    "import/prefer-default-export": "off",
+    "import/prefer-default-export": "warn",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "no-console": ["warn", { "allow": ["info", "warn", "error"] }],
     "no-plusplus": 0,
@@ -23,7 +28,8 @@
     // Start temporary rules
     // These rules are here just to keep the lint error to 0 during the migration to the new rule set
     // They need to be removed and fixed as soon as possible
-    "@typescript-eslint/ban-ts-comment": [1, { "ts-ignore": false, "ts-nocheck": false }],
+    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/ban-ts-comment": ["warn", { "ts-ignore": false, "ts-nocheck": false }],
     "@typescript-eslint/no-use-before-define": 0,
     "@typescript-eslint/explicit-module-boundary-types": 0,
     "@typescript-eslint/no-explicit-any": 0,

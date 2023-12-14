@@ -23,12 +23,12 @@ const LogoHolder = styled.div<{ max?: number }>`
   // `}
 `
 
-export default function Logo({ size }: { size?: number }) {
+export default function Logo({ size, url }: { size?: number; url?: string }) {
   const src = useFetchImg({ name: LOGO })
   const Img = <img alt="logo" src={src} />
 
   return (
-    <Anchor href={marketplaceURL}>
+    <Anchor href={url}>
       <LogoHolder max={size}>
         <SvgIcon Img={Img} />
       </LogoHolder>
@@ -38,4 +38,5 @@ export default function Logo({ size }: { size?: number }) {
 
 Logo.defaultProps = {
   size: null,
+  url: ''
 }

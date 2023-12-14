@@ -2,7 +2,7 @@ import React from 'react'
 import { IconButton, Flex } from '@metagg/mgg-uikit'
 import { useLocation } from 'react-router-dom'
 import useTheme from 'hooks/useTheme'
-import useFirebaseAuth from 'hooks/useFirebaseAuth'
+import useMarketplaceAuth from 'hooks/useMarketplaceAuth'
 import useMarketplaceV2 from 'hooks/useMarketplaceV2'
 import { P, TextWrapper } from '../Foundation/Text'
 import { CustomBox, StyledDiv } from './styled'
@@ -13,7 +13,7 @@ import './style.css'
 
 const UserHighlight = () => {
   const { theme } = useTheme()
-  const { user } = useFirebaseAuth()
+  const { user } = useMarketplaceAuth()
   const { controllers } = useMarketplaceV2()
   const { modal } = controllers
   const { pathname } = useLocation()

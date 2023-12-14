@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { HEIGHT, PADDING } from 'views/MarketplaceV2/styles/constants'
-import { links } from 'views/MarketplaceV2/constants/config'
+import { links, mswURL } from 'views/MarketplaceV2/constants/config'
 import Logo from '../Foundation/Logo'
 import Anchor from '../Foundation/Anchor'
 import { P, TextWrapper } from '../Foundation/Text'
@@ -45,7 +45,7 @@ const AnchorList = styled(TextWrapper)`
 export default function Footer() {
   return (
     <StyledFooter>
-      <Logo size={100} />
+      <Logo size={100} url={mswURL} />
       <AnchorList lineHeight="2em">
         {Object.entries(links.FOOTER).map((link) => {
           const name = link[0].toUpperCase()
