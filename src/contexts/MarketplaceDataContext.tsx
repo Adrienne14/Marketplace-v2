@@ -70,7 +70,7 @@ export const MarketplaceV2DataProvider = ({ children }) => {
 
   const { data, loading, error } = useSubgraphQuery(`
     query {
-      listings(first: 10, where: { status: "0" }, orderBy: id, orderDirection: desc) {
+      listings(first: 10, orderBy: id, orderDirection: desc) {
         id
         seller
         tokenId
