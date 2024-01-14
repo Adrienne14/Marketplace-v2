@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import useMarketplaceV2Data from '../../../../../hooks/useMarketplaceV2Data'
+// import useMarketplaceV2Data from '../../../../../hooks/useMarketplaceV2Data'
 import useMarketplaceV2 from '../../../../../hooks/useMarketplaceV2'
 import Page from './index'
 import Navbar from '../../Navbar'
@@ -49,8 +49,8 @@ const VLayout: React.FC = (props: any) => {
 }
 const WrappedComponent = withLoading(VLayout)
 const ViewsLayout: React.FC<{ children: React.ReactNode }> = ( {children} ) => {
-  const { data } = useMarketplaceV2Data()
-  return <WrappedComponent data={data}> {children} </WrappedComponent>
+  // const { data } = useMarketplaceV2Data()
+  return <WrappedComponent > {children} </WrappedComponent>
 }
 
 export default ViewsLayout

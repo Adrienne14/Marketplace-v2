@@ -2,7 +2,7 @@ import React, { createContext } from 'react'
 import { CardType, CLASSES } from './index.d'
 
 export const MarketplaceV2DataContext = createContext<any>(null)
-export const MarketplaceV2DataProvider = ( children:any ) => {
+export const MarketplaceV2DataProvider = ( {children} ) => {
   const [nftsState, setNftsState] = React.useState<CardType[] | []>([])
   const [classesState, setClassesState] = React.useState<any[]>([])
 

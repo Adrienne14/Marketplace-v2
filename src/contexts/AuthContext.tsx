@@ -1,16 +1,16 @@
 import React, { createContext, useState } from 'react'
-import { signUp, otpChecker, signIn } from '../hooks/useMarketplaceAuth'
+import { signUp, otpChecker, signIn } from 'hooks/useMarketplaceAuth'
 
 
 export const AuthContext = createContext<any>(null)
 
-export const AuthContextProvider = ( children: any ) => {
+export const AuthContextProvider = ({ children }) => {
   /* Temporary logic for registration */
 
-  const [user, setUser] = useState<any>()
+  const [user, setUser] = useState()
 
   // temp otp generator
-  function generateRandomString(length: number) {
+  function generateRandomString(length) {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
     let result = ''
 
@@ -21,7 +21,7 @@ export const AuthContextProvider = ( children: any ) => {
     return result
   }
 
-  const register = async (payload: any, code: any) => {
+  const register = async (payload, code) => {
     if (!otpChecker(code)) {
       throw new Error('Invalid code')
     }
@@ -35,7 +35,7 @@ export const AuthContextProvider = ( children: any ) => {
     }
   }
 
-  const login = async (payload: any, code: any) => {
+  const login = async (payload, code) => {
     if (!otpChecker(code)) {
       throw new Error('Invalid code')
     }
@@ -58,7 +58,7 @@ export const AuthContextProvider = ( children: any ) => {
     return code
   }
 
-  const logout = (payload: any, code: any) => {
+  const logout = (payload, code) => {
     setUser(null)
   }
 

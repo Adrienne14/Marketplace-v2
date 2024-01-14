@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useLocation } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { MARKETPLACE_META, getMarketplaceMeta } from 'config/constants/meta'
+import { MARKETPLACE_META, getMarketplaceMeta } from '../../../../../config/constants/meta'
 import { HEIGHT, COLORS } from '../../../styles/constants'
 
 export const sectionProp = `

@@ -11,16 +11,16 @@ const LogoHolder = styled.div<{ max?: number }>`
   width: ${(props) => (props.max ? `calc(${props.max}px - 5px)` : '70px')};
   padding: ${PADDING.SP}px;
 
-  // ${(props) => `
-  //   ${props.theme.mediaQueries.sm} {
-  //     max-width: ${props.max ? `calc(${props.max}px + 15px)` : '90px'}; 
-  //     width: ${props.max ? `calc(${props.max - 5}px + 15px)` : '85px'};
-  //   }
-  //   ${props.theme.mediaQueries.xl} {
-  //     max-width: ${props.max ? `calc(${props.max}px + 50px)` : '140px'}; 
-  //     width: ${props.max ? `calc(${props.max - 5}px + 50px)` : '135px'};
-  //   }
-  // `}
+  /* ${(props) => `
+    ${props.theme.mediaQueries.sm} {
+      max-width: ${props.max ? `calc(${props.max}px + 15px)` : '90px'};
+      width: ${props.max ? `calc(${props.max - 5}px + 15px)` : '85px'};
+    }
+    ${props.theme.mediaQueries.xl} {
+      max-width: ${props.max ? `calc(${props.max}px + 50px)` : '140px'};
+      width: ${props.max ? `calc(${props.max - 5}px + 50px)` : '135px'};
+    }
+  `} */
 `
 
 export default function Logo({ size, url }: { size?: number; url?: string }) {

@@ -6,7 +6,7 @@ const CACHE_KEY = 'IS_DARK'
 
 const ThemeContext = React.createContext<any>({ isDark: true, toggleTheme: () => null })
 
-const ThemeContextProvider = ( children: any ) => {
+const ThemeContextProvider = ( {children} ) => {
   const [isDark, setIsDark] = useState(() => {
     const isDarkUserSetting = localStorage.getItem(CACHE_KEY)
     return isDarkUserSetting ? JSON.parse(isDarkUserSetting) : true

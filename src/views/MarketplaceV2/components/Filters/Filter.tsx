@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Grid } from '@mui/material'
 import { Button, Flex } from '@metagg/mgg-uikit'
 import useMarketplaceV2 from '../../../../hooks/useMarketplaceV2'
-import useMarketplaceV2Data from '../../../../hooks/useMarketplaceV2Data'
+// import useMarketplaceV2Data from '../../../../hooks/useMarketplaceV2Data'
 import useTheme from '../../../../hooks/useTheme'
 import Drawer from '../Foundation/Drawer'
 import { P, TextWrapper } from '../Foundation/Text'
@@ -14,9 +14,11 @@ import './filter.css'
 const Filter = () => {
   const { theme } = useTheme()
   const [selected, setSelected] = useState([])
-  const {
-    data: { classes },
-  } = useMarketplaceV2Data()
+
+  // const {
+  //   data: { classes },
+  // } = useMarketplaceV2Data()
+
   const {
     badges,
     controllers: {
@@ -36,7 +38,7 @@ const Filter = () => {
   const renderSortClasses = () => {
     return (
       <Grid container spacing={{ xs: 1 }} pt={2} pb={2}>
-        {classes.map((cl: never) => (
+        {/* {classes.map((cl: never) => (
           <Grid key={cl} item xs={12} lg={6}>
             <button
               onClick={() => handleSelect(cl)}
@@ -47,7 +49,7 @@ const Filter = () => {
               <Option name={cl} />
             </button>
           </Grid>
-        ))}
+        ))} */}
       </Grid>
     )
   }

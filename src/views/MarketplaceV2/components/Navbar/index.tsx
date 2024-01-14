@@ -9,6 +9,8 @@ import Anchor from '../Foundation/Anchor'
 import { useAppDispatch } from '../../../../state'
 import { usePlayfabUser } from '../../../../state/hooks'
 import { fetchPlayfabUser, registerUser } from '../../../../state/playfab'
+import { PlayfabState, PlayfabLoginResult } from '../../../../state/types'
+
 
 const Navbar = () => {
   const { controllers } = useMarketplaceV2()
@@ -18,22 +20,22 @@ const Navbar = () => {
 
   const HandleSignIn = async () => {
     console.log('attempt sign in')
-    // Test login on dummy account
-    const user = await dispatch(fetchPlayfabUser({ login: 'tester17', password: '123123' }))
+    // // Test login on dummy account
+    // const user = await dispatch(fetchPlayfabUser({ login: 'tester17', password: '123123' }))
 
-    console.log('Playfab User:')
-    console.log(user.payload)
+    // console.log('Playfab User:')
+    // console.log(user.payload)
   }
 
   const HandleSignUp = async () => {
     console.log('attempt sign up')
-    // Test register
-    const register = await dispatch(
-      registerUser({ email: 'tester23@email.com', username: 'tester23', password: '123123' }),
-    )
+    // // Test register
+    // const register = await dispatch(
+    //   registerUser({ email: 'tester23@email.com', username: 'tester23', password: '123123' }),
+    // )
 
-    console.log('Register User:')
-    console.log(register.payload)
+    // console.log('Register User:')
+    // console.log(register.payload)
   }
 
   return (

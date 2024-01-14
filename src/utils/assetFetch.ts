@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 
-import tokens from 'config/constants/tokens'
-import { Token } from 'config/constants/types'
+import tokens from '../config/constants/tokens'
+import { Token } from '../config/constants/types'
 import { getAddress } from './addressHelpers'
 
 // use this for Header Banners

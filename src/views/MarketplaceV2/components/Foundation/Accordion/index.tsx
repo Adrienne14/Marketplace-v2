@@ -5,7 +5,7 @@ import useTheme from '../../../../../hooks/useTheme'
 import { Props } from './index.d'
 import { H1, P } from '../Text'
 
-const Accordion: React.FC<{children: any, name: string}> = (children: any, ...props: any) => {
+const Accordion: React.FC<{children: any, name: string}> = ({children, ...props}) => {
   const { name } = props
   const { theme } = useTheme()
 

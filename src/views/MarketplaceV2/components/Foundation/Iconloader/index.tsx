@@ -12,7 +12,7 @@ const Iconloader = ({ type, name, ...rest }: Props) => {
   }
 
   const src = capitalizeFirstLetter(type) + name
-  const [icon, setIcon] = React.useState<React.FC | null>(null)
+  const [icon, setIcon] = React.useState<any | null>(null)
 
   React.useEffect(() => {
     const activeModule = (op: string) => {
