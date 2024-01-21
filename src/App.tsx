@@ -1,10 +1,11 @@
 import { ConnectWallet } from "@thirdweb-dev/react";
 import "./styles/Home.css";
 import MarketplaceV2 from "views/MarketplaceV2";
+import NFTMarket from "views/MarketplaceV2/Views/Market/Market"
+import UserPage from "views/MarketplaceV2/Views/User"
 import { Provider } from 'react-redux'
 import { HelmetProvider } from 'react-helmet-async'
 import { HashRouter, Redirect, Route, Switch } from 'react-router-dom'
-import { Router } from 'react-router-dom';
 import { AuthContextProvider } from 'contexts/AuthContext'
 import { MarketplaceV2Provider } from 'contexts/MarketplaceContext'
 import { MarketplaceV2DataProvider } from 'contexts/MarketplaceDataContext'
@@ -18,15 +19,19 @@ export default function Home() {
       <Provider store={store}>
         <HashRouter>
           <HelmetProvider>
-           <ThemeContextProvider>
-            <AuthContextProvider>
+            <ThemeContextProvider>
+              <AuthContextProvider>
                 <MarketplaceV2Provider>
                   <MarketplaceV2DataProvider>
-                    <MarketplaceV2 />
+                    <Switch>
+                      <Route path="/" exact component={MarketplaceV2} />
+                      <Route path="/profile" exact component={UserPage} />
+                      <Route path="/marketplace" exact component={NFTMarket} />
+                    </Switch>
                   </MarketplaceV2DataProvider>
                 </MarketplaceV2Provider>
               </AuthContextProvider>
-           </ThemeContextProvider>
+            </ThemeContextProvider>
           </HelmetProvider>
         </HashRouter>
       </Provider>
