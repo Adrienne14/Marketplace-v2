@@ -2,7 +2,6 @@
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { PlayFabCloudScript, PlayFabClient } from 'playfab-sdk'
 import { PlayfabState, PlayfabLoginResult } from '../types'
-import thunkMiddleware from 'redux-thunk';
 
 interface UserCreds {
   login: string
