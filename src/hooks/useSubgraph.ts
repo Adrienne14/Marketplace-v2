@@ -3,7 +3,7 @@ import axios from "axios";
 
 const useSubgraphQuery = (query) => {
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState<Boolean>(true);
+  const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
