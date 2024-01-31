@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback } from 'react'
+import React, { useMemo, useCallback, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import useMarketplaceV2, { useQueryAsset, QueryType } from '../../../../hooks/useMarketplaceV2'
 import useTheme from '../../../../hooks/useTheme'
@@ -11,7 +11,7 @@ import SpriteDisplay from './Display'
 
 export default function Card(props: Props) {
   const { theme } = useTheme()
-  const { name, spriteName, rarity, price, badge } = props
+  const { name, spriteName, rarity, price, badge, id } = props
   const { controllers } = useMarketplaceV2()
   const { modal } = controllers
   const history = useHistory()
@@ -27,6 +27,10 @@ export default function Card(props: Props) {
     modal.handleOpen(`buy-${name}`)
   }
 
+  useEffect(() => {
+    console.log(props)
+  }, [])
+
   return (
     <>
       <CardContainer className="secondary-drop-shadow" onClick={handleNav}>
@@ -40,7 +44,7 @@ export default function Card(props: Props) {
             </P>
             <P fsize="0.8em">${price.fiat}</P>
           </TextBox>
-          <Button onClick={handleBuy} className='with-animation-tilt-n-move-shaking' >BUY</Button>
+          <Button onClick={handleBuy}>BUY</Button>
         </Details>
       </CardContainer>
       {modal.openModal[`buy-${name}`] && <PurchaseNFT {...props} />}

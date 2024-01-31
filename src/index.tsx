@@ -5,6 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import { ThirdwebProvider } from "@thirdweb-dev/react";
 import "./styles/globals.css";
 import { BrowserRouter as Router } from 'react-router-dom'
+import "./index.css"
 
 // This is the chain your dApp will work on.
 // Change this to the chain your app is built for.

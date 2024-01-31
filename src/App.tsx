@@ -12,10 +12,15 @@ import { MarketplaceV2DataProvider } from 'contexts/MarketplaceDataContext'
 import { ThemeContextProvider } from 'contexts/ThemeContext'
 import ModalProvider from './views/MarketplaceV2/Providers/ModalProvider'
 import store from './state'
+import { ThirdwebProvider, metamaskWallet } from "@thirdweb-dev/react"
 
 export default function Home() {
   return (
-    <>
+    <ThirdwebProvider
+      activeChain="mumbai"
+      clientId={process.env.REACT_APP_THIRDWEB_CLIENT_ID}
+      supportedWallets={[metamaskWallet()]}
+    >
       <Provider store={store}>
         <HashRouter>
           <HelmetProvider>
@@ -35,6 +40,6 @@ export default function Home() {
           </HelmetProvider>
         </HashRouter>
       </Provider>
-    </>
+    </ThirdwebProvider>
   );
 }

@@ -21,6 +21,8 @@ export type Price = {
 }
 
 export type CardType = {
+  id: string
+  listingId?: string
   name: string
   spriteName: string
   rarity: string
