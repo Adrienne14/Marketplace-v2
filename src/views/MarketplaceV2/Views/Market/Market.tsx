@@ -52,7 +52,9 @@ const Market = () => {
                   isSelling ? (
                     <Web3Button
                       contractAddress={contractAddress}
-                      action={() => {
+                      action={async (contract) => {
+                        // approve listing
+                        await contract.erc721.setApprovalForAll("0x3A53815FfAf6c14069c00A00D7eE94C370280e87", true)
                         // listing id
                         mutateAsyncSecond({
                           args: [listingId]
@@ -67,7 +69,7 @@ const Market = () => {
                       contractAddress={contractAddress}
                       action={async (contract) => {
                         // approve listing
-                        // await contract.erc721.setApprovalForAll("0x3A53815FfAf6c14069c00A00D7eE94C370280e87", true)
+                        await contract.erc721.setApprovalForAll("0x3A53815FfAf6c14069c00A00D7eE94C370280e87", true)
                         // contract, token id, price in wei
                         mutateAsync({
                           args: [contractAddress, nft.metadata.id, weiValue.toString()]
