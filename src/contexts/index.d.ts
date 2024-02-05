@@ -16,6 +16,7 @@ export enum CLASSES {
 }
 
 export type Price = {
+  raw: string
   token: string
   fiat: string
 }

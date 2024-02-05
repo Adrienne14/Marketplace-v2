@@ -89,7 +89,7 @@ export const MarketplaceV2DataProvider = ({ children }) => {
           id: getHashId(listings[i].name),
           listingId: listings[i].id,
           name: getName(listings[i]),
-          spriteName: `${getSpriteName(listings[i])}-${getClassName(listings[i])}`,
+          spriteName: listings[i].image,
           rarity: getRarity(listings[i].attributes),
           badge: getClassName(listings[i]),
           price: {
